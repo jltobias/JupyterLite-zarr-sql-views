@@ -15,9 +15,23 @@ html:
   favicon: assets/favicon.svg
 sphinx:
   config:
+    # Execution is provided by JupyterLite. Omit the unused Thebe extension,
+    # whose duplicate inline declarations cause browser errors in this Book stack.
+    extensions:
+      - sphinx_togglebutton
+      - sphinx_copybutton
+      - myst_nb
+      - jupyter_book
+      - sphinx_comments
+      - sphinx_external_toc
+      - sphinx.ext.intersphinx
+      - sphinx_design
+      - sphinx_book_theme
     html_show_copyright: true
     suppress_warnings: ['mystnb.unknown_mime_type']
     html_extra_path: []
+launch_buttons:
+  thebe: false
 parse:
   myst_enable_extensions:
     - colon_fence

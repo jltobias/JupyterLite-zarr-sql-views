@@ -31,7 +31,11 @@ test('Zarr decodes, DuckDB filters, four views render, export preserves origin',
   expect(errors).toEqual([]);
 });
 test('book and notebook runtime are assembled',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/book/intro.html');await expect(page.getByRole('heading',{name:'Earth in the Browser',exact:true})).toBeVisible();
+  await page.goto('/book/notebooks/05_c3s_atlas.html');
+  await expect(page.getByRole('heading',{name:/05 · C3S Atlas/})).toBeVisible();
+  expect(errors).toEqual([]);
   await page.goto('/lite/lab/index.html?path=01_start_here.ipynb');
   await expect(page.getByRole('menuitem',{name:'File',exact:true})).toBeVisible({timeout:60000});
 });
