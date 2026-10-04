@@ -8,13 +8,15 @@ const $=id=>document.getElementById(id);
 const base=new URL('../data/',document.baseURI);
 let meta,rows=[],deck,engine,catalog,boundaries,point=null,timer=null,busy=false;
 const params=new URLSearchParams(location.search);
+const timeSpacing=()=>Math.max(meta.shape[1],meta.shape[2])*.7/Math.max(1,meta.shape[0]-1);
 function status(message,error=false){$('status').textContent=message;$('status').classList.toggle('error',error);}
 function lock(value){busy=value;for(const id of ['dataset','query','export','play'])$(id).disabled=value;}
 function stop(){clearInterval(timer);timer=null;$('play').textContent='▶ Play time';}
 function viewState(){
   const mode=$('mode').value, [nt,ny,nx]=meta.shape;
-  if(['cube','scene'].includes(mode)) return {target:[nx/2,ny/2,mode==='cube'?nt*1.3:3],rotationX:35,rotationOrbit:-25,
-    zoom:Math.log2(Math.min($('map').clientWidth,$('map').clientHeight)*.65/Math.hypot(nx,ny,nt*2.6)),minZoom:-2,maxZoom:8};
+  const height=mode==='cube'?(nt-1)*timeSpacing():12;
+  if(['cube','scene'].includes(mode)) return {target:[nx/2,ny/2,height/2],rotationX:30,rotationOrbit:-25,
+    zoom:Math.log2(Math.min($('map').clientWidth,$('map').clientHeight)*.85/Math.hypot(nx,ny,height)),minZoom:-2,maxZoom:8};
   const span=Math.max(Math.abs(meta.lon.at(-1)-meta.lon[0]),Math.abs(meta.lat.at(-1)-meta.lat[0]));
   return {longitude:(meta.lon[0]+meta.lon.at(-1))/2,latitude:(meta.lat[0]+meta.lat.at(-1))/2,zoom:Math.log2(260/span),pitch:mode==='columns'?48:0,bearing:mode==='columns'?-20:0};
 }
@@ -33,10 +35,10 @@ function render(reset=false){
       getFillColor:colors,extruded:mode==='columns',getElevation:r=>(r.value-lo)/(hi-lo||1)*Math.abs(meta.lon.at(-1)-meta.lon[0])*6500,
       opacity:0.88,pickable:true,updateTriggers:{getFillColor:[meta.id],getElevation:[meta.id]}}));
   }else{
-    const coords=r=>[r.col,meta.shape[1]-1-r.row,mode==='cube'?r.t*2.6:(r.value-lo)/(hi-lo||1)*12];
+    const coords=r=>[r.col,meta.shape[1]-1-r.row,mode==='cube'?r.t*timeSpacing():(r.value-lo)/(hi-lo||1)*12];
     layers.push(new PointCloudLayer({id:'cube-'+mode,data:visible,coordinateSystem:COORDINATE_SYSTEM.CARTESIAN,getPosition:coords,getColor:colors,
-      pointSize:mode==='cube'?4:7,sizeUnits:'pixels',pickable:true,opacity:0.88,updateTriggers:{getPosition:[mode,meta.id],getColor:[meta.id,t]}}));
-    const nx=meta.shape[2],ny=meta.shape[1],height=mode==='cube'?Math.max(3,meta.shape[0]*2.6):12;
+      pointSize:mode==='cube'?3:7,sizeUnits:'pixels',pickable:true,opacity:0.88,updateTriggers:{getPosition:[mode,meta.id],getColor:[meta.id,t]}}));
+    const nx=meta.shape[2],ny=meta.shape[1],height=mode==='cube'?Math.max(3,(meta.shape[0]-1)*timeSpacing()):12;
     layers.push(new LineLayer({id:'axes',coordinateSystem:COORDINATE_SYSTEM.CARTESIAN,data:[{s:[0,0,0],e:[nx,0,0]},{s:[0,0,0],e:[0,ny,0]},{s:[0,0,0],e:[0,0,height]}],getSourcePosition:r=>r.s,getTargetPosition:r=>r.e,getColor:[175,205,207],getWidth:1.5}));
     layers.push(new TextLayer({id:'axis-labels',coordinateSystem:COORDINATE_SYSTEM.CARTESIAN,data:[{p:[nx+2,0,0],s:'longitude →'},{p:[0,ny+2,0],s:'latitude →'},{p:[0,0,height+2],s:mode==='cube'?'time index ↑':'value ↑ (scaled)'}],getPosition:r=>r.p,getText:r=>r.s,getColor:[230,242,239],getSize:12,billboard:true}));
   }
@@ -80,7 +82,8 @@ async function load(){
     $('view-title').textContent=meta.title;$('units').textContent=meta.units;
     $('legend-min').textContent=meta.range[0].toFixed(2);$('legend-max').textContent=meta.range[1].toFixed(2);$('gradient').style.background=gradient(meta.palette);
     $('provenance').textContent=`${meta.source}. License: ${meta.license}. ${meta.description}`;
-    $('predicate').value='value >= 0';rows=await engine.filter('value >= 0');render(true);status('Ready · Zarr decoded / SQL connected');
+    $('predicate').value=meta.id==='ngami'&&$('mode').value==='cube'?'value > 0.05':'value >= 0';
+    rows=await engine.filter($('predicate').value);render(true);status('Ready · Zarr decoded / SQL connected');
     const url=new URL(location.href);url.searchParams.set('dataset',meta.id);history.replaceState(null,'',url);
     loaded=true;
   }catch(e){rows=[];render(true);status('Unable to load: '+e.message+'. Select another dataset or reload to retry.',true);}
