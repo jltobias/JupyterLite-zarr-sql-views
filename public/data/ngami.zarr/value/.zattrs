@@ -1,0 +1,8 @@
+{
+  "_ARRAY_DIMENSIONS": [
+    "time",
+    "latitude",
+    "longitude"
+  ],
+  "units": "water detection frequency (0\u20131)"
+}

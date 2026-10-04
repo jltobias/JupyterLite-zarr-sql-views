@@ -1,0 +1,54 @@
+name: Build, test, and publish teaching atlas
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: npm ci
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/validate_data.py
+      - run: npm test
+      - run: python scripts/execute_notebooks.py
+      - run: npm run build
+      - run: python scripts/build_site.py
+      - run: python scripts/check_links.py
+      - run: npx playwright install --with-deps chromium
+      - name: Browser checks
+        run: |
+          python -m http.server 8000 --bind 127.0.0.1 --directory _site > /tmp/earth-browser-server.log 2>&1 &
+          npm run test:browser
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

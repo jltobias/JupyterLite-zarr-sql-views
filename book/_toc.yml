@@ -1,0 +1,26 @@
+format: jb-book
+root: intro
+parts:
+  - caption: Before you begin
+    chapters:
+      - file: teaching
+      - file: data
+      - file: architecture
+  - caption: Learn by doing
+    chapters:
+      - file: notebooks/01_start_here
+      - file: notebooks/02_zarr_sql
+      - file: notebooks/03_deafrica_water
+      - file: notebooks/04_maps_and_cubes
+      - file: notebooks/05_c3s_atlas
+      - file: notebooks/06_heat_stress
+      - file: notebooks/07_coastal_scenes
+      - file: notebooks/08_air_quality
+      - file: notebooks/09_water_quality
+      - file: notebooks/10_food_water
+      - file: notebooks/11_stac_geolibre
+      - file: notebooks/12_capstone
+  - caption: Reuse responsibly
+    chapters:
+      - file: accessibility
+      - file: credits

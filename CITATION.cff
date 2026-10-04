@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: 'Please cite this teaching atlas, its upstream inspiration, and the specific datasets used.'
+title: 'Earth in the Browser: JupyterLite Zarr SQL Teaching Atlas'
+type: software
+authors:
+  - name: 'JupyterLite-zarr-sql-views contributors'
+repository-code: 'https://github.com/jltobias/JupyterLite-zarr-sql-views'
+url: 'https://jltobias.github.io/JupyterLite-zarr-sql-views/'
+version: 0.1.0
+date-released: '2026-10-04'
+license: ISC
+references:
+  - type: software
+    title: Zarr SQL Views
+    authors:
+      - name: 'dzole0311 and zarr-sql-views contributors'
+    repository-code: 'https://github.com/dzole0311/zarr-sql-views'
+    commit: 9c1bb2cb0320ae2f194f3f0fd1c36841f4b52dff
+    license: ISC
+  - type: data
+    title: 'Digital Earth Africa Water Observations from Space annual summary'
+    authors:
+      - name: Digital Earth Africa
+    url: 'https://docs.digitalearthafrica.org/en/latest/data_specs/Landsat_WOfS_specs.html'
+    license: CC-BY-4.0
+  - type: software
+    title: C3S Atlas user tools
+    authors:
+      - name: European Union
+    repository-code: 'https://github.com/ecmwf-projects/c3s-atlas'
+    commit: 8d80d4e98053d96077ba67f29464b4f373ff4037
+    license: Apache-2.0
+  - type: data
+    title: Gridded dataset underpinning the Copernicus Interactive Climate Atlas
+    authors:
+      - name: Copernicus Climate Change Service
+    doi: 10.24381/cds.h35hb680

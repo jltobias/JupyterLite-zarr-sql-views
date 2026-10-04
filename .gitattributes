@@ -1,0 +1,14 @@
+* text=auto eol=lf
+*.zip binary
+*.npz binary
+*.png binary
+*.webm binary
+# Raw Zarr chunks have no extension; do not apply line-ending conversion.
+public/data/*.zarr/value/* -text
+public/data/*.zarr/latitude/0 -text
+public/data/*.zarr/longitude/0 -text
+public/data/*.zarr/time/0 -text
+public/data/*.zarr/value/.zarray text eol=lf
+public/data/*.zarr/value/.zattrs text eol=lf
+# Preserve third-party legal texts verbatim, including their original whitespace.
+licenses/* -whitespace

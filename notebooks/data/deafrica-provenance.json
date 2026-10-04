@@ -1,0 +1,39 @@
+{
+  "provider": "Digital Earth Africa",
+  "product": "wofs_ls_summary_annual",
+  "license": "CC-BY-4.0",
+  "retrieved": "2026-10-04",
+  "bounds": [
+    22.6,
+    -20.6,
+    22.88,
+    -20.35
+  ],
+  "source_crs": "EPSG:6933",
+  "output_crs": "EPSG:4326",
+  "method": "Nearest-neighbour point sampling on a 48 by 48 geographic grid; count_clear < 5 masked; not an area average.",
+  "records": [
+    {
+      "year": 2018,
+      "item_id": "2b69dbd8-6ff2-5062-b82c-60ae1e77277c",
+      "search": "https://explorer.digitalearth.africa/stac/search?collections=wofs_ls_summary_annual&bbox=22.70,-20.50,22.71,-20.49&datetime=2018-01-01/2018-12-31&limit=1",
+      "frequency_url": "https://deafrica-services.s3.af-south-1.amazonaws.com/wofs_ls_summary_annual/1-0-0/x203/y050/2018--P1Y/wofs_ls_summary_annual_x203y050_2018--P1Y_frequency.tif",
+      "count_clear_url": "https://deafrica-services.s3.af-south-1.amazonaws.com/wofs_ls_summary_annual/1-0-0/x203/y050/2018--P1Y/wofs_ls_summary_annual_x203y050_2018--P1Y_count_clear.tif"
+    },
+    {
+      "year": 2020,
+      "item_id": "acd1574e-bb31-5cd2-aa19-5e6ee77c231d",
+      "search": "https://explorer.digitalearth.africa/stac/search?collections=wofs_ls_summary_annual&bbox=22.70,-20.50,22.71,-20.49&datetime=2020-01-01/2020-12-31&limit=1",
+      "frequency_url": "https://deafrica-services.s3.af-south-1.amazonaws.com/wofs_ls_summary_annual/1-0-0/x203/y050/2020--P1Y/wofs_ls_summary_annual_x203y050_2020--P1Y_frequency.tif",
+      "count_clear_url": "https://deafrica-services.s3.af-south-1.amazonaws.com/wofs_ls_summary_annual/1-0-0/x203/y050/2020--P1Y/wofs_ls_summary_annual_x203y050_2020--P1Y_count_clear.tif"
+    },
+    {
+      "year": 2022,
+      "item_id": "199183db-4086-526b-b113-7fbfecf19bf7",
+      "search": "https://explorer.digitalearth.africa/stac/search?collections=wofs_ls_summary_annual&bbox=22.70,-20.50,22.71,-20.49&datetime=2022-01-01/2022-12-31&limit=1",
+      "frequency_url": "https://deafrica-services.s3.af-south-1.amazonaws.com/wofs_ls_summary_annual/1-0-0/x203/y050/2022--P1Y/wofs_ls_summary_annual_x203y050_2022--P1Y_frequency.tif",
+      "count_clear_url": "https://deafrica-services.s3.af-south-1.amazonaws.com/wofs_ls_summary_annual/1-0-0/x203/y050/2022--P1Y/wofs_ls_summary_annual_x203y050_2022--P1Y_count_clear.tif"
+    }
+  ],
+  "source_docs": "https://docs.digitalearthafrica.org/en/latest/data_specs/Landsat_WOfS_specs.html"
+}

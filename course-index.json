@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "01_start_here",
+    "title": "01 \u00b7 A browser is a scientific workspace",
+    "minutes": 25
+  },
+  {
+    "slug": "02_zarr_sql",
+    "title": "02 \u00b7 From Zarr chunks to SQL rows",
+    "minutes": 35
+  },
+  {
+    "slug": "03_deafrica_water",
+    "title": "03 \u00b7 Lake Ngami: water observations and missing evidence",
+    "minutes": 40
+  },
+  {
+    "slug": "04_maps_and_cubes",
+    "title": "04 \u00b7 2D maps, 3D maps, and a space\u2013time cube",
+    "minutes": 35
+  },
+  {
+    "slug": "05_c3s_atlas",
+    "title": "05 \u00b7 C3S Atlas: scenarios, warming levels, and model spread",
+    "minutes": 45
+  },
+  {
+    "slug": "06_heat_stress",
+    "title": "06 \u00b7 Global heat questions, African heat laboratory",
+    "minutes": 40
+  },
+  {
+    "slug": "07_coastal_scenes",
+    "title": "07 \u00b7 Sea-level rise and the meaning of a 3D scene",
+    "minutes": 40
+  },
+  {
+    "slug": "08_air_quality",
+    "title": "08 \u00b7 Air quality: a map is not an exposure estimate",
+    "minutes": 35
+  },
+  {
+    "slug": "09_water_quality",
+    "title": "09 \u00b7 Water quality: from optical signal to a testable hypothesis",
+    "minutes": 35
+  },
+  {
+    "slug": "10_food_water",
+    "title": "10 \u00b7 Food and water insecurity: separate the signal from the claim",
+    "minutes": 40
+  },
+  {
+    "slug": "11_stac_geolibre",
+    "title": "11 \u00b7 STAC discovery and GeoLibre handoff",
+    "minutes": 40
+  },
+  {
+    "slug": "12_capstone",
+    "title": "12 \u00b7 Capstone: an evidence-led climate story",
+    "minutes": 60
+  }
+]

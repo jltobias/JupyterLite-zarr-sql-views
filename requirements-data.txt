@@ -1,0 +1,4 @@
+# Only needed to refresh the checked-in DE Africa teaching extract.
+-r requirements.txt
+rasterio==1.5.2
+pyproj==3.8.0

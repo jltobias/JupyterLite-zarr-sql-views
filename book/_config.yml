@@ -1,0 +1,25 @@
+title: Earth in the Browser
+author: JupyterLite-zarr-sql-views contributors
+copyright: '2026'
+logo: assets/favicon.svg
+only_build_toc_files: true
+execute:
+  execute_notebooks: 'off'
+repository:
+  url: https://github.com/jltobias/JupyterLite-zarr-sql-views
+  branch: main
+html:
+  use_repository_button: true
+  use_issues_button: true
+  extra_navbar: '<a href="../index.html">Earth lab home ↗</a>'
+  favicon: assets/favicon.svg
+sphinx:
+  config:
+    html_show_copyright: true
+    suppress_warnings: ['mystnb.unknown_mime_type']
+    html_extra_path: []
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - dollarmath
+    - html_image
