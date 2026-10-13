@@ -2,7 +2,7 @@
 
 ![Earth in the Browser — a changing Earth, a new perspective](public/assets/splash.svg)
 
-**A JupyterLite + Jupyter Book teaching atlas for Zarr, SQL, and Earth observation in the browser.** Twelve executable Python lessons connect small data cubes to 2D maps, 3D extruded maps, orbitable space–time cubes, coastal scenes, and linked time series.
+**A JupyterLite + Jupyter Book teaching atlas for Zarr, SQL, and Earth observation in the browser.** Sixteen executable Python lessons connect small data cubes to 2D maps, 3D extruded maps, orbitable space–time cubes, coastal scenes, and linked time series. The new **AR6 port-city studio** studies Abidjan, Lagos, Bangkok, Ho Chi Minh City, and Manila.
 
 Inspired by and adapted from **[dzole0311/zarr-sql-views](https://github.com/dzole0311/zarr-sql-views)**. This independent teaching adaptation preserves upstream attribution and its ISC license.
 
@@ -19,6 +19,24 @@ Inspired by and adapted from **[dzole0311/zarr-sql-views](https://github.com/dzo
 These URLs are served by the repository’s GitHub Pages deployment. The Actions badge above reports the build/deployment state. No data-service account or notebook server is required for the bundled lessons. Initial runtime downloads require internet access; some optional external services have separate accounts and terms.
 
 ## Explore the lab demos
+
+### New: AR6 port-city studio
+
+![From sea-level archive chunks to a defensible port-city question](public/assets/ar6-workflow.svg)
+
+**[Open the studio guide](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/sea-level.html).** Real IPCC AR6 v20210809 projections from the [Rutgers-ESSP source archive](https://github.com/Rutgers-ESSP/IPCC-AR6-Sea-Level-Projections), with all **20,000 samples** retained at selected locations. Gauge lessons compare SSP1-2.6 and SSP5-8.5; five one-degree grid windows show SSP5-8.5 medians through 2100. All use workflow `wf_1e` and a 1995–2014 baseline. Statistical files total about **4.5 MB**; students never download the full archives.
+
+| City | 2D map | 3D map | Time cube |
+|---|---|---|---|
+| Abidjan | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_abidjan&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_abidjan&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_abidjan&mode=cube) |
+| Lagos | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_lagos&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_lagos&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_lagos&mode=cube) |
+| Bangkok | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_bangkok&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_bangkok&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_bangkok&mode=cube) |
+| Ho Chi Minh City | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_ho_chi_minh&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_ho_chi_minh&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_ho_chi_minh&mode=cube) |
+| Manila | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_manila&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_manila&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ar6_manila&mode=cube) |
+
+The nearest available gauge projection for both **Abidjan and Lagos is Takoradi**, about **256 km and 595 km** away respectively. The lessons make that proxy limitation explicit and compare nearby gridded locations. These are modeled regional sea-level changes, not port flood extents or observations. `wf_1e` cannot support rates or first-crossing dates; a single workflow's quantiles are not the assessed IPCC p-box. [Exact provenance and source checksums](public/data/ar6-provenance.json) · [Required citations and credits](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/credits.html#ipcc-ar6-sea-level-projections).
+
+### Earth observation and method laboratories
 
 | Experiment | Open a view | Data origin |
 |---|---|---|
@@ -51,6 +69,10 @@ Each notebook includes learning objectives, short Python cells, explanatory Mark
 | 10 · Food and water insecurity | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=10_food_water.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/10_food_water.html) |
 | 11 · STAC discovery and GeoLibre handoff | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=11_stac_geolibre.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/11_stac_geolibre.html) |
 | 12 · Capstone: an evidence-led climate story | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=12_capstone.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/12_capstone.html) |
+| 13 · Open the AR6 archive without downloading the world | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=13_ar6_archive.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/13_ar6_archive.html) |
+| 14 · Five port cities, four tide-gauge proxies | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=14_ar6_port_cities.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/14_ar6_port_cities.html) |
+| 15 · Regional grids, 3D maps, and sea-level time cubes | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=15_ar6_grid_maps.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/15_ar6_grid_maps.html) |
+| 16 · Threshold questions without false flood probabilities | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=16_ar6_uncertainty.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/16_ar6_uncertainty.html) |
 
 Save your work by downloading notebooks and exports. JupyterLite browser storage is local to your device and browser profile.
 
@@ -75,6 +97,7 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 npm ci
 python scripts/validate_data.py
+python scripts/validate_ar6.py
 python scripts/execute_notebooks.py
 npm test
 npm run build
@@ -93,11 +116,13 @@ npm run test:browser
 
 To regenerate authored notebooks, run `python scripts/make_notebooks.py`, then execute them again. To refresh real raster sources, install `requirements-data.txt` and run `python scripts/prepare_data.py --refresh-deafrica`; raw COGs are cached in ignored `.work/`. Without that flag, the checked-in extract reproduces the six teaching stores. The core build does not request fresh environmental data.
 
+AR6 preparation is separate: install `requirements-data.txt`, then run `python scripts/prepare_ar6.py --download` once. It retrieves about 1.34 GB of explicitly selected public source objects, enforces a 2 GiB transfer budget per run, and caches verified objects in `.work/ar6-cache/`. Run without `--download` to rebuild from that cache. It preserves all selected samples, writes quantile summaries and five small Zarr stores, and records exact provenance. The regular build uses checked-in derivatives and requires neither Numcodecs nor archive access. Do not run bulk bucket-copy commands for these lessons.
+
 ## Architecture and limits
 
 - **Lab:** Zarrita reads real Zarr chunks; Arrow transfers decoded cells; DuckDB-WASM applies numeric SQL predicates; deck.gl renders linked views. SQL operates on the loaded window, not automatic remote predicate pushdown.
 - **Notebooks:** NumPy, Matplotlib, and SQLite run in Pyodide. A documented narrow reader handles the course’s uncompressed Zarr v2 stores in ZIP containers. The notebooks do not require native DuckDB, rasterio, GDAL, or Open Data Cube in the browser.
-- **Scope:** six bounded cubes, maximum 100,000 cells per lab dataset, explicit missing-value handling, fixed dataset colour scales, and transparent origins. Generic remote Zarr/COG adapters and the full upstream forecast application are outside this teaching implementation.
+- **Scope:** eleven bounded cubes (one observed, five synthetic, five projected), maximum 100,000 cells per lab dataset, explicit missing-value handling, fixed dataset colour scales, and transparent origins. Generic remote Zarr/COG adapters and the full upstream forecast application are outside this teaching implementation.
 - **Network:** first launch downloads the browser runtimes. Optional live metadata, external video, fonts, and GIS applications require network access. No API secrets or tokens are committed.
 
 ## Credits, citations, and licenses
@@ -110,4 +135,12 @@ To regenerate authored notebooks, run `python scripts/make_notebooks.py`, then e
 
 **Natural Earth:** generalized boundaries, [public domain](https://www.naturalearthdata.com/about/terms-of-use/). **Synthetic data:** original analytic examples, [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). **Original code, prose, and SVG artwork:** [ISC](LICENSE). **Embedded video:** Copernicus ECMWF, creator-hosted, all rights retained.
 
+**IPCC AR6 sea-level projections:** modified subsets under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), source guide pinned to [`8ee7512`](https://github.com/Rutgers-ESSP/IPCC-AR6-Sea-Level-Projections/tree/8ee75128d8f6d9a8ba9825f47c92d11955d0651e). Required citations: **Fox-Kemper et al. (2021), WG1 Chapter 9**, [DOI 10.1017/9781009157896.011](https://doi.org/10.1017/9781009157896.011); **Kopp et al. (2023), FACTS v1.0**, [DOI 10.5194/gmd-16-7461-2023](https://doi.org/10.5194/gmd-16-7461-2023); **Garner et al. (2021), IPCC AR6 Sea Level Projections, version 20210809**, accessed 2026-10-13, [DOI 10.5281/zenodo.5914709](https://doi.org/10.5281/zenodo.5914709). [Full required citations and original license text](licenses/ipcc-ar6-sea-level-CC-BY-4.0.md).
+
+We thank the projection authors for developing and making the sea-level rise projections available, multiple funding agencies for supporting the development of the projections, and the NASA Sea Level Change Team for developing and hosting the IPCC AR6 Sea Level Projection Tool.
+
 Thanks to JupyterLite, Jupyter Book, Pyodide, NumPy, Matplotlib, DuckDB-WASM, Apache Arrow, Zarrita, deck.gl, GeoLibre, STAC, and their contributors. [Complete third-party notices](THIRD_PARTY_NOTICES.md) · [Bundled JavaScript license texts](licenses/npm-notices.txt) · [Citation metadata](CITATION.cff). Cite this course **and** its upstream software and actual data sources. No institutional endorsement is implied.
+
+## Repository review
+
+[Review findings and resolutions, 13 October 2026](docs/review-2026-10-13.md) ? [Machine-readable findings](docs/review-2026-10-13.json). The AR6 update also fixes failed-load metadata mixing, negative synthetic rainfall, omitted negative terrain, preparation provenance, and verification gaps.

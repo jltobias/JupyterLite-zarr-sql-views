@@ -25,6 +25,9 @@ export function timeSummary(rows, times) {
 }
 export function geojson(rows,meta) {
   return {type:'FeatureCollection',name:meta.title,license:meta.license,source:meta.source,
-    description:meta.description,features:rows.map(({lon,lat,...r})=>({type:'Feature',
+    description:meta.description,provenance_url:meta.id==='ngami'?'https://jltobias.github.io/JupyterLite-zarr-sql-views/data/deafrica-provenance.json':meta.provenance?'https://jltobias.github.io/JupyterLite-zarr-sql-views/data/'+meta.provenance:null,
+    license_url:meta.license==='CC-BY-4.0'?'https://creativecommons.org/licenses/by/4.0/':null,
+    workflow:meta.workflow,scenario:meta.scenario,baseline:meta.baseline,statistic:meta.statistic,sample_count:meta.sample_count,
+    features:rows.map(({lon,lat,...r})=>({type:'Feature',
       geometry:{type:'Point',coordinates:[lon,lat]},properties:{...r,time:meta.times[r.t],units:meta.units,kind:meta.kind}}))};
 }

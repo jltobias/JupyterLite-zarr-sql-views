@@ -11,6 +11,8 @@ import io
 import json
 import urllib.request
 import zipfile
+import shutil
+from datetime import datetime, timezone
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -74,6 +76,7 @@ def deafrica(refresh):
             bands={}
             for band in ['frequency','count_clear']:
                 local=ROOT/'.work'/f'ngami-{year}-{band}.tif'
+                local.parent.mkdir(parents=True,exist_ok=True)
                 if refresh or not local.exists():
                     print('Downloading',url(band),flush=True)
                     urllib.request.urlretrieve(url(band),local)
@@ -91,10 +94,12 @@ def deafrica(refresh):
         np.savez_compressed(cache,value=np.stack(stack),lon=np.linspace(bounds[0]+(bounds[2]-bounds[0])/96,bounds[2]-(bounds[2]-bounds[0])/96,48),
                             lat=np.linspace(bounds[3]-(bounds[3]-bounds[1])/96,bounds[1]+(bounds[3]-bounds[1])/96,48))
         write_json(provenance,dict(provider='Digital Earth Africa',product='wofs_ls_summary_annual',license='CC-BY-4.0',
-            retrieved='2026-10-04',bounds=bounds,source_crs='EPSG:6933',output_crs='EPSG:4326',
+            retrieved=datetime.now(timezone.utc).date().isoformat(),bounds=bounds,source_crs='EPSG:6933',output_crs='EPSG:4326',
             method='Nearest-neighbour point sampling on a 48 by 48 geographic grid; count_clear < 5 masked; not an area average.',
             records=records,source_docs='https://docs.digitalearthafrica.org/en/latest/data_specs/Landsat_WOfS_specs.html'))
     d=np.load(cache)
+    (ROOT/'notebooks/data').mkdir(parents=True,exist_ok=True)
+    shutil.copy2(provenance, ROOT/'notebooks/data/deafrica-provenance.json')
     cube('ngami','Lake Ngami · observed surface water',d['value'],d['lon'],d['lat'],['2018','2020','2022'],
          'water detection frequency (0–1)','observed',
          'Digital Earth Africa WOfS annual summary, sampled and reprojected. Clear-observation count ≥ 5. Water presence is not water quality or water availability.',
@@ -106,7 +111,7 @@ def synthetic():
     # Analytic equations deliberately avoid being mistaken for measured climate.
     heat=26+9*np.exp(-((y[None]-19)/15)**2)+5*np.sin(2*np.pi*(months-2)/12)*np.sin(np.deg2rad(y))[None]+1.4*np.cos(x[None]/9)
     air=12+34*np.exp(-((y[None]-18)/10)**2)*(1+.45*np.cos(2*np.pi*months/12))+5*np.cos(x[None]/11)**2
-    rain=70+60*np.cos(2*np.pi*(months/12-y[None]/90))+25*np.cos(x[None]/14)
+    rain=90+60*np.cos(2*np.pi*(months/12-y[None]/90))+25*np.cos(x[None]/14)
     times=[f'2000-{m:02d}' for m in range(1,13)]
     for key,title,v,unit,desc,pal in [
         ('heat','Africa · heat laboratory',heat,'air temperature (°C)','Analytic seasonal temperature field. Not ERA5, UTCI, wet-bulb temperature, or an observed heat event.','thermal'),
@@ -130,6 +135,8 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(); p.add_argument('--refresh-deafrica',action='store_true'); a=p.parse_args()
     DATA.mkdir(parents=True,exist_ok=True)
     deafrica(a.refresh_deafrica); synthetic()
-    write_json(DATA/'catalog.json',MANIFEST)
-    write_json(ROOT/'notebooks/data/catalog.json',MANIFEST)
+    previous=json.loads((DATA/'catalog.json').read_text()) if (DATA/'catalog.json').exists() else []
+    combined=MANIFEST+[m for m in previous if m['id'].startswith('ar6_')]
+    write_json(DATA/'catalog.json',combined)
+    write_json(ROOT/'notebooks/data/catalog.json',combined)
     print('Prepared',len(MANIFEST),'Zarr stores')

@@ -1,10 +1,12 @@
 {
   "name": "earth-in-the-browser",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "license": "ISC",
-  "engines": {"node": ">=22.13"},
+  "engines": {
+    "node": ">=22.13"
+  },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",

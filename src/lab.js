@@ -6,7 +6,7 @@ import {color,gradient} from './upstream-colors.ts';
 
 const $=id=>document.getElementById(id);
 const base=new URL('../data/',document.baseURI);
-let meta,rows=[],deck,engine,catalog,boundaries,point=null,timer=null,busy=false;
+let meta,rows=[],deck,engine,catalog,boundaries,point=null,timer=null,busy=false,ready=false;
 const params=new URLSearchParams(location.search);
 const timeSpacing=()=>Math.max(meta.shape[1],meta.shape[2])*.7/Math.max(1,meta.shape[0]-1);
 function status(message,error=false){$('status').textContent=message;$('status').classList.toggle('error',error);}
@@ -20,13 +20,14 @@ function viewState(){
   const span=Math.max(Math.abs(meta.lon.at(-1)-meta.lon[0]),Math.abs(meta.lat.at(-1)-meta.lat[0]));
   return {longitude:(meta.lon[0]+meta.lon.at(-1))/2,latitude:(meta.lat[0]+meta.lat.at(-1))/2,zoom:Math.log2(260/span),pitch:mode==='columns'?48:0,bearing:mode==='columns'?-20:0};
 }
-function resetView(){deck?.setProps({initialViewState:viewState()});}
+function resetView(){if(meta&&deck&&!busy)deck.setProps({initialViewState:viewState()});}
 function render(reset=false){
   if(!meta||!deck)return;
   const mode=$('mode').value,t=Number($('time').value),isOrbit=['cube','scene'].includes(mode);
   const visible=mode==='cube'?rows:rows.filter(r=>r.t===t);
   const [lo,hi]=meta.range;
-  const colors=r=>{const c=color(r.value,lo,hi,meta.palette);if(mode==='cube'&&r.t!==t)c[3]=95;return c;};
+  const sparse=meta.shape[1]*meta.shape[2]<=100;
+  const colors=r=>{const c=color(r.value,lo,hi,meta.palette);if(mode==='cube'&&r.t!==t)c[3]=sparse?175:95;return c;};
   let layers=[];
   if(!isOrbit){
     layers.push(new GeoJsonLayer({id:'land',data:boundaries,filled:true,stroked:true,getFillColor:[22,44,51],getLineColor:[72,102,109],lineWidthMinPixels:0.6}));
@@ -37,7 +38,7 @@ function render(reset=false){
   }else{
     const coords=r=>[r.col,meta.shape[1]-1-r.row,mode==='cube'?r.t*timeSpacing():(r.value-lo)/(hi-lo||1)*12];
     layers.push(new PointCloudLayer({id:'cube-'+mode,data:visible,coordinateSystem:COORDINATE_SYSTEM.CARTESIAN,getPosition:coords,getColor:colors,
-      pointSize:mode==='cube'?3:7,sizeUnits:'pixels',pickable:true,opacity:0.88,updateTriggers:{getPosition:[mode,meta.id],getColor:[meta.id,t]}}));
+      pointSize:mode==='cube'&&!sparse?3:7,sizeUnits:'pixels',pickable:true,opacity:0.88,updateTriggers:{getPosition:[mode,meta.id],getColor:[meta.id,t]}}));
     const nx=meta.shape[2],ny=meta.shape[1],height=mode==='cube'?Math.max(3,(meta.shape[0]-1)*timeSpacing()):12;
     layers.push(new LineLayer({id:'axes',coordinateSystem:COORDINATE_SYSTEM.CARTESIAN,data:[{s:[0,0,0],e:[nx,0,0]},{s:[0,0,0],e:[0,ny,0]},{s:[0,0,0],e:[0,0,height]}],getSourcePosition:r=>r.s,getTargetPosition:r=>r.e,getColor:[175,205,207],getWidth:1.5}));
     layers.push(new TextLayer({id:'axis-labels',coordinateSystem:COORDINATE_SYSTEM.CARTESIAN,data:[{p:[nx+2,0,0],s:'longitude →'},{p:[0,ny+2,0],s:'latitude →'},{p:[0,0,height+2],s:mode==='cube'?'time index ↑':'value ↑ (scaled)'}],getPosition:r=>r.p,getText:r=>r.s,getColor:[230,242,239],getSize:12,billboard:true}));
@@ -53,7 +54,7 @@ function render(reset=false){
   chart(point?rows.filter(r=>r.row===point.row&&r.col===point.col):rows);
 }
 function chart(data){
-  $('chart-title').textContent=point?`Cell (${point.row}, ${point.col}) through time`:'Selected-cell mean through time';
+  $('chart-title').textContent=point?`Cell (${point.row}, ${point.col}) through time`:meta.kind==='projected'?'Mean of selected location medians through time':'Selected-cell mean through time';
   const summary=timeSummary(data,meta.times),[lo,hi]=meta.range;
   const x=t=>50+t*700/Math.max(1,summary.length-1),y=v=>110-(v-lo)/(hi-lo||1)*85;
   // Labels originate only from our checked-in catalog. User SQL is never rendered as HTML.
@@ -67,25 +68,25 @@ function chart(data){
   $('chart').innerHTML=s;
 }
 async function query(){
-  if(busy)return;lock(true);stop();status('Querying local cells…');
+  if(busy||!ready)return;lock(true);stop();status('Querying local cells…');
   try{const result=await engine.filter($('predicate').value);rows=result;point=null;render();status('Ready · query applied');}
   catch(e){status('Query rejected: '+e.message+' Previous selection retained.',true);}
   finally{lock(false);}
 }
 async function load(){
-  lock(true);stop();status('Reading Zarr chunks…');let loaded=false;
+  ready=false;lock(true);stop();status('Reading Zarr chunks…');let loaded=false;
   try{
-    meta=catalog.find(d=>d.id===$('dataset').value);await engine.load(meta,base);
+    const next=catalog.find(d=>d.id===$('dataset').value);await engine.load(next,base);meta=next;
     $('time').max=meta.times.length-1;$('time').value=0;point=null;
-    $('description').textContent=meta.description;$('kind').textContent=meta.kind==='observed'?'OBSERVATIONS · TEACHING EXTRACT':'SYNTHETIC · METHOD DEMONSTRATION';
-    $('kind').classList.toggle('synthetic',meta.kind==='synthetic');$('origin').textContent=meta.kind==='observed'?'DE Africa':'Synthetic';
+    $('description').textContent=meta.description;$('kind').textContent={observed:'OBSERVATIONS · TEACHING EXTRACT',projected:'PROJECTIONS · IPCC AR6 WORKFLOW',synthetic:'SYNTHETIC · METHOD DEMONSTRATION'}[meta.kind];
+    $('kind').classList.toggle('synthetic',meta.kind==='synthetic');$('origin').textContent={observed:'DE Africa',projected:'IPCC AR6',synthetic:'Synthetic'}[meta.kind];
     $('view-title').textContent=meta.title;$('units').textContent=meta.units;
     $('legend-min').textContent=meta.range[0].toFixed(2);$('legend-max').textContent=meta.range[1].toFixed(2);$('gradient').style.background=gradient(meta.palette);
     $('provenance').textContent=`${meta.source}. License: ${meta.license}. ${meta.description}`;
-    $('predicate').value=meta.id==='ngami'&&$('mode').value==='cube'?'value > 0.05':'value >= 0';
+    $('predicate').value=meta.id==='ngami'&&$('mode').value==='cube'?'value > 0.05':'1=1';
     rows=await engine.filter($('predicate').value);render(true);status('Ready · Zarr decoded / SQL connected');
     const url=new URL(location.href);url.searchParams.set('dataset',meta.id);history.replaceState(null,'',url);
-    loaded=true;
+    loaded=true;ready=true;
   }catch(e){rows=[];render(true);status('Unable to load: '+e.message+'. Select another dataset or reload to retry.',true);}
   finally{lock(false);if(!loaded)for(const id of ['query','export','play'])$(id).disabled=true;}
 }

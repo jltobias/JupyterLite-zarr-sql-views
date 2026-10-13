@@ -10,7 +10,7 @@ Designed for introductory GIS, environmental data science, climate literacy, and
 | Three-session workshop | Session 1: 01–04; session 2: 05 plus selected thematic labs; session 3: 11–12 | Reproducible notebook and GeoJSON handoff |
 | Four-week module | Week 1: 01–04; week 2: 05–07; week 3: 08–11; week 4: capstone | Peer-reviewed climate-data narrative |
 
-The full twelve lessons total roughly eight hours before extensions and discussion. Select thematic labs according to the class; do not rush the data-origin and uncertainty discussions.
+The original twelve lessons total roughly eight hours before extensions and discussion. The [four AR6 port-city lessons](sea-level.md) add about three hours on bounded archive access, geographic proxies, maps and uncertainty. Select thematic labs according to the class; do not rush the data-origin and uncertainty discussions.
 
 ## Teaching routine
 

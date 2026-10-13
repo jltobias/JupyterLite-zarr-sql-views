@@ -37,3 +37,25 @@ JupyterLite and Jupyter Book (BSD-3-Clause), Pyodide (MPL-2.0), NumPy (BSD-3-Cla
 Original SVG splash artwork, workflow infographic, lesson text, and notebook figures were created for this repository. Underlying data retain the licenses above. The Google Fonts services supply DM Sans and Space Grotesk (SIL Open Font License); system fonts provide a fallback. The embedded **Climate Atlas – Tutorial video** is by [Copernicus ECMWF](https://www.youtube.com/watch?v=o62IPhpvsAI), hosted by YouTube with all rights retained by its creator. It is linked/embedded, not downloaded or re-licensed.
 
 Use the repository’s `CITATION.cff` to cite this teaching adaptation, and also cite upstream software and the specific datasets used in any derivative notebook or figure.
+
+## IPCC AR6 sea-level projections
+
+The port-city studio uses modified extracts of AR6 version **20210809**, accessed **2026-10-13**. [Preparation and exact provenance](sea-level.md) document location selection, mm-to-m conversion, per-year quantiles and storage conversion. The source guide is pinned to commit `8ee75128d8f6d9a8ba9825f47c92d11955d0651e`. Full source licensing, required citations and acknowledgement follow, reproduced from the authors' LICENSE.md.
+
+### Source license
+
+The IPCC AR6 Sea-Level Rise Projections are licensed by the authors under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.
+
+### Required acknowledgements and citations
+
+In order to document the impact of these sea-level rise projections, users of the projections are obligated to cite chapter 9 of Working Group 1 contribution to the the IPCC Sixth Assessment Report, the Framework for Assessment of Changes To Sea-level (FACTS) model description paper, and the version of the data set used:
+
+> Fox-Kemper, B., H.T. Hewitt, C. Xiao, G. Aðalgeirsdóttir, S.S. Drijfhout, T.L. Edwards, N.R. Golledge, M. Hemer, R.E. Kopp, G. Krinner, A. Mix, D. Notz, S. Nowicki, I.S. Nurhati, L. Ruiz, J.-B. Sallée, A.B.A. Slangen, and Y. Yu, 2021: Ocean, Cryosphere and Sea Level Change. In Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change \[Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou (eds.)\]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 1211–1362, [doi:10.1017/9781009157896.011](https://doi.org/10.1017/9781009157896.011).
+
+> Kopp, R. E., Garner, G. G., Hermans, T. H. J., Jha, S., Kumar, P., Reedy, A., Slangen, A. B. A., Turilli, M., Edwards, T. L., Gregory, J. M., Koubbe, G., Levermann, A., Merzky, A., Nowicki, S., Palmer, M. D., & Smith, C. (2023). The Framework for Assessing Changes To Sea-Level (FACTS) v1.0: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea-level change. Geoscientific Model Development, 16, 7461–7489. https://doi.org/10.5194/gmd-16-7461-2023
+
+> Garner, G. G., T. Hermans, R. E. Kopp, A. B. A. Slangen, T. L. Edwards, A. Levermann, S. Nowikci, M. D. Palmer, C. Smith, B. Fox-Kemper, H. T. Hewitt, C. Xiao, G. Aðalgeirsdóttir, S. S. Drijfhout, T. L. Edwards, N. R. Golledge, M. Hemer, G. Krinner, A. Mix, D. Notz, S. Nowicki, I. S. Nurhati, L. Ruiz, J-B. Sallée, Y. Yu, L. Hua, T. Palmer, B. Pearson, 2021. IPCC AR6 Sea Level Projections. Version 20210809. Dataset accessed 2026-10-13 at https://doi.org/10.5281/zenodo.5914709.
+
+Please also include in the acknowledgements of works citing these projections:
+
+> We thank the projection authors for developing and making the sea-level rise projections available, multiple funding agencies for supporting the development of the projections, and the NASA Sea Level Change Team for developing and hosting the IPCC AR6 Sea Level Projection Tool.

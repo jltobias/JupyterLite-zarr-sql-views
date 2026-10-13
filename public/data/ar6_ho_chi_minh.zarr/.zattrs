@@ -1,0 +1,52 @@
+{
+  "id": "ar6_ho_chi_minh",
+  "title": "Ho Chi Minh City \u00b7 AR6 sea-level projection",
+  "shape": [
+    9,
+    5,
+    5
+  ],
+  "lon": [
+    105.0,
+    106.0,
+    107.0,
+    108.0,
+    109.0
+  ],
+  "lat": [
+    13.0,
+    12.0,
+    11.0,
+    10.0,
+    9.0
+  ],
+  "times": [
+    "2020",
+    "2030",
+    "2040",
+    "2050",
+    "2060",
+    "2070",
+    "2080",
+    "2090",
+    "2100"
+  ],
+  "units": "relative sea-level change (m; 1995\u20132014 baseline)",
+  "kind": "projected",
+  "description": "AR6 v20210809, wf_1e / SSP5-8.5, median of all 20,000 samples per year. One-degree regional projection locations; no additional land/ocean mask. Background land motion included. Not a flood map or canonical IPCC p-box. Extruded height is a visual scale, not terrain.",
+  "palette": "ocean",
+  "store": "ar6_ho_chi_minh.zarr",
+  "range": [
+    0.03799999877810478,
+    0.7480000257492065
+  ],
+  "source": "Garner et al. (2021), doi:10.5281/zenodo.5914709; FACTS; IPCC AR6 WG1 Ch9",
+  "license": "CC-BY-4.0",
+  "workflow": "wf_1e",
+  "scenario": "ssp585",
+  "statistic": "p50",
+  "baseline": "1995\u20132014",
+  "sample_count": 20000,
+  "data_version": "20210809",
+  "provenance": "ar6-provenance.json"
+}

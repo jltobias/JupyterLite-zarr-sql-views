@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-13",
+  "baseline": "f0864e00ac6873c0f454a3ab14e611e19eebd11b",
+  "scope": "Existing source, data preparation, notebook runtime, scientific labels and tests. AR6 addition separately validated.",
+  "findings": [
+    {
+      "lens": "adversarial",
+      "location": "src/lab.js:78",
+      "trigger_condition": "A dataset fetch fails, then Ctrl+Enter runs a query.",
+      "guard_snippet": "if (busy || !ready) return;",
+      "potential_consequence": "Prior values can acquire the failed dataset metadata.",
+      "issue": "A1",
+      "resolution": "Readiness is cleared before loading; metadata commits after load; keyboard and button queries share the guard."
+    },
+    {
+      "lens": "adversarial",
+      "location": "scripts/prepare_data.py:109",
+      "trigger_condition": "Generate the original illustrative rainfall equation.",
+      "guard_snippet": "rain=90+60*cos(...)+25*cos(...)",
+      "potential_consequence": "977 cell-months contain physically impossible negative rainfall.",
+      "issue": "A2",
+      "resolution": "Raised the analytic offset to 90; regenerated stores and outputs; validation requires nonnegative rainfall."
+    },
+    {
+      "lens": "adversarial",
+      "location": "src/lab.js:85",
+      "trigger_condition": "Open the coastal scene with the former default filter.",
+      "guard_snippet": "default predicate: 1=1",
+      "potential_consequence": "29 valid below-zero terrain cells disappear.",
+      "issue": "A3",
+      "resolution": "General default now includes every finite value; the deliberate Ngami cube threshold remains visible."
+    },
+    {
+      "lens": "adversarial",
+      "location": "scripts/prepare_data.py:76",
+      "trigger_condition": "Refresh DE Africa data in a fresh clone.",
+      "guard_snippet": "local.parent.mkdir(parents=True,exist_ok=True)",
+      "potential_consequence": "The absent cache directory prevents the first download.",
+      "issue": "A4",
+      "resolution": "Create the cache parent before raster retrieval."
+    },
+    {
+      "lens": "adversarial",
+      "location": "scripts/prepare_data.py:93",
+      "trigger_condition": "Refresh data on a date other than the hardcoded date.",
+      "guard_snippet": "datetime.now(timezone.utc).date().isoformat()",
+      "potential_consequence": "New downloads receive false retrieval provenance.",
+      "issue": "A5",
+      "resolution": "Record actual UTC date only when retrieving new data; cached preparation preserves its date."
+    },
+    {
+      "lens": "adversarial",
+      "location": "src/engine.js:18",
+      "trigger_condition": "Source Zarr shape exceeds the bounded catalog shape.",
+      "guard_snippet": "Validate array.shape before zarr.get(array).",
+      "potential_consequence": "Full oversized data are decoded before mismatch rejection.",
+      "issue": "A6",
+      "resolution": "Actual source dimensions must match the catalog and the 100000-cell bound before reads."
+    },
+    {
+      "lens": "adversarial",
+      "location": "src/model.js:26; notebooks/course.py:61",
+      "trigger_condition": "Share an observed GeoJSON outside the course.",
+      "guard_snippet": "provenance_url and license_url",
+      "potential_consequence": "Exact source items and transformations are no longer traceable.",
+      "issue": "A7",
+      "resolution": "Python and JavaScript exports link exact provenance; AR6 exports also retain scenario, workflow and baseline."
+    },
+    {
+      "lens": "edge-case-hunter",
+      "location": "src/lab.js:69",
+      "trigger_condition": "Use Ctrl+Enter after a failed dataset switch.",
+      "guard_snippet": "if (busy || !ready) return;",
+      "potential_consequence": "Old data export under different scientific meaning.",
+      "issue": "A1",
+      "resolution": "Same resolution as A1; independent corroboration retained."
+    },
+    {
+      "lens": "edge-case-hunter",
+      "location": "src/engine.js:18",
+      "trigger_condition": "Catalog understates actual Zarr dimensions.",
+      "guard_snippet": "Reject mismatched dimensions before value reads.",
+      "potential_consequence": "Large allocations bypass the advertised memory bound.",
+      "issue": "A6",
+      "resolution": "Same resolution as A6; independent corroboration retained."
+    },
+    {
+      "lens": "edge-case-hunter",
+      "location": "src/lab.js:23",
+      "trigger_condition": "Click Reset view before initial metadata arrives.",
+      "guard_snippet": "if (meta && deck && !busy)",
+      "potential_consequence": "Reset throws an uncaught TypeError during startup.",
+      "issue": "E3",
+      "resolution": "Reset is guarded until metadata and Deck exist and loading has finished."
+    },
+    {
+      "lens": "edge-case-hunter",
+      "location": "scripts/prepare_data.py:76",
+      "trigger_condition": "Refresh a fresh clone with no cache directory.",
+      "guard_snippet": "mkdir(parents=True,exist_ok=True)",
+      "potential_consequence": "The documented refresh command fails.",
+      "issue": "A4",
+      "resolution": "Same resolution as A4; independent corroboration retained."
+    },
+    {
+      "lens": "edge-case-hunter",
+      "location": "scripts/prepare_data.py:93",
+      "trigger_condition": "Refresh after the original fixed retrieval date.",
+      "guard_snippet": "Use actual UTC retrieval date.",
+      "potential_consequence": "Provenance misstates when data were downloaded.",
+      "issue": "A5",
+      "resolution": "Same resolution as A5; independent corroboration retained."
+    },
+    {
+      "lens": "edge-case-hunter",
+      "location": "scripts/prepare_data.py:93; scripts/make_notebooks.py:405",
+      "trigger_condition": "Refresh observations without regenerating notebooks.",
+      "guard_snippet": "Copy provenance when preparing the data.",
+      "potential_consequence": "Notebook provenance remains stale while values change.",
+      "issue": "E6",
+      "resolution": "Preparation synchronizes notebook provenance; validation compares notebook and public copies."
+    },
+    {
+      "lens": "verification-gap",
+      "location": "src/engine.js:22",
+      "trigger_condition": "Browser decoding or Arrow insertion changes value-coordinate association.",
+      "guard_snippet": "Assert 127 selected rows and a known coordinate/value.",
+      "potential_consequence": "Scientifically incorrect observed maps can pass broad count checks.",
+      "issue": "V1",
+      "resolution": "Browser integration checks the exact Ngami selection and exported geographic/value reference.",
+      "gap_type": "regression-gap",
+      "consumer": "src/lab.js:78 and GeoJSON export",
+      "evidence": "Baseline browser test asserted only a nonempty subset; unit flattening test bypassed Zarr and Arrow. Source reference: row14 col40 lon22.83625 lat-20.425520833333334 value0.7045454383."
+    },
+    {
+      "lens": "verification-gap",
+      "location": "src/lab.js:93",
+      "trigger_condition": "The mode-change render handler stops working.",
+      "guard_snippet": "Assert visible time support and axis explanation per mode.",
+      "potential_consequence": "Persistent canvas visibility conceals broken view switching.",
+      "issue": "V2",
+      "resolution": "Browser tests verify all-time cube versus current-slice counts and the vertical-axis meaning.",
+      "gap_type": "broken-verification-gap",
+      "consumer": "src/lab.js:24-49, mode selector",
+      "evidence": "Baseline mode test checked only the same persistent canvas; removal of the handler would leave the assertion true."
+    },
+    {
+      "lens": "verification-gap",
+      "location": "tests/browser/site.spec.js:51",
+      "trigger_condition": "A Pyodide error appears in a virtualized off-screen cell.",
+      "guard_snippet": "Clear outputs; inspect every model output and final completion marker.",
+      "potential_consequence": "A partial notebook run passes DOM-only checks.",
+      "issue": "V3",
+      "resolution": "Browser tests inspect complete notebook models, errors and execution counts for five lessons, including all new AR6 notebooks.",
+      "gap_type": "broken-verification-gap",
+      "consumer": "JupyterLite students executing notebook cells",
+      "evidence": "Baseline test waited for Busy/Idle then inspected mounted DOM errors and only the first import output; native notebook tests cannot establish Pyodide compatibility."
+    }
+  ]
+}

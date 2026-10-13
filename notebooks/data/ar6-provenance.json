@@ -1,0 +1,1251 @@
+{
+  "dataset": "IPCC AR6 Sea Level Projections",
+  "version": "20210809",
+  "license": "CC-BY-4.0",
+  "source_repository_commit": "8ee75128d8f6d9a8ba9825f47c92d11955d0651e",
+  "workflow": "wf_1e",
+  "gauge_scenarios": [
+    "ssp126",
+    "ssp585"
+  ],
+  "grid_scenario": "ssp585",
+  "years": [
+    2020,
+    2030,
+    2040,
+    2050,
+    2060,
+    2070,
+    2080,
+    2090,
+    2100
+  ],
+  "samples": 20000,
+  "source_units": "mm",
+  "display_units": "m",
+  "baseline": "1995\u20132014",
+  "baseline_reference": "https://doi.org/10.5194/gmd-16-7461-2023",
+  "cities": [
+    {
+      "id": "abidjan",
+      "name": "Abidjan",
+      "lat": 5.32,
+      "lon": -4.02,
+      "gauge_column": 1,
+      "gauge_distance_km": 256.12911817147426,
+      "grid": {
+        "lat": 5.0,
+        "lon": -4.0,
+        "distance_km": 35.651293630083764,
+        "window_defined_locations": 25,
+        "window_locations": 25
+      }
+    },
+    {
+      "id": "lagos",
+      "name": "Lagos",
+      "lat": 6.45,
+      "lon": 3.39,
+      "gauge_column": 1,
+      "gauge_distance_km": 594.9218387111653,
+      "grid": {
+        "lat": 6.0,
+        "lon": 3.0,
+        "distance_km": 66.04752270171181,
+        "window_defined_locations": 25,
+        "window_locations": 25
+      }
+    },
+    {
+      "id": "bangkok",
+      "name": "Bangkok",
+      "lat": 13.76,
+      "lon": 100.5,
+      "gauge_column": 2,
+      "gauge_distance_km": 24.899583113999885,
+      "grid": {
+        "lat": 14.0,
+        "lon": 100.0,
+        "distance_km": 60.211165800527176,
+        "window_defined_locations": 23,
+        "window_locations": 25
+      }
+    },
+    {
+      "id": "ho_chi_minh",
+      "name": "Ho Chi Minh City",
+      "lat": 10.78,
+      "lon": 106.7,
+      "gauge_column": 3,
+      "gauge_distance_km": 64.34012941484806,
+      "grid": {
+        "lat": 11.0,
+        "lon": 107.0,
+        "distance_km": 40.88405364267304,
+        "window_defined_locations": 24,
+        "window_locations": 25
+      }
+    },
+    {
+      "id": "manila",
+      "name": "Manila",
+      "lat": 14.6,
+      "lon": 120.98,
+      "gauge_column": 0,
+      "gauge_distance_km": 2.4705700550321263,
+      "grid": {
+        "lat": 15.0,
+        "lon": 121.0,
+        "distance_km": 44.52997117192019,
+        "window_defined_locations": 25,
+        "window_locations": 25
+      }
+    }
+  ],
+  "gauges": [
+    {
+      "id": 145,
+      "name": "MANILA",
+      "lat": 14.58,
+      "lon": 120.97
+    },
+    {
+      "id": 331,
+      "name": "TAKORADI",
+      "lat": 4.88,
+      "lon": -1.75
+    },
+    {
+      "id": 444,
+      "name": "FORT_PHRACHULA_CHOMKLAO",
+      "lat": 13.55,
+      "lon": 100.58
+    },
+    {
+      "id": 1495,
+      "name": "VUNGTAU",
+      "lat": 10.33,
+      "lon": 107.07
+    }
+  ],
+  "city_coordinates": "Rounded reference points chosen for teaching; not port boundaries or surveyed infrastructure.",
+  "method": "Nearest gauge by great-circle distance among available locations. Gridded 5x5 one-degree windows centered on nearest coordinate. All 20,000 samples retained for selected gauges and nearest grid locations with complete samples; p17/p50/p83 computed independently at each year by NumPy linear quantiles after mm-to-m conversion. No spatial interpolation, ocean mask, DEM, or inundation calculation. Gridded latitude reversed for north-up lab stores.",
+  "limitations": [
+    "wf_1e samples do not preserve time correlations: no rates, trajectories, or first-crossing dates.",
+    "A single workflow is not the assessed IPCC p-box. Scenarios have no assigned probabilities.",
+    "Background land motion is included; no additional subsidence term has been added.",
+    "Regional projection locations do not resolve port assets, estuarine hydrodynamics, defenses or exposure."
+  ],
+  "stores": [
+    {
+      "partition": "tide-gauges",
+      "scenario": "ssp126",
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr",
+      "metadata": {
+        ".zattrs": {
+          "citation": "In order to document the impact of these sea-level rise projections, users of the \nprojections are obligated to cite chapter 9 of Working Group 1 contribution to the \nthe IPCC Sixth Assessment Report, the Framework for Assessment of Changes To \nSea-level (FACTS) model description paper, and the version of the data set used:\n\n    Fox-Kemper, B., H.T. Hewitt, C. Xiao, G. A\u00f0algeirsd\u00f3ttir, S.S. Drijfhout, \n    T.L. Edwards, N.R. Golledge, M. Hemer, R.E. Kopp, G. Krinner, A. Mix, D. Notz, \n    S. Nowicki, I.S. Nurhati, L. Ruiz, J.-B. Sall\u00e9e, A.B.A. Slangen, and Y. Yu, \n    2021: Ocean, Cryosphere and Sea Level Change. In Climate Change 2021: \n    The Physical Science Basis. Contribution of Working Group I to the Sixth \n    Assessment Report of the Intergovernmental Panel on Climate Change \n    [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. P\u00e9an, S. Berger, \n    N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, \n    J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelek\u00e7i, R. Yu, and B. Zhou \n    (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, \n    NY, USA, pp. 1211\u20131362, doi:10.1017/9781009157896.011.\n\n    Garner, G. G., R. E. Kopp, T. Hermans, A. B. A. Slangen, G. Koubbe, M. Turilli, \n    S. Jha, T. L. Edwards, A. Levermann, S. Nowikci, M. D. Palmer, C. Smith, in \n    prep. Framework for Assessing Changes To Sea-level (FACTS). Geoscientific \n    Model Development.\n\n    Garner, G. G., T. Hermans, R. E. Kopp, A. B. A. Slangen, T. L. Edwards, \n    A. Levermann, S. Nowikci, M. D. Palmer, C. Smith, B. Fox-Kemper, H. T. Hewitt, \n    C. Xiao, G. A\u00f0algeirsd\u00f3ttir, S. S. Drijfhout, T. L. Edwards, N. R. Golledge, \n    M. Hemer, G. Krinner, A. Mix, D. Notz, S. Nowicki, I. S. Nurhati, L. Ruiz, \n    J-B. Sall\u00e9e, Y. Yu, L. Hua, T. Palmer, B. Pearson, 2021. IPCC AR6 Sea Level \n    Projections. Version 20210809. Dataset accessed [YYYY-MM-DD] at \n    https://doi.org/10.5281/zenodo.5914709.\n\nPlease also include in the acknowledgements of works citing these projections:\n\n    We thank the projection authors for developing and making the sea-level rise \n    projections available, multiple funding agencies for supporting the development \n    of the projections, and the NASA Sea Level Change Team for developing and hosting \n    the IPCC AR6 Sea Level Projection Tool.",
+          "description": "Total sea-level change for workflow",
+          "extra_info_url": "https://github.com/Rutgers-ESSP/IPCC-AR6-Sea-Level-Projections",
+          "history": "Created Fri Jun 18 15:45:36 2021",
+          "license": "The IPCC AR6 Sea-Level Rise Projections are licensed by the authors under a Creative Commons Attribution 4.0 International License. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.",
+          "source": "FACTS: Post-processed total among available contributors: glaciers-ipccar6-gmipemuglaciers-ssp126_localsl.nc,icesheets-ipccar6-ismipemuicesheet-ssp126_GIS_localsl.nc,verticallandmotion-kopp14-verticallandmotion_localsl.nc,landwaterstorage-ssp-landwaterstorage-ssp126_localsl.nc,icesheets-ipccar6-ismipemuicesheet-ssp126_AIS_localsl.nc,oceandynamics-tlm-oceandynamics-ssp126_localsl.nc",
+          "zarr_processing_date": "Mon Jun  6 04:54:40 2022 (UTC)"
+        },
+        ".zgroup": {
+          "zarr_format": 2
+        },
+        "lat/.zarray": {
+          "chunks": [
+            1012
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<f8",
+          "fill_value": "NaN",
+          "filters": null,
+          "order": "C",
+          "shape": [
+            1012
+          ],
+          "zarr_format": 2
+        },
+        "lat/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "locations"
+          ]
+        },
+        "locations/.zarray": {
+          "chunks": [
+            1012
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<i8",
+          "fill_value": null,
+          "filters": null,
+          "order": "C",
+          "shape": [
+            1012
+          ],
+          "zarr_format": 2
+        },
+        "locations/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "locations"
+          ]
+        },
+        "lon/.zarray": {
+          "chunks": [
+            1012
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<f8",
+          "fill_value": "NaN",
+          "filters": null,
+          "order": "C",
+          "shape": [
+            1012
+          ],
+          "zarr_format": 2
+        },
+        "lon/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "locations"
+          ]
+        },
+        "samples/.zarray": {
+          "chunks": [
+            20000
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<i8",
+          "fill_value": null,
+          "filters": null,
+          "order": "C",
+          "shape": [
+            20000
+          ],
+          "zarr_format": 2
+        },
+        "samples/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "samples"
+          ]
+        },
+        "sea_level_change/.zarray": {
+          "chunks": [
+            5000,
+            5,
+            1012
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<f4",
+          "fill_value": "NaN",
+          "filters": null,
+          "order": "C",
+          "shape": [
+            20000,
+            9,
+            1012
+          ],
+          "zarr_format": 2
+        },
+        "sea_level_change/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "samples",
+            "years",
+            "locations"
+          ],
+          "coordinates": "lon lat",
+          "units": "mm"
+        },
+        "years/.zarray": {
+          "chunks": [
+            9
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<i8",
+          "fill_value": null,
+          "filters": null,
+          "order": "C",
+          "shape": [
+            9
+          ],
+          "zarr_format": 2
+        },
+        "years/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "years"
+          ]
+        }
+      }
+    },
+    {
+      "partition": "tide-gauges",
+      "scenario": "ssp585",
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr",
+      "metadata": {
+        ".zattrs": {
+          "citation": "In order to document the impact of these sea-level rise projections, users of the \nprojections are obligated to cite chapter 9 of Working Group 1 contribution to the \nthe IPCC Sixth Assessment Report, the Framework for Assessment of Changes To \nSea-level (FACTS) model description paper, and the version of the data set used:\n\n    Fox-Kemper, B., H.T. Hewitt, C. Xiao, G. A\u00f0algeirsd\u00f3ttir, S.S. Drijfhout, \n    T.L. Edwards, N.R. Golledge, M. Hemer, R.E. Kopp, G. Krinner, A. Mix, D. Notz, \n    S. Nowicki, I.S. Nurhati, L. Ruiz, J.-B. Sall\u00e9e, A.B.A. Slangen, and Y. Yu, \n    2021: Ocean, Cryosphere and Sea Level Change. In Climate Change 2021: \n    The Physical Science Basis. Contribution of Working Group I to the Sixth \n    Assessment Report of the Intergovernmental Panel on Climate Change \n    [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. P\u00e9an, S. Berger, \n    N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, \n    J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelek\u00e7i, R. Yu, and B. Zhou \n    (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, \n    NY, USA, pp. 1211\u20131362, doi:10.1017/9781009157896.011.\n\n    Garner, G. G., R. E. Kopp, T. Hermans, A. B. A. Slangen, G. Koubbe, M. Turilli, \n    S. Jha, T. L. Edwards, A. Levermann, S. Nowikci, M. D. Palmer, C. Smith, in \n    prep. Framework for Assessing Changes To Sea-level (FACTS). Geoscientific \n    Model Development.\n\n    Garner, G. G., T. Hermans, R. E. Kopp, A. B. A. Slangen, T. L. Edwards, \n    A. Levermann, S. Nowikci, M. D. Palmer, C. Smith, B. Fox-Kemper, H. T. Hewitt, \n    C. Xiao, G. A\u00f0algeirsd\u00f3ttir, S. S. Drijfhout, T. L. Edwards, N. R. Golledge, \n    M. Hemer, G. Krinner, A. Mix, D. Notz, S. Nowicki, I. S. Nurhati, L. Ruiz, \n    J-B. Sall\u00e9e, Y. Yu, L. Hua, T. Palmer, B. Pearson, 2021. IPCC AR6 Sea Level \n    Projections. Version 20210809. Dataset accessed [YYYY-MM-DD] at \n    https://doi.org/10.5281/zenodo.5914709.\n\nPlease also include in the acknowledgements of works citing these projections:\n\n    We thank the projection authors for developing and making the sea-level rise \n    projections available, multiple funding agencies for supporting the development \n    of the projections, and the NASA Sea Level Change Team for developing and hosting \n    the IPCC AR6 Sea Level Projection Tool.",
+          "description": "Total sea-level change for workflow",
+          "extra_info_url": "https://github.com/Rutgers-ESSP/IPCC-AR6-Sea-Level-Projections",
+          "history": "Created Fri Jun 18 20:50:35 2021",
+          "license": "The IPCC AR6 Sea-Level Rise Projections are licensed by the authors under a Creative Commons Attribution 4.0 International License. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.",
+          "source": "FACTS: Post-processed total among available contributors: verticallandmotion-kopp14-verticallandmotion_localsl.nc,icesheets-ipccar6-ismipemuicesheet-ssp585_GIS_localsl.nc,landwaterstorage-ssp-landwaterstorage-ssp585_localsl.nc,icesheets-ipccar6-ismipemuicesheet-ssp585_AIS_localsl.nc,oceandynamics-tlm-oceandynamics-ssp585_localsl.nc,glaciers-ipccar6-gmipemuglaciers-ssp585_localsl.nc",
+          "zarr_processing_date": "Mon Jun  6 18:16:23 2022 (UTC)"
+        },
+        ".zgroup": {
+          "zarr_format": 2
+        },
+        "lat/.zarray": {
+          "chunks": [
+            1012
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<f8",
+          "fill_value": "NaN",
+          "filters": null,
+          "order": "C",
+          "shape": [
+            1012
+          ],
+          "zarr_format": 2
+        },
+        "lat/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "locations"
+          ]
+        },
+        "locations/.zarray": {
+          "chunks": [
+            1012
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<i8",
+          "fill_value": null,
+          "filters": null,
+          "order": "C",
+          "shape": [
+            1012
+          ],
+          "zarr_format": 2
+        },
+        "locations/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "locations"
+          ]
+        },
+        "lon/.zarray": {
+          "chunks": [
+            1012
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<f8",
+          "fill_value": "NaN",
+          "filters": null,
+          "order": "C",
+          "shape": [
+            1012
+          ],
+          "zarr_format": 2
+        },
+        "lon/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "locations"
+          ]
+        },
+        "samples/.zarray": {
+          "chunks": [
+            20000
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<i8",
+          "fill_value": null,
+          "filters": null,
+          "order": "C",
+          "shape": [
+            20000
+          ],
+          "zarr_format": 2
+        },
+        "samples/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "samples"
+          ]
+        },
+        "sea_level_change/.zarray": {
+          "chunks": [
+            5000,
+            5,
+            1012
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<f4",
+          "fill_value": "NaN",
+          "filters": null,
+          "order": "C",
+          "shape": [
+            20000,
+            9,
+            1012
+          ],
+          "zarr_format": 2
+        },
+        "sea_level_change/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "samples",
+            "years",
+            "locations"
+          ],
+          "coordinates": "lat lon",
+          "units": "mm"
+        },
+        "years/.zarray": {
+          "chunks": [
+            9
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<i8",
+          "fill_value": null,
+          "filters": null,
+          "order": "C",
+          "shape": [
+            9
+          ],
+          "zarr_format": 2
+        },
+        "years/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "years"
+          ]
+        }
+      }
+    },
+    {
+      "partition": "gridded",
+      "scenario": "ssp585",
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr",
+      "metadata": {
+        ".zattrs": {
+          "citation": "In order to document the impact of these sea-level rise projections, users of the \nprojections are obligated to cite chapter 9 of Working Group 1 contribution to the \nthe IPCC Sixth Assessment Report, the Framework for Assessment of Changes To \nSea-level (FACTS) model description paper, and the version of the data set used:\n\n    Fox-Kemper, B., H.T. Hewitt, C. Xiao, G. A\u00f0algeirsd\u00f3ttir, S.S. Drijfhout, \n    T.L. Edwards, N.R. Golledge, M. Hemer, R.E. Kopp, G. Krinner, A. Mix, D. Notz, \n    S. Nowicki, I.S. Nurhati, L. Ruiz, J.-B. Sall\u00e9e, A.B.A. Slangen, and Y. Yu, \n    2021: Ocean, Cryosphere and Sea Level Change. In Climate Change 2021: \n    The Physical Science Basis. Contribution of Working Group I to the Sixth \n    Assessment Report of the Intergovernmental Panel on Climate Change \n    [Masson-Delmotte, V., P. Zhai, A. Pirani, S.L. Connors, C. P\u00e9an, S. Berger, \n    N. Caud, Y. Chen, L. Goldfarb, M.I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, \n    J.B.R. Matthews, T.K. Maycock, T. Waterfield, O. Yelek\u00e7i, R. Yu, and B. Zhou \n    (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, \n    NY, USA, pp. 1211\u20131362, doi:10.1017/9781009157896.011.\n\n    Garner, G. G., R. E. Kopp, T. Hermans, A. B. A. Slangen, G. Koubbe, M. Turilli, \n    S. Jha, T. L. Edwards, A. Levermann, S. Nowikci, M. D. Palmer, C. Smith, in \n    prep. Framework for Assessing Changes To Sea-level (FACTS). Geoscientific \n    Model Development.\n\n    Garner, G. G., T. Hermans, R. E. Kopp, A. B. A. Slangen, T. L. Edwards, \n    A. Levermann, S. Nowikci, M. D. Palmer, C. Smith, B. Fox-Kemper, H. T. Hewitt, \n    C. Xiao, G. A\u00f0algeirsd\u00f3ttir, S. S. Drijfhout, T. L. Edwards, N. R. Golledge, \n    M. Hemer, G. Krinner, A. Mix, D. Notz, S. Nowicki, I. S. Nurhati, L. Ruiz, \n    J-B. Sall\u00e9e, Y. Yu, L. Hua, T. Palmer, B. Pearson, 2021. IPCC AR6 Sea Level \n    Projections. Version 20210809. Dataset accessed [YYYY-MM-DD] at \n    https://doi.org/10.5281/zenodo.5914709.\n\nPlease also include in the acknowledgements of works citing these projections:\n\n    We thank the projection authors for developing and making the sea-level rise \n    projections available, multiple funding agencies for supporting the development \n    of the projections, and the NASA Sea Level Change Team for developing and hosting \n    the IPCC AR6 Sea Level Projection Tool.",
+          "description": "Total sea-level change for workflow",
+          "extra_info_url": "https://github.com/Rutgers-ESSP/IPCC-AR6-Sea-Level-Projections",
+          "history": "Created Fri Jun 18 20:50:35 2021",
+          "license": "The IPCC AR6 Sea-Level Rise Projections are licensed by the authors under a Creative Commons Attribution 4.0 International License. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.",
+          "source": "FACTS: Post-processed total among available contributors: verticallandmotion-kopp14-verticallandmotion_localsl.nc,icesheets-ipccar6-ismipemuicesheet-ssp585_GIS_localsl.nc,landwaterstorage-ssp-landwaterstorage-ssp585_localsl.nc,icesheets-ipccar6-ismipemuicesheet-ssp585_AIS_localsl.nc,oceandynamics-tlm-oceandynamics-ssp585_localsl.nc,glaciers-ipccar6-gmipemuglaciers-ssp585_localsl.nc",
+          "zarr_processing_date": "Mon Jun  6 18:16:23 2022 (UTC)"
+        },
+        ".zgroup": {
+          "zarr_format": 2
+        },
+        "lat/.zarray": {
+          "chunks": [
+            181
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<f8",
+          "fill_value": "NaN",
+          "filters": null,
+          "order": "C",
+          "shape": [
+            181
+          ],
+          "zarr_format": 2
+        },
+        "lat/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "lat"
+          ]
+        },
+        "lon/.zarray": {
+          "chunks": [
+            360
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<f8",
+          "fill_value": "NaN",
+          "filters": null,
+          "order": "C",
+          "shape": [
+            360
+          ],
+          "zarr_format": 2
+        },
+        "lon/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "lon"
+          ]
+        },
+        "samples/.zarray": {
+          "chunks": [
+            20000
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<i8",
+          "fill_value": null,
+          "filters": null,
+          "order": "C",
+          "shape": [
+            20000
+          ],
+          "zarr_format": 2
+        },
+        "samples/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "samples"
+          ]
+        },
+        "sea_level_change/.zarray": {
+          "chunks": [
+            5000,
+            5,
+            30,
+            30
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<f4",
+          "fill_value": "NaN",
+          "filters": null,
+          "order": "C",
+          "shape": [
+            20000,
+            9,
+            181,
+            360
+          ],
+          "zarr_format": 2
+        },
+        "sea_level_change/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "samples",
+            "years",
+            "lat",
+            "lon"
+          ],
+          "units": "mm"
+        },
+        "years/.zarray": {
+          "chunks": [
+            9
+          ],
+          "compressor": {
+            "blocksize": 0,
+            "clevel": 5,
+            "cname": "lz4",
+            "id": "blosc",
+            "shuffle": 1
+          },
+          "dtype": "<i8",
+          "fill_value": null,
+          "filters": null,
+          "order": "C",
+          "shape": [
+            9
+          ],
+          "zarr_format": 2
+        },
+        "years/.zattrs": {
+          "_ARRAY_DIMENSIONS": [
+            "years"
+          ]
+        }
+      }
+    }
+  ],
+  "source_objects": [
+    {
+      "url": "https://raw.githubusercontent.com/Rutgers-ESSP/IPCC-AR6-Sea-Level-Projections/8ee75128d8f6d9a8ba9825f47c92d11955d0651e/location_list.txt",
+      "bytes": 2659137,
+      "sha256": "431bf1a682b5938290565fb4c1969e56cfbb7c4b1fb08bc7459d9b2dc758d88d",
+      "retrieved_utc": "2026-10-13T16:29:51.158987+00:00",
+      "etag": "\"a290e8c2f73cdcf67373bfdcaede0d0edefbf8b635b66df227ee517538b214db\"",
+      "generation": null,
+      "cors_allow_origin": "*"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Rutgers-ESSP/IPCC-AR6-Sea-Level-Projections/8ee75128d8f6d9a8ba9825f47c92d11955d0651e/google_zarr_stores.json",
+      "bytes": 59308,
+      "sha256": "8f3eeb78e6532b732cb901708ce68977a44ef5e3593df2143ff4e81531c06f06",
+      "retrieved_utc": "2026-10-13T16:29:51.469377+00:00",
+      "etag": "\"14a6344d9f35e77555d22b6db031382f688004536e9ecf25ad39c2dd52224dc3\"",
+      "generation": null,
+      "cors_allow_origin": "*"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Rutgers-ESSP/IPCC-AR6-Sea-Level-Projections/8ee75128d8f6d9a8ba9825f47c92d11955d0651e/LICENSE.md",
+      "bytes": 3145,
+      "sha256": "d22347093722f82c52474be71b5220ef295ba9a1614c172c712c21cfb290f697",
+      "retrieved_utc": "2026-10-13T16:29:51.702530+00:00",
+      "etag": "\"7694a56c6e7901722b473da60b937fcca9dbd24babe5a54bbdf57c7f1f784285\"",
+      "generation": null,
+      "cors_allow_origin": "*"
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/.zmetadata",
+      "bytes": 7700,
+      "sha256": "e671368e1641c452c0cb774b4868791f444e80fcd22e41dc1edc4ed15ffb3dd1",
+      "retrieved_utc": "2026-10-13T16:29:52.018000+00:00",
+      "etag": "\"055f683364db7f8787956c7efe30a034\"",
+      "generation": "1654491361967437",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/lat/0",
+      "bytes": 7530,
+      "sha256": "ee0f0a6d376aaf91af98b0b257dce51577a3f2a18711be7f4b99768fdaf253e4",
+      "retrieved_utc": "2026-10-13T16:29:52.316709+00:00",
+      "etag": "\"00d9c91ce952d2ca6a0b1ae78af54b52\"",
+      "generation": "1654491361697980",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/lon/0",
+      "bytes": 7697,
+      "sha256": "a18555ccafd322e336b15f08d77ee4a5108c926c8f038a8daa1c27b822d43329",
+      "retrieved_utc": "2026-10-13T16:29:52.953691+00:00",
+      "etag": "\"3972b2866fe5af535ccd07ee2b7c54b3\"",
+      "generation": "1654491361434344",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/years/0",
+      "bytes": 88,
+      "sha256": "f89039b0272c7b8a2289815ee2353077a41ccc0dd18cc5ce45f57ab2baacc0dc",
+      "retrieved_utc": "2026-10-13T16:29:53.293012+00:00",
+      "etag": "\"d056982ecbba06f5dec6627c92816b4c\"",
+      "generation": "1654491361132981",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/locations/0",
+      "bytes": 1173,
+      "sha256": "edcc60c03614af42e5a570a530c1971412722e44f454b443f020232eedfaa6b6",
+      "retrieved_utc": "2026-10-13T16:29:53.647682+00:00",
+      "etag": "\"c6f974f96617c5c51c20b065b5f18b52\"",
+      "generation": "1654491360566159",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/sea_level_change/0.0.0",
+      "bytes": 41792844,
+      "sha256": "aa6406950303bec67bb07671257c2b2d11f5e0f5586856a7cfeb67fb25597003",
+      "retrieved_utc": "2026-10-13T16:29:56.484097+00:00",
+      "etag": "\"195a3bbd876af63df68364508a323613\"",
+      "generation": "1654491400230294",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/sea_level_change/0.1.0",
+      "bytes": 39110932,
+      "sha256": "c220c805cde48631b2fa81779467a132d6abfd2fb862c920a3c94dcc40dd850b",
+      "retrieved_utc": "2026-10-13T16:29:59.437999+00:00",
+      "etag": "\"9a80e82fdf8179f202766102ea2ed17d\"",
+      "generation": "1654491421417816",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/sea_level_change/1.0.0",
+      "bytes": 41734283,
+      "sha256": "cfafe0a3f3c8068c39986a33531f98516ee6883614e3cc2ffa399308f171914e",
+      "retrieved_utc": "2026-10-13T16:30:03.060233+00:00",
+      "etag": "\"6b6eb393300fcd5b4412f5aaadf271c7\"",
+      "generation": "1654491451199151",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/sea_level_change/1.1.0",
+      "bytes": 39117515,
+      "sha256": "03125956105ff954a9f02cff2b57e639c5556c20701b492ae2d3e098e3bdaa11",
+      "retrieved_utc": "2026-10-13T16:30:06.660161+00:00",
+      "etag": "\"4fcd08585d5533a98b8dd8608c896696\"",
+      "generation": "1654491472237304",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/sea_level_change/2.0.0",
+      "bytes": 41784830,
+      "sha256": "a89a0362ffa63087a52a885433656f438cc6740b7684f97f16cbc0bd35f1982c",
+      "retrieved_utc": "2026-10-13T16:30:09.936799+00:00",
+      "etag": "\"03c3cda2d6a6096493f2f1a4da4a4602\"",
+      "generation": "1654491505659158",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/sea_level_change/2.1.0",
+      "bytes": 39143852,
+      "sha256": "f33b055b8019f99684ee0374b956c1505ccdd9d547ab440121eef3f5ed5969a2",
+      "retrieved_utc": "2026-10-13T16:30:13.015598+00:00",
+      "etag": "\"a67e082bf1ae6a083a457a97b6632ae6\"",
+      "generation": "1654491529719100",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/sea_level_change/3.0.0",
+      "bytes": 41837852,
+      "sha256": "099bee95be90e446fa160f6b4378d9671918a5db4f1a0f17d74d7596f813c70e",
+      "retrieved_utc": "2026-10-13T16:30:20.983523+00:00",
+      "etag": "\"b346ff665bf56d94c04f0e1bad7f0ad8\"",
+      "generation": "1654491559223075",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp126/total-workflow.zarr/sea_level_change/3.1.0",
+      "bytes": 39126531,
+      "sha256": "1ed2f248627150dba7d8ba2499a2e3806a804ddb624f2f99cdb92e1b46aaf06d",
+      "retrieved_utc": "2026-10-13T16:30:24.000732+00:00",
+      "etag": "\"d20db6b284a8c87a100e1470bf97405c\"",
+      "generation": "1654491580214762",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/.zmetadata",
+      "bytes": 7700,
+      "sha256": "06aa9df67232c110e93a94356384d5a2fa9801a652b2b324244698dad26b2b06",
+      "retrieved_utc": "2026-10-13T16:30:24.570715+00:00",
+      "etag": "\"de349812ce48b7fa38f9567dc22e9b32\"",
+      "generation": "1654539394492134",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/lat/0",
+      "bytes": 7530,
+      "sha256": "ee0f0a6d376aaf91af98b0b257dce51577a3f2a18711be7f4b99768fdaf253e4",
+      "retrieved_utc": "2026-10-13T16:30:25.169914+00:00",
+      "etag": "\"00d9c91ce952d2ca6a0b1ae78af54b52\"",
+      "generation": "1654539393437007",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/lon/0",
+      "bytes": 7697,
+      "sha256": "a18555ccafd322e336b15f08d77ee4a5108c926c8f038a8daa1c27b822d43329",
+      "retrieved_utc": "2026-10-13T16:30:25.595864+00:00",
+      "etag": "\"3972b2866fe5af535ccd07ee2b7c54b3\"",
+      "generation": "1654539393671824",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/years/0",
+      "bytes": 88,
+      "sha256": "f89039b0272c7b8a2289815ee2353077a41ccc0dd18cc5ce45f57ab2baacc0dc",
+      "retrieved_utc": "2026-10-13T16:30:26.142833+00:00",
+      "etag": "\"d056982ecbba06f5dec6627c92816b4c\"",
+      "generation": "1654539394214970",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/locations/0",
+      "bytes": 1173,
+      "sha256": "edcc60c03614af42e5a570a530c1971412722e44f454b443f020232eedfaa6b6",
+      "retrieved_utc": "2026-10-13T16:30:26.739020+00:00",
+      "etag": "\"c6f974f96617c5c51c20b065b5f18b52\"",
+      "generation": "1654539393958429",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.0.0",
+      "bytes": 42026082,
+      "sha256": "c3501cdb184fbaec3efee508ad945dd627198811abf94b8a30fe254c0ae40694",
+      "retrieved_utc": "2026-10-13T16:30:35.821630+00:00",
+      "etag": "\"283457adcd3ebd4ff5b1f27d55331dd3\"",
+      "generation": "1654539443519940",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.1.0",
+      "bytes": 40315316,
+      "sha256": "b71897dad9f6404ba75e6fba0f701b73642180d85bd3b51e90e1f6b23f69aa85",
+      "retrieved_utc": "2026-10-13T16:30:39.235639+00:00",
+      "etag": "\"1a7e175be4d52192ae5c25b573caa399\"",
+      "generation": "1654539437961253",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.0.0",
+      "bytes": 41979910,
+      "sha256": "a229407cbc9bdf1c95f14ec357938e44367aa64d95595dd22b85df2b1cdb8ec3",
+      "retrieved_utc": "2026-10-13T16:30:42.542595+00:00",
+      "etag": "\"d920d8fae781368efbcfb51b77d938bb\"",
+      "generation": "1654539445978262",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.1.0",
+      "bytes": 40302568,
+      "sha256": "3787aa934978d605ecd3fdd111707c39613f5e645a66c295b4a74405ad47341f",
+      "retrieved_utc": "2026-10-13T16:30:45.641822+00:00",
+      "etag": "\"ad537f3e98a6863790e27ae2474d44c9\"",
+      "generation": "1654539444237511",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.0.0",
+      "bytes": 42012803,
+      "sha256": "1df869aa46c7904cb9c46e29e1e3de7e7fe1780843e3eb22d32dd6d2703acb01",
+      "retrieved_utc": "2026-10-13T16:30:49.572204+00:00",
+      "etag": "\"8bd6e4f7bd95db90f7115905b8f0c168\"",
+      "generation": "1654539451428303",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.1.0",
+      "bytes": 40310215,
+      "sha256": "c0dc99389e2311e6389a2b207a2709358e1c3dba8ff63966ca43e3ac6cc50986",
+      "retrieved_utc": "2026-10-13T16:30:52.556262+00:00",
+      "etag": "\"29aead9577dafa5567bfbcefe3d1e4f8\"",
+      "generation": "1654539442729626",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.0.0",
+      "bytes": 42043943,
+      "sha256": "558f856d746df73e11c05399d666504d07ca550748831cd1531c3543caa385d5",
+      "retrieved_utc": "2026-10-13T16:30:55.573066+00:00",
+      "etag": "\"823a65c049f0ca7239c86596cbb6c53e\"",
+      "generation": "1654539449331491",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/tide-gauges/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.1.0",
+      "bytes": 40322325,
+      "sha256": "b8ebe22834672dd3dcb7d165dd6a4ce56a456ff4e78a4f52ae0e6c97bf4021e5",
+      "retrieved_utc": "2026-10-13T16:30:58.783246+00:00",
+      "etag": "\"bda7b43f47ee3bed743eef0a4d673949\"",
+      "generation": "1654539435883106",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/.zmetadata",
+      "bytes": 7081,
+      "sha256": "29c5936914373964b7cd7b90195e62060730547204c4ce63ae48ce0014e4bdde",
+      "retrieved_utc": "2026-10-13T16:31:04.149258+00:00",
+      "etag": "\"58c92f12754d296bf78f46ebd3640c6c\"",
+      "generation": "1654539392200923",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/lat/0",
+      "bytes": 369,
+      "sha256": "5c3350ba942d63b754b987a7c5ffbcb8563483476c0ba9a649c4e7901b7d647f",
+      "retrieved_utc": "2026-10-13T16:31:04.503558+00:00",
+      "etag": "\"a5857b4102785bd07b3156a98c0c8f11\"",
+      "generation": "1654539391159831",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/lon/0",
+      "bytes": 545,
+      "sha256": "fad1d91f8879c2c51d69c44dea3ceda9a96e37960565043f4a95af0e0d6792aa",
+      "retrieved_utc": "2026-10-13T16:31:04.816188+00:00",
+      "etag": "\"ed5d16896e735e4b290f43eb4dc8fe4b\"",
+      "generation": "1654539391710954",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/years/0",
+      "bytes": 88,
+      "sha256": "f89039b0272c7b8a2289815ee2353077a41ccc0dd18cc5ce45f57ab2baacc0dc",
+      "retrieved_utc": "2026-10-13T16:31:05.201701+00:00",
+      "etag": "\"d056982ecbba06f5dec6627c92816b4c\"",
+      "generation": "1654539391943661",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.0.3.5",
+      "bytes": 24133270,
+      "sha256": "ccb9ec2f65640642dc4baf36d12d0ac864f18cb585c8935f54c0efe2911c56b9",
+      "retrieved_utc": "2026-10-13T16:31:07.263983+00:00",
+      "etag": "\"56b508705c367a8b25864ba91f347871\"",
+      "generation": "1654539473178357",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.1.3.5",
+      "bytes": 25543867,
+      "sha256": "d30a53e2c83cf7f7e5d64d871f742c937320a1e7a2f06d46d873ac21f53f8f95",
+      "retrieved_utc": "2026-10-13T16:31:09.474417+00:00",
+      "etag": "\"4ca44ada5886744a1a7a8d7383847774\"",
+      "generation": "1654539468664778",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.0.3.5",
+      "bytes": 24141439,
+      "sha256": "7b52a46dbad3f3c1bf10f61d80a49214e1e7bbce279831db462b2698eaeefb61",
+      "retrieved_utc": "2026-10-13T16:31:11.998175+00:00",
+      "etag": "\"b715978571e1ce6ea27dd24c4a8e23f0\"",
+      "generation": "1654539476155852",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.1.3.5",
+      "bytes": 25529329,
+      "sha256": "b17f0c5f5f5c1bf5ab72122ba842a3b8fe29eb339e5d4c888f56890b3bb5d82c",
+      "retrieved_utc": "2026-10-13T16:31:14.314410+00:00",
+      "etag": "\"a8aa12208597d8ec63851ac377d58775\"",
+      "generation": "1654539473412483",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.0.3.5",
+      "bytes": 24143367,
+      "sha256": "4043aa24b448dfd6f9fdf9ed714617618849d5a9ae58de2c7f0a30480e7c2475",
+      "retrieved_utc": "2026-10-13T16:31:16.865055+00:00",
+      "etag": "\"79b87b968fba834c551b21aba7dd6cf0\"",
+      "generation": "1654539482863534",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.1.3.5",
+      "bytes": 25502647,
+      "sha256": "38a3b424237680a660d176b926f3e3f932c273a3f44a193e7482a0c164fc68be",
+      "retrieved_utc": "2026-10-13T16:31:19.534848+00:00",
+      "etag": "\"5623a284fd3aa7f75bcf6bd9c10d07f7\"",
+      "generation": "1654539474627333",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.0.3.5",
+      "bytes": 24119918,
+      "sha256": "affa72339060e12fc1cdbef198e4e391f7084b0721d6484002faa57fc13924eb",
+      "retrieved_utc": "2026-10-13T16:31:23.942162+00:00",
+      "etag": "\"c4b660b222f7ca3749bd071f2beaf9ce\"",
+      "generation": "1654539479646906",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.1.3.5",
+      "bytes": 25506875,
+      "sha256": "2cee9ab7a231cca317681022903d247c6a2f7afe56ea93904912b0031ccd4951",
+      "retrieved_utc": "2026-10-13T16:31:26.592522+00:00",
+      "etag": "\"a85f62fd3da778a942ca4274aa003fb9\"",
+      "generation": "1654539463502489",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.0.3.6",
+      "bytes": 6566998,
+      "sha256": "8888ec9f82bc12bc6da1d6d7ccda21b040d635db5229fdc619c710bfdcb7fca1",
+      "retrieved_utc": "2026-10-13T16:31:27.985820+00:00",
+      "etag": "\"3637eee60960c294a95db40059a3c75d\"",
+      "generation": "1654539472837963",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.1.3.6",
+      "bytes": 7040497,
+      "sha256": "e8644c8d5c68c2216c8c5a07c3174b54782690efd2be6570c8df2fe465e6c93c",
+      "retrieved_utc": "2026-10-13T16:31:29.316750+00:00",
+      "etag": "\"47f39571fa1c580830eda8b61c9411ad\"",
+      "generation": "1654539468640701",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.0.3.6",
+      "bytes": 6558694,
+      "sha256": "c013a3ee91d9b4f0edeea4090ca130eb926088d6f72418280b79dec4ba69240f",
+      "retrieved_utc": "2026-10-13T16:31:34.073295+00:00",
+      "etag": "\"78723f9d5c45be47e59c86a0203b06d1\"",
+      "generation": "1654539476194709",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.1.3.6",
+      "bytes": 7059891,
+      "sha256": "92ba12a5499bc19ec36c3c10cb59305bdf538c61e7523ec926e0f45095995572",
+      "retrieved_utc": "2026-10-13T16:31:35.654551+00:00",
+      "etag": "\"03069a1b03b0c0bd0ff307c0f0093db2\"",
+      "generation": "1654539473016207",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.0.3.6",
+      "bytes": 6555615,
+      "sha256": "eb37c4009c57e08a3643348da1c1b760cc086ad2d8cf9c69d376b7f632c79f1a",
+      "retrieved_utc": "2026-10-13T16:31:37.091241+00:00",
+      "etag": "\"360d8c64726826c02b1928ca16c01200\"",
+      "generation": "1654539483233025",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.1.3.6",
+      "bytes": 7052633,
+      "sha256": "bd7d9fc30678c9d274fec426707eb2a379b4194243172f1017aba36407c61c39",
+      "retrieved_utc": "2026-10-13T16:31:38.487147+00:00",
+      "etag": "\"2ff7c20dcc8d5e41e07365c41709aed3\"",
+      "generation": "1654539474555117",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.0.3.6",
+      "bytes": 6563434,
+      "sha256": "56c88706a0fe6dd1a9fbde5df11db77614cb11708f9a70413fd77dc4ce180691",
+      "retrieved_utc": "2026-10-13T16:31:39.959479+00:00",
+      "etag": "\"d0ccdc823b54f6b9fc103e27676cc7f8\"",
+      "generation": "1654539479660960",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.1.3.6",
+      "bytes": 7049009,
+      "sha256": "8e2611762cb650ebf20bd84be89954241da8361b22dc1567535de09903d13e5e",
+      "retrieved_utc": "2026-10-13T16:31:41.375874+00:00",
+      "etag": "\"05162760dcd5a9ba7ac08fc62f485854\"",
+      "generation": "1654539464276676",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.0.3.9",
+      "bytes": 26131843,
+      "sha256": "bb7d2b26e88becced22bdd512619fcfcce5ce661da57717a286d062a797e6b00",
+      "retrieved_utc": "2026-10-13T16:31:43.718450+00:00",
+      "etag": "\"2e6207e44834dc72f36e9bdc218f0450\"",
+      "generation": "1654539475426126",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.1.3.9",
+      "bytes": 26275372,
+      "sha256": "a322477d467da5153937a7431ca548644b67b81905b4d7109ed6d55860d22826",
+      "retrieved_utc": "2026-10-13T16:31:47.294765+00:00",
+      "etag": "\"9eb0940882c5616853eb3f3cf4fb122b\"",
+      "generation": "1654539470167253",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.0.3.9",
+      "bytes": 26126168,
+      "sha256": "3dde64c7810acbeb0c1918f7ab6fa489b88af4f4fdaa6c86a7db6e0ef4157822",
+      "retrieved_utc": "2026-10-13T16:31:49.674699+00:00",
+      "etag": "\"5b9c0996428f446c75fc1bece8f02c36\"",
+      "generation": "1654539477725815",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.1.3.9",
+      "bytes": 26349066,
+      "sha256": "34412d2709a49823695021ca68f1191fd4da7fbc6625e9ef39010ef8bf5dd2a9",
+      "retrieved_utc": "2026-10-13T16:31:52.307296+00:00",
+      "etag": "\"a29b351dd70ac090d7c42d249a5cb030\"",
+      "generation": "1654539474350457",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.0.3.9",
+      "bytes": 26118571,
+      "sha256": "63d16d7f7bad3e64a21820dac971ccc358a6e169d4114355fc89cf3f6cbbbf85",
+      "retrieved_utc": "2026-10-13T16:31:55.343559+00:00",
+      "etag": "\"db79159aab36817cd8d5f5e39d8e2ffb\"",
+      "generation": "1654539485345293",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.1.3.9",
+      "bytes": 26314166,
+      "sha256": "d0a96e466a8c9b77350df681f8512237eedad750ef0d5dd47792e63aff7b9e86",
+      "retrieved_utc": "2026-10-13T16:31:57.793686+00:00",
+      "etag": "\"73a401a584e44ebf1cb8fb05389bde7d\"",
+      "generation": "1654539475995843",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.0.3.9",
+      "bytes": 26065742,
+      "sha256": "46c1d0bb00aa014adc190ab540ee3402eab75665beee125b74bfc91e977d8673",
+      "retrieved_utc": "2026-10-13T16:32:00.191185+00:00",
+      "etag": "\"ffe85790a73c97aeef84bf41c1332e2d\"",
+      "generation": "1654539481427207",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.1.3.9",
+      "bytes": 26304736,
+      "sha256": "5f4d1e2b23eca6c142e279df4d64ba87d0b9e780cc2ec5ec58e0218b472cfff3",
+      "retrieved_utc": "2026-10-13T16:32:02.618028+00:00",
+      "etag": "\"cfd414d5ee142d105b7a85ca71e668d0\"",
+      "generation": "1654539466006188",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.0.3.10",
+      "bytes": 27330379,
+      "sha256": "29971af483e6896a3833f9433d89c9ab9cf53d89247f2ce7b4e930ef053ae147",
+      "retrieved_utc": "2026-10-13T16:32:06.398422+00:00",
+      "etag": "\"7b72b46e0ff5a4ac4d52a8535f7d1a9b\"",
+      "generation": "1654539470981013",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/0.1.3.10",
+      "bytes": 28273156,
+      "sha256": "613a701bbb030e11fb3e7dbc458099f1566924396c6afb14c7a71464bdbc7bb0",
+      "retrieved_utc": "2026-10-13T16:32:08.973362+00:00",
+      "etag": "\"fd5919ff8fe6c59f6c1a6aac1c951af2\"",
+      "generation": "1654539464742757",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.0.3.10",
+      "bytes": 27333232,
+      "sha256": "6be4f2dc3d5c55511a919dfb74a7ac8b5fe3b14cd6e7c9b476dd2ebf54f9ba97",
+      "retrieved_utc": "2026-10-13T16:32:11.650803+00:00",
+      "etag": "\"c6ac5015e34e30b218ff814531dbf75a\"",
+      "generation": "1654539473787179",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/1.1.3.10",
+      "bytes": 28307725,
+      "sha256": "8af76d18e90146c5419a2b3bdab058263087a4249f3130b98d229911cad8faaf",
+      "retrieved_utc": "2026-10-13T16:32:14.209749+00:00",
+      "etag": "\"728954ba582855b44884d328854f48f6\"",
+      "generation": "1654539469581332",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.0.3.10",
+      "bytes": 27311007,
+      "sha256": "1f7af643822d7868021d128068da3ce937e4a3a07f106411424333fb57d90099",
+      "retrieved_utc": "2026-10-13T16:32:17.971026+00:00",
+      "etag": "\"adc2a4959e201acad760224a548e73ae\"",
+      "generation": "1654539480134683",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/2.1.3.10",
+      "bytes": 28261932,
+      "sha256": "731c68c9413962da3a272765968295703680eb1b9b6537fd625376c85fab666a",
+      "retrieved_utc": "2026-10-13T16:32:20.644011+00:00",
+      "etag": "\"38e714510ddb1b9a126fb8c22eab84f3\"",
+      "generation": "1654539471148134",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.0.3.10",
+      "bytes": 27302670,
+      "sha256": "e023285da2e0c96364a6e1a0d05737c83a62801ac217708a72335b313c344272",
+      "retrieved_utc": "2026-10-13T16:32:23.188183+00:00",
+      "etag": "\"86d4fcb2be845b0dba264d372f6e4f5a\"",
+      "generation": "1654539477545092",
+      "cors_allow_origin": null
+    },
+    {
+      "url": "https://storage.googleapis.com/ar6-lsl-simulations-public-standard/gridded/full_sample_workflows/wf_1e/ssp585/total-workflow.zarr/sea_level_change/3.1.3.10",
+      "bytes": 28265893,
+      "sha256": "5fa55364191fedd355ec593080fb6dbc1d0cf4958612982fb64a4f5b521adb32",
+      "retrieved_utc": "2026-10-13T16:32:26.092782+00:00",
+      "etag": "\"36362d05794d04a8adc37edd00c37bf3\"",
+      "generation": "1654539460657270",
+      "cors_allow_origin": null
+    }
+  ],
+  "unique_source_bytes": 1340878991,
+  "artifacts": {
+    "ar6-gauge-samples.npz": {
+      "bytes": 2705322,
+      "sha256": "688edce33c8d4511bfa66bf978d6e881778329e0d185878470217aba3bc7a87a"
+    },
+    "ar6-grid-city-samples.npz": {
+      "bytes": 1598442,
+      "sha256": "2b427733f7271d9fcb560c90fa1bff7eebad53d119bce7ad7e5d249d84a03e0f"
+    },
+    "ar6-grid-summary.json": {
+      "bytes": 176239,
+      "sha256": "7f505f00d8199ef53829fd6a04f1d2866883e7fec33654240d0af11d93b9a358"
+    }
+  }
+}

@@ -102,8 +102,8 @@
   "palette": "ocean",
   "store": "rain.zarr",
   "range": [
-    -14.999979972839355,
-    155.0
+    5.0000200271606445,
+    175.0
   ],
   "source": "Analytic equations in scripts/prepare_data.py",
   "license": "CC0-1.0"

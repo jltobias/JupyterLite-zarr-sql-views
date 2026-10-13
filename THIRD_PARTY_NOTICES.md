@@ -45,3 +45,9 @@ public domain. The Copernicus ECMWF Climate Atlas tutorial is embedded from its 
 YouTube page (https://www.youtube.com/watch?v=o62IPhpvsAI); all rights remain with the creator.
 DM Sans and Space Grotesk are delivered by Google Fonts under SIL OFL; neither font file
 is checked into this repository. All external services have independent terms.
+
+## IPCC AR6 port-city extracts
+
+IPCC AR6 Sea Level Projections by Garner et al. (2021), version 20210809, accessed 2026-10-13, CC BY 4.0. Source: https://doi.org/10.5281/zenodo.5914709 and Rutgers-ESSP/IPCC-AR6-Sea-Level-Projections at commit 8ee75128d8f6d9a8ba9825f47c92d11955d0651e. Full required citations, licence and acknowledgement are preserved in [licenses/ipcc-ar6-sea-level-CC-BY-4.0.md](licenses/ipcc-ar6-sea-level-CC-BY-4.0.md), with access date supplied in [book/credits.md](book/credits.md). Modified data: four gauge locations, two scenarios, five gridded windows, nearest defined grid samples, mm-to-m conversion, per-year linear quantiles, north-up Zarr conversion. All 20,000 samples per selected location/year retained in statistical extracts. Exact URLs, source object hashes and transformations: public/data/ar6-provenance.json. No endorsement implied. Original studio code and workflow SVG remain ISC; projection data and derivative scientific figures retain CC BY 4.0 attribution.
+
+Numcodecs (MIT) is used only for native preparation of Blosc-compressed source chunks; it is not required in JupyterLite. Natural Earth country outlines are also packaged in notebooks/data/countries.geojson under their public-domain terms.

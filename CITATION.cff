@@ -6,10 +6,30 @@ authors:
   - name: 'JupyterLite-zarr-sql-views contributors'
 repository-code: 'https://github.com/jltobias/JupyterLite-zarr-sql-views'
 url: 'https://jltobias.github.io/JupyterLite-zarr-sql-views/'
-version: 0.1.0
-date-released: '2026-10-04'
+version: 0.2.0
+date-released: '2026-10-13'
 license: ISC
 references:
+  - type: data
+    title: IPCC AR6 Sea Level Projections
+    authors:
+      - name: 'Garner, G. G. and coauthors'
+    version: '20210809'
+    doi: 10.5281/zenodo.5914709
+    date-accessed: '2026-10-13'
+    license: CC-BY-4.0
+  - type: article
+    title: 'The Framework for Assessing Changes To Sea-level (FACTS) v1.0'
+    authors:
+      - name: 'Kopp, R. E. and coauthors'
+    year: 2023
+    doi: 10.5194/gmd-16-7461-2023
+  - type: book
+    title: 'Ocean, Cryosphere and Sea Level Change. IPCC AR6 WG1 Chapter 9'
+    authors:
+      - name: 'Fox-Kemper, B. and coauthors'
+    year: 2021
+    doi: 10.1017/9781009157896.011
   - type: software
     title: Zarr SQL Views
     authors:

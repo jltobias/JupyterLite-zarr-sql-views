@@ -2,3 +2,4 @@
 -r requirements.txt
 rasterio==1.5.2
 pyproj==3.8.0
+numcodecs==0.16.5

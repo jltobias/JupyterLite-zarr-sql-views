@@ -452,12 +452,12 @@
     "palette": "ocean",
     "store": "rain.zarr",
     "range": [
-      -14.999979972839355,
-      155.0
+      5.0000200271606445,
+      175.0
     ],
     "source": "Analytic equations in scripts/prepare_data.py",
     "license": "CC0-1.0",
-    "sha256_notebook_zip": "bfdb4c1174062570f3a1f99f3bd40f9de2d92a2aca4addb0c6343db7866f2281"
+    "sha256_notebook_zip": "5233f1461bee99c0f330f487cca97c1807517069cac443e9528cfcaf2f8b4f14"
   },
   {
     "id": "coast",
@@ -649,5 +649,270 @@
     "source": "Analytic equation in scripts/prepare_data.py",
     "license": "CC0-1.0",
     "sha256_notebook_zip": "50449b75ec2601eb27fa062ba33c7bbf1a02193121b6899182cff67c82648948"
+  },
+  {
+    "id": "ar6_abidjan",
+    "title": "Abidjan \u00b7 AR6 sea-level projection",
+    "shape": [
+      9,
+      5,
+      5
+    ],
+    "lon": [
+      -6.0,
+      -5.0,
+      -4.0,
+      -3.0,
+      -2.0
+    ],
+    "lat": [
+      7.0,
+      6.0,
+      5.0,
+      4.0,
+      3.0
+    ],
+    "times": [
+      "2020",
+      "2030",
+      "2040",
+      "2050",
+      "2060",
+      "2070",
+      "2080",
+      "2090",
+      "2100"
+    ],
+    "units": "relative sea-level change (m; 1995\u20132014 baseline)",
+    "kind": "projected",
+    "description": "AR6 v20210809, wf_1e / SSP5-8.5, median of all 20,000 samples per year. One-degree regional projection locations; no additional land/ocean mask. Background land motion included. Not a flood map or canonical IPCC p-box. Extruded height is a visual scale, not terrain.",
+    "palette": "ocean",
+    "store": "ar6_abidjan.zarr",
+    "range": [
+      0.052000001072883606,
+      0.8190000057220459
+    ],
+    "source": "Garner et al. (2021), doi:10.5281/zenodo.5914709; FACTS; IPCC AR6 WG1 Ch9",
+    "license": "CC-BY-4.0",
+    "workflow": "wf_1e",
+    "scenario": "ssp585",
+    "statistic": "p50",
+    "baseline": "1995\u20132014",
+    "sample_count": 20000,
+    "data_version": "20210809",
+    "provenance": "ar6-provenance.json",
+    "sha256_notebook_zip": "bc3fe17aae73cca67999f759edbed398b1ae2af91ae490e0f651b3cd594e3eda"
+  },
+  {
+    "id": "ar6_lagos",
+    "title": "Lagos \u00b7 AR6 sea-level projection",
+    "shape": [
+      9,
+      5,
+      5
+    ],
+    "lon": [
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0
+    ],
+    "lat": [
+      8.0,
+      7.0,
+      6.0,
+      5.0,
+      4.0
+    ],
+    "times": [
+      "2020",
+      "2030",
+      "2040",
+      "2050",
+      "2060",
+      "2070",
+      "2080",
+      "2090",
+      "2100"
+    ],
+    "units": "relative sea-level change (m; 1995\u20132014 baseline)",
+    "kind": "projected",
+    "description": "AR6 v20210809, wf_1e / SSP5-8.5, median of all 20,000 samples per year. One-degree regional projection locations; no additional land/ocean mask. Background land motion included. Not a flood map or canonical IPCC p-box. Extruded height is a visual scale, not terrain.",
+    "palette": "ocean",
+    "store": "ar6_lagos.zarr",
+    "range": [
+      0.054999999701976776,
+      0.8195000290870667
+    ],
+    "source": "Garner et al. (2021), doi:10.5281/zenodo.5914709; FACTS; IPCC AR6 WG1 Ch9",
+    "license": "CC-BY-4.0",
+    "workflow": "wf_1e",
+    "scenario": "ssp585",
+    "statistic": "p50",
+    "baseline": "1995\u20132014",
+    "sample_count": 20000,
+    "data_version": "20210809",
+    "provenance": "ar6-provenance.json",
+    "sha256_notebook_zip": "aa755ccb61d4e4c5889e159c25ec3a59415b50e75857dadcb3e5cd300c665b52"
+  },
+  {
+    "id": "ar6_bangkok",
+    "title": "Bangkok \u00b7 AR6 sea-level projection",
+    "shape": [
+      9,
+      5,
+      5
+    ],
+    "lon": [
+      98.0,
+      99.0,
+      100.0,
+      101.0,
+      102.0
+    ],
+    "lat": [
+      16.0,
+      15.0,
+      14.0,
+      13.0,
+      12.0
+    ],
+    "times": [
+      "2020",
+      "2030",
+      "2040",
+      "2050",
+      "2060",
+      "2070",
+      "2080",
+      "2090",
+      "2100"
+    ],
+    "units": "relative sea-level change (m; 1995\u20132014 baseline)",
+    "kind": "projected",
+    "description": "AR6 v20210809, wf_1e / SSP5-8.5, median of all 20,000 samples per year. One-degree regional projection locations; no additional land/ocean mask. Background land motion included. Not a flood map or canonical IPCC p-box. Extruded height is a visual scale, not terrain.",
+    "palette": "ocean",
+    "store": "ar6_bangkok.zarr",
+    "range": [
+      0.03500000014901161,
+      0.7200000286102295
+    ],
+    "source": "Garner et al. (2021), doi:10.5281/zenodo.5914709; FACTS; IPCC AR6 WG1 Ch9",
+    "license": "CC-BY-4.0",
+    "workflow": "wf_1e",
+    "scenario": "ssp585",
+    "statistic": "p50",
+    "baseline": "1995\u20132014",
+    "sample_count": 20000,
+    "data_version": "20210809",
+    "provenance": "ar6-provenance.json",
+    "sha256_notebook_zip": "e9ef3751be354c95293837e6f9ab5b0a37979e4fdcfb720ea2334b4082c8132d"
+  },
+  {
+    "id": "ar6_ho_chi_minh",
+    "title": "Ho Chi Minh City \u00b7 AR6 sea-level projection",
+    "shape": [
+      9,
+      5,
+      5
+    ],
+    "lon": [
+      105.0,
+      106.0,
+      107.0,
+      108.0,
+      109.0
+    ],
+    "lat": [
+      13.0,
+      12.0,
+      11.0,
+      10.0,
+      9.0
+    ],
+    "times": [
+      "2020",
+      "2030",
+      "2040",
+      "2050",
+      "2060",
+      "2070",
+      "2080",
+      "2090",
+      "2100"
+    ],
+    "units": "relative sea-level change (m; 1995\u20132014 baseline)",
+    "kind": "projected",
+    "description": "AR6 v20210809, wf_1e / SSP5-8.5, median of all 20,000 samples per year. One-degree regional projection locations; no additional land/ocean mask. Background land motion included. Not a flood map or canonical IPCC p-box. Extruded height is a visual scale, not terrain.",
+    "palette": "ocean",
+    "store": "ar6_ho_chi_minh.zarr",
+    "range": [
+      0.03799999877810478,
+      0.7480000257492065
+    ],
+    "source": "Garner et al. (2021), doi:10.5281/zenodo.5914709; FACTS; IPCC AR6 WG1 Ch9",
+    "license": "CC-BY-4.0",
+    "workflow": "wf_1e",
+    "scenario": "ssp585",
+    "statistic": "p50",
+    "baseline": "1995\u20132014",
+    "sample_count": 20000,
+    "data_version": "20210809",
+    "provenance": "ar6-provenance.json",
+    "sha256_notebook_zip": "9f7f5107619007097fe78e06188b5946393bb8282468ad73c272846da7ba1b9a"
+  },
+  {
+    "id": "ar6_manila",
+    "title": "Manila \u00b7 AR6 sea-level projection",
+    "shape": [
+      9,
+      5,
+      5
+    ],
+    "lon": [
+      119.0,
+      120.0,
+      121.0,
+      122.0,
+      123.0
+    ],
+    "lat": [
+      17.0,
+      16.0,
+      15.0,
+      14.0,
+      13.0
+    ],
+    "times": [
+      "2020",
+      "2030",
+      "2040",
+      "2050",
+      "2060",
+      "2070",
+      "2080",
+      "2090",
+      "2100"
+    ],
+    "units": "relative sea-level change (m; 1995\u20132014 baseline)",
+    "kind": "projected",
+    "description": "AR6 v20210809, wf_1e / SSP5-8.5, median of all 20,000 samples per year. One-degree regional projection locations; no additional land/ocean mask. Background land motion included. Not a flood map or canonical IPCC p-box. Extruded height is a visual scale, not terrain.",
+    "palette": "ocean",
+    "store": "ar6_manila.zarr",
+    "range": [
+      0.07999999821186066,
+      1.281000018119812
+    ],
+    "source": "Garner et al. (2021), doi:10.5281/zenodo.5914709; FACTS; IPCC AR6 WG1 Ch9",
+    "license": "CC-BY-4.0",
+    "workflow": "wf_1e",
+    "scenario": "ssp585",
+    "statistic": "p50",
+    "baseline": "1995\u20132014",
+    "sample_count": 20000,
+    "data_version": "20210809",
+    "provenance": "ar6-provenance.json",
+    "sha256_notebook_zip": "57ad2ea3d1b50f63331a102a0f744e28f6843bf531ffac5474f9fd627d9dc51e"
   }
 ]

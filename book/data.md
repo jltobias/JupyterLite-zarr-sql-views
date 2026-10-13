@@ -1,6 +1,6 @@
 # Data catalog and provenance
 
-One observed water cube, one official auxiliary climate table, five synthetic method cubes, and generalized boundaries are distributed. The origin is visible in the lab, each lesson, and exports.
+One observed water cube, one official auxiliary climate table, five synthetic method cubes, five AR6 projected sea-level cubes, selected AR6 Monte Carlo samples, and generalized boundaries are distributed. The origin is visible in the lab, each lesson, and exports. See the [AR6 studio data specification](sea-level.md) for source objects, sample counts, scenarios, units and geographic coverage.
 
 | Resource | Origin | Coverage | License | Interpretation |
 |---|---|---|---|---|

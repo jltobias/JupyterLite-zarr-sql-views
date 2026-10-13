@@ -18,6 +18,8 @@ export async function openEngine() {
       if (meta.shape.reduce((a,b)=>a*b,1)>100000) throw Error('Teaching limit: 100,000 cells. Choose a smaller window.');
       const root = zarr.root(new zarr.FetchStore(new URL(meta.store+'/',base)));
       const array = await zarr.open(root.resolve('value'), {kind:'array'});
+      if (JSON.stringify(array.shape)!==JSON.stringify(meta.shape) || array.shape.reduce((a,b)=>a*b,1)>100000)
+        throw Error('Zarr dimensions do not match the bounded catalog window');
       const result = await zarr.get(array);
       const rows = flattenCube(result.data, meta);
       await connection.query('DROP TABLE IF EXISTS cells');

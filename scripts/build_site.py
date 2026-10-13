@@ -10,7 +10,7 @@ def run(*args):
     print('+',' '.join(map(str,args)),flush=True)
     subprocess.run(list(map(str,args)),cwd=ROOT,check=True)
 def copytree(source,target):
-    shutil.copytree(source,target,dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','.ipynb_checkpoints','*.pyc','*-points.geojson','*-geolibre.geojson','optical-candidates.geojson','evidence-record.json'))
+    shutil.copytree(source,target,dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','.ipynb_checkpoints','*.pyc','*-points.geojson','*-geolibre.geojson','optical-candidates.geojson','ar6-projections.geojson','ar6-lagos-grid.geojson','evidence-record.json'))
 
 if not (ROOT/'dist/index.html').exists():
     raise SystemExit('Run npm run build first.')

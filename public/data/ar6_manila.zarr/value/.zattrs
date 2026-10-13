@@ -1,0 +1,8 @@
+{
+  "_ARRAY_DIMENSIONS": [
+    "time",
+    "latitude",
+    "longitude"
+  ],
+  "units": "relative sea-level change (m; 1995\u20132014 baseline)"
+}

@@ -49,6 +49,7 @@ For any figure you reuse, retain its units, date or scenario, data origin, trans
 Teaching adaptation of [dzole0311/zarr-sql-views](https://github.com/dzole0311/zarr-sql-views), ISC.
 Original teaching code and prose: JupyterLite-zarr-sql-views contributors, ISC. Data keep their separate licenses.
 ''')]
+    n.cells.append(code(f"print('LESSON COMPLETE: {slug}')"))
     # Stable IDs keep regeneration reviewable.
     for i,c in enumerate(n.cells):c.id=f'{slug}-{i:02d}'
     nb.write(n,OUT/f'{slug}.ipynb'); INDEX.append({'slug':slug,'title':title,'minutes':minutes})
@@ -400,8 +401,12 @@ The digital method is only one part of that work.''')],[UP,DE,C3,IPCC],
 'A strong submission makes a modest, reproducible claim and identifies the next evidence needed. A synthetic exercise is valid when its data origin remains unmistakable.')
 
 if __name__=='__main__':
+    from ar6_lessons import add_lessons
+    add_lessons(lesson,md,code)
     (OUT/'assets').mkdir(exist_ok=True)
     shutil.copy2(ROOT/'public/assets/pipeline.svg',OUT/'assets/pipeline.svg')
+    shutil.copy2(ROOT/'public/assets/ar6-workflow.svg',OUT/'assets/ar6-workflow.svg')
+    shutil.copy2(ROOT/'public/data/countries.geojson',OUT/'data/countries.geojson')
     shutil.copy2(ROOT/'public/data/deafrica-provenance.json',OUT/'data/deafrica-provenance.json')
     (ROOT/'course-index.json').write_text(__import__('json').dumps(INDEX,indent=2)+'\n',encoding='utf-8')
     print('Wrote',len(INDEX),'notebooks')

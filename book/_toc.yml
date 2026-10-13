@@ -20,6 +20,13 @@ parts:
       - file: notebooks/10_food_water
       - file: notebooks/11_stac_geolibre
       - file: notebooks/12_capstone
+  - caption: AR6 port-city studio
+    chapters:
+      - file: sea-level
+      - file: notebooks/13_ar6_archive
+      - file: notebooks/14_ar6_port_cities
+      - file: notebooks/15_ar6_grid_maps
+      - file: notebooks/16_ar6_uncertainty
   - caption: Reuse responsibly
     chapters:
       - file: accessibility

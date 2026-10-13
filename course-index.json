@@ -58,5 +58,25 @@
     "slug": "12_capstone",
     "title": "12 \u00b7 Capstone: an evidence-led climate story",
     "minutes": 60
+  },
+  {
+    "slug": "13_ar6_archive",
+    "title": "13 \u00b7 Open the AR6 archive without downloading the world",
+    "minutes": 35
+  },
+  {
+    "slug": "14_ar6_port_cities",
+    "title": "14 \u00b7 Five port cities, four tide-gauge proxies",
+    "minutes": 50
+  },
+  {
+    "slug": "15_ar6_grid_maps",
+    "title": "15 \u00b7 Regional grids, 3D maps, and sea-level time cubes",
+    "minutes": 50
+  },
+  {
+    "slug": "16_ar6_uncertainty",
+    "title": "16 \u00b7 Threshold questions without false flood probabilities",
+    "minutes": 45
   }
 ]

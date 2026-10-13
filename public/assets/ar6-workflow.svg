@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="410" viewBox="0 0 1160 410" role="img" aria-labelledby="title desc">
+<title id="title">From sea-level archives to a defensible port-city question</title>
+<desc id="desc">Inspect large source chunks, extract bounded city locations, compare conditional distributions, and add separate local flood-risk evidence. Five cities are Abidjan, Lagos, Bangkok, Ho Chi Minh City and Manila.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#8cd0c2"/></marker></defs>
+<rect width="1160" height="410" rx="20" fill="#102e39"/>
+<g font-family="Arial, sans-serif" fill="#edf6f4">
+<text x="35" y="43" font-size="14" fill="#9ed9c9" letter-spacing="2">PORT CITIES / SEA-LEVEL FUTURES</text>
+<text x="35" y="84" font-size="29" font-weight="bold">Small windows. All samples. Explicit uncertainty.</text>
+<text x="35" y="115" font-size="16" fill="#b9ced2">Abidjan &#183; Lagos &#183; Bangkok &#183; Ho Chi Minh City &#183; Manila</text>
+<g fill="#1d4450" stroke="#4c737b"><rect x="35" y="149" width="245" height="138" rx="12"/><rect x="315" y="149" width="245" height="138" rx="12"/><rect x="595" y="149" width="245" height="138" rx="12"/><rect x="875" y="149" width="250" height="138" rx="12"/></g>
+<g font-size="19" font-weight="bold"><text x="54" y="181">1 / Inspect the archive</text><text x="334" y="181">2 / Locate the evidence</text><text x="614" y="181">3 / Compare distributions</text><text x="894" y="181">4 / Build the local study</text></g>
+<g font-size="16" fill="#c6dce0"><text x="54" y="214">Axes, units, chunks, license</text><text x="54" y="242">20,000 samples per year</text><text x="54" y="269">Budget before decoding</text><text x="334" y="214">City is not gauge or grid</text><text x="334" y="242">Report proxy distances</text><text x="334" y="269">Keep missing cells visible</text><text x="614" y="214">Scenario + workflow + year</text><text x="614" y="242">Median and sample spread</text><text x="614" y="269">SQL, maps, time cubes</text><text x="894" y="214">Datum + elevation + water</text><text x="894" y="242">Defenses + assets + people</text><text x="894" y="269">Local knowledge + validation</text></g>
+<g stroke="#8cd0c2" stroke-width="2" marker-end="url(#arrow)"><path d="M285 218H307"/><path d="M565 218H587"/><path d="M845 218H867"/></g>
+<path d="M35 316H1125" stroke="#4c737b"/>
+<text x="35" y="348" font-size="17" fill="#e9c582">Projected relative sea-level change is one input to flood-risk analysis.</text>
+<text x="35" y="378" font-size="15" fill="#b9ced2">AR6 v20210809 &#183; wf_1e &#183; 1995&#8211;2014 baseline &#183; No rates or first-crossing dates from these samples.</text>
+</g></svg>
