@@ -136,7 +136,7 @@ if __name__=='__main__':
     DATA.mkdir(parents=True,exist_ok=True)
     deafrica(a.refresh_deafrica); synthetic()
     previous=json.loads((DATA/'catalog.json').read_text()) if (DATA/'catalog.json').exists() else []
-    combined=MANIFEST+[m for m in previous if m['id'].startswith('ar6_')]
+    combined=MANIFEST+[m for m in previous if m['id'] not in {entry['id'] for entry in MANIFEST}]
     write_json(DATA/'catalog.json',combined)
     write_json(ROOT/'notebooks/data/catalog.json',combined)
     print('Prepared',len(MANIFEST),'Zarr stores')

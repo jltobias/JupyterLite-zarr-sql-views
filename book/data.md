@@ -37,3 +37,7 @@ The [C3S Atlas gridded dataset](https://doi.org/10.24381/cds.h35hb680) and the [
 ## Climate-burden interpretation
 
 Use [IPCC AR6 WGII Chapter 9](https://www.ipcc.ch/report/ar6/wg2/chapter/chapter-9/) for regional context and its evidence and confidence assessments. The course illustrates analytic methods; it does not derive operational heat alerts, flood-risk estimates, drinking-water assessments, or food-security classifications. The capstone explicitly separates physical observations, inference, exposure, vulnerability, and the evidence needed next.
+
+## GeoTessera embeddings and similarity cubes
+
+The [embedding studio](embeddings.md) documents 128-dimensional v1.1-dclimate vectors, scales and optical/radar observation counts near Lagos and Abidjan for 2018, 2021 and 2025. Six compressed extracts total 3.33 MB. Two Zarr cubes hold cosine similarity to a fixed 2025 reference in each city. Data origin is explicitly `embedding`, separate from observations, synthetic demonstrations and AR6 projections. Original 10 m pixels are sampled at roughly 42 m geographic spacing with missing values preserved; maps do not represent area averages.

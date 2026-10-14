@@ -2,7 +2,7 @@
 
 ![Earth in the Browser — a changing Earth, a new perspective](public/assets/splash.svg)
 
-**A JupyterLite + Jupyter Book teaching atlas for Zarr, SQL, and Earth observation in the browser.** Sixteen executable Python lessons connect small data cubes to 2D maps, 3D extruded maps, orbitable space–time cubes, coastal scenes, and linked time series. The new **AR6 port-city studio** studies Abidjan, Lagos, Bangkok, Ho Chi Minh City, and Manila.
+**A JupyterLite + Jupyter Book teaching atlas for Zarr, SQL, and Earth observation in the browser.** Twenty-one executable Python lessons connect small data cubes to 2D maps, 3D extruded maps, orbitable space–time cubes, coastal scenes, and linked time series. The **GeoTessera embedding studio** explores real annual vectors near Lagos and Abidjan. The **AR6 port-city studio** studies Abidjan, Lagos, Bangkok, Ho Chi Minh City, and Manila.
 
 Inspired by and adapted from **[dzole0311/zarr-sql-views](https://github.com/dzole0311/zarr-sql-views)**. This independent teaching adaptation preserves upstream attribution and its ISC license.
 
@@ -19,6 +19,21 @@ Inspired by and adapted from **[dzole0311/zarr-sql-views](https://github.com/dzo
 These URLs are served by the repository’s GitHub Pages deployment. The Actions badge above reports the build/deployment state. No data-service account or notebook server is required for the bundled lessons. Initial runtime downloads require internet access; some optional external services have separate accounts and terms.
 
 ## Explore the lab demos
+
+### New: GeoTessera embedding studio
+
+![A year becomes a vector: observe, represent, explore, validate](public/assets/tessera-workflow.svg)
+
+**[Open the embedding studio](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/embeddings.html).** Five step-by-step notebooks explore real **TESSERA v1.1 / dclimate** data: embedding vectors and quantization, cosine similarity and SQL, shared PCA maps and a 3D feature-space plot, animation, clustering and transfer, and annual representation differences with observation-count checks.
+
+The **3.33 MB** data package contains 128-dimensional vectors near **Lagos / Apapa** and **Abidjan / Treichville**, for **2018, 2021 and 2025**. Each city has 4,096 query points spaced about 42 m, sampling individual 10 m native pixels without averaging. Original quantized values, scales, native coordinates and optical/radar counts are retained. These are small convenience windows, not representative city samples.
+
+| Window | 2D map | 3D score columns | Annual time cube |
+|---|---|---|---|
+| Lagos | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=tessera_lagos&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=tessera_lagos&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=tessera_lagos&mode=cube) |
+| Abidjan | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=tessera_abidjan&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=tessera_abidjan&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=tessera_abidjan&mode=cube) |
+
+Each lab compares vectors with its own city's fixed 2025 center reference; height is a similarity score. Embeddings are learned representations, not hazard measurements, class probabilities, or social labels. The lessons connect candidate changes to independent imagery, reference labels and the coastal studio without claiming flood extents or climate attribution. [Exact snapshot and checksums](public/data/tessera-provenance.json) · [GeoTessera](https://geotessera.org/) · [Paper](https://doi.org/10.48550/arXiv.2506.20380) · [dClimate store](https://github.com/dClimate/tessera-embeddings/blob/main/docs/global-store.md). Embedding data: CC0; GeoTessera client: MIT; original lessons and infographic: ISC. Full attribution is in the [studio guide](book/embeddings.md) and [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ### New: AR6 port-city studio
 
@@ -73,6 +88,11 @@ Each notebook includes learning objectives, short Python cells, explanatory Mark
 | 14 · Five port cities, four tide-gauge proxies | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=14_ar6_port_cities.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/14_ar6_port_cities.html) |
 | 15 · Regional grids, 3D maps, and sea-level time cubes | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=15_ar6_grid_maps.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/15_ar6_grid_maps.html) |
 | 16 · Threshold questions without false flood probabilities | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=16_ar6_uncertainty.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/16_ar6_uncertainty.html) |
+| 17 · GeoTessera: from satellite years to embedding vectors | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=17_tessera_embeddings.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/17_tessera_embeddings.html) |
+| 18 · Similarity search: vectors, maps, Zarr and SQL | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=18_tessera_similarity.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/18_tessera_similarity.html) |
+| 19 · PCA colors and a three-dimensional embedding space | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=19_tessera_pca.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/19_tessera_pca.html) |
+| 20 · Clusters, transfer and the need for independent labels | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=20_tessera_clusters.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/20_tessera_clusters.html) |
+| 21 · Annual embedding differences and coastal evidence | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=21_tessera_change.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/21_tessera_change.html) |
 
 Save your work by downloading notebooks and exports. JupyterLite browser storage is local to your device and browser profile.
 
@@ -98,6 +118,7 @@ python -m pip install -r requirements.txt
 npm ci
 python scripts/validate_data.py
 python scripts/validate_ar6.py
+python scripts/validate_tessera.py
 python scripts/execute_notebooks.py
 npm test
 npm run build
@@ -122,7 +143,7 @@ AR6 preparation is separate: install `requirements-data.txt`, then run `python s
 
 - **Lab:** Zarrita reads real Zarr chunks; Arrow transfers decoded cells; DuckDB-WASM applies numeric SQL predicates; deck.gl renders linked views. SQL operates on the loaded window, not automatic remote predicate pushdown.
 - **Notebooks:** NumPy, Matplotlib, and SQLite run in Pyodide. A documented narrow reader handles the course’s uncompressed Zarr v2 stores in ZIP containers. The notebooks do not require native DuckDB, rasterio, GDAL, or Open Data Cube in the browser.
-- **Scope:** eleven bounded cubes (one observed, five synthetic, five projected), maximum 100,000 cells per lab dataset, explicit missing-value handling, fixed dataset colour scales, and transparent origins. Generic remote Zarr/COG adapters and the full upstream forecast application are outside this teaching implementation.
+- **Scope:** thirteen bounded cubes (one observed, five synthetic, five projected, two derived from embeddings), maximum 100,000 cells per lab dataset, explicit missing-value handling, fixed dataset colour scales, and transparent origins. Generic remote Zarr/COG adapters and the full upstream forecast application are outside this teaching implementation.
 - **Network:** first launch downloads the browser runtimes. Optional live metadata, external video, fonts, and GIS applications require network access. No API secrets or tokens are committed.
 
 ## Credits, citations, and licenses
@@ -144,3 +165,10 @@ Thanks to JupyterLite, Jupyter Book, Pyodide, NumPy, Matplotlib, DuckDB-WASM, Ap
 ## Repository review
 
 [Review findings and resolutions, 13 October 2026](docs/review-2026-10-13.md) ? [Machine-readable findings](docs/review-2026-10-13.json). The AR6 update also fixes failed-load metadata mixing, negative synthetic rainfall, omitted negative terrain, preparation provenance, and verification gaps.
+
+
+## Reproduce the GeoTessera extracts
+
+Normal builds use the checked-in 3.33 MB extracts and need no native GIS packages. `python scripts/prepare_tessera.py` verifies their checksums and rebuilds the two Zarr similarity cubes without network access. For source reads, install `requirements-tessera.txt` in a separate native Python 3.12+ environment and run `python scripts/prepare_tessera.py --fetch`. This reuses verified files and pins the recorded Icechunk snapshot. To refetch, explicitly remove only the extract you intend to replace; the source window remains bounded. Students run the NumPy notebooks, not this native preparation stack.
+
+`python scripts/validate_tessera.py` checks local numerical and provenance contracts. With the native preparation dependencies, `python scripts/validate_tessera.py --source` also checks six pixels directly against raw hemisphere arrays in the pinned cloud snapshot, including all 128 components, scales, observation counts and native coordinates. Normal CI does not contact the source archive.

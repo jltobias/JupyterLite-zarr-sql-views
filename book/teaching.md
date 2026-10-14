@@ -47,3 +47,7 @@ A good answer can conclude that the supplied data cannot support a proposed clai
 Open JupyterLite and import NumPy and Matplotlib on each device before class so the first runtime download does not surprise students. Test the lab’s WebGL support on classroom hardware. Keep the rendered Jupyter Book and a native Python environment as alternatives. A blank iframe can often be bypassed using its new-tab link. Students should download their work: browser storage is not a submission system.
 
 For limited bandwidth, prioritize the rendered book and its static maps, then run the small Python exercises. The 3D lab and Pyodide require initial runtime downloads. Synthetic experiments remain labeled, even if used in an offline lesson.
+
+## GeoTessera sequence
+
+Lessons 17-21 provide 35-45 minute sessions on vectors, similarity, PCA, clusters and annual differences. Use the [studio guide](embeddings.md) for sequencing and interpretation. Have students predict a result, change one parameter, compare the result and record the evidence needed next. Assess reproducible methods and honest limitations. No independent class labels are bundled, so cluster stability must not be graded as classification accuracy.

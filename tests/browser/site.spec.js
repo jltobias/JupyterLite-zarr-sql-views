@@ -94,7 +94,36 @@ test('AR6 projected medians retain coordinates, scenario and baseline in all vie
   expect(obj.provenance_url).toContain('ar6-provenance.json');
 });
 
-for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_grid_maps','16_ar6_uncertainty']){
+test('TESSERA similarity maps preserve their reference, native data identity and sampling',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/lab/?dataset=tessera_lagos&mode=cube');
+  await expect(page.locator('#status')).toContainText('Ready',{timeout:60000});
+  await expect(page.locator('#kind')).toHaveText('EMBEDDINGS · DERIVED SIMILARITY');
+  await expect(page.locator('#count')).toHaveText('12,247');
+  await expect(page.locator('#visible')).toHaveText('12,247');
+  await page.locator('#predicate').fill('t = 2 AND row = 32 AND col = 32');
+  await page.locator('#query').click();
+  await expect(page.locator('#count')).toHaveText('1');
+  for(const mode of ['columns','map','scene','cube']){
+    await page.locator('#mode').selectOption(mode);
+    await expect(page.locator('#map canvas')).toBeVisible();
+  }
+  const pending=page.waitForEvent('download');await page.locator('#export').click();
+  const file=await (await pending).path();
+  const data=JSON.parse(await (await import('node:fs/promises')).readFile(file,'utf8'));
+  expect(data.features[0].properties.value).toBeCloseTo(1,7);
+  expect(data.features[0].geometry.coordinates).toEqual([3.3631875,6.4388125]);
+  expect(data.reference.year).toBe(2025);expect(data.dataset_variant).toBe('dclimate');
+  expect(data.snapshot_id).toBe('B6AFRJGX5XQC0A716PA0');
+  expect(data.license_url).toContain('zero/1.0');
+  expect(data.sampling).toContain('10 m source pixels');
+  await page.locator('#dataset').selectOption('tessera_abidjan');
+  await expect(page.locator('#status')).toContainText('Ready');
+  await expect(page.locator('#view-title')).toContainText('Abidjan');
+  expect(errors).toEqual([]);
+});
+
+for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_grid_maps','16_ar6_uncertainty','17_tessera_embeddings','18_tessera_similarity','19_tessera_pca','20_tessera_clusters','21_tessera_change']){
   test(`JupyterLite fully executes ${slug} in Pyodide`,async({page})=>{
     test.setTimeout(240000);
     // Expose the application only inside this test to inspect every model output,

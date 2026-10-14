@@ -1,0 +1,151 @@
+{
+  "provider": "TESSERA / University of Cambridge; dClimate global inference and hosting",
+  "dataset_version": "1.1",
+  "dataset_variant": "dclimate",
+  "store": "s3://tessera-embeddings/v1.1/dclimate.icechunk",
+  "snapshot_id": "B6AFRJGX5XQC0A716PA0",
+  "geotessera_commit": "2814c5b3d967e0247f50e7b8d825efdf4fd606a6",
+  "root_attributes": {
+    "geoemb:type": "pixel",
+    "geoemb:dimensions": 128,
+    "geoemb:model": "https://geotessera.org/model/1.1",
+    "geoemb:source_data": [
+      "s3://sentinel-cogs",
+      "https://datapool.asf.alaska.edu/RTC/OPERA-S1"
+    ],
+    "geoemb:data_type": "int8",
+    "geoemb:build_version": "0.1.0",
+    "geoemb:quantization": {
+      "method": "per_pixel_scale",
+      "original_dtype": "float32",
+      "quantized_dtype": "int8",
+      "scale": {
+        "type": "array",
+        "array_name": "scales",
+        "nodata": "NaN"
+      }
+    },
+    "checkpoint_id": "tessera_v1_1_aws_encoder.pt",
+    "geoemb:gsd": 10.0,
+    "geoemb:spatial_layout": "utm_zones",
+    "zarr_conventions": [
+      {
+        "schema_url": "https://raw.githubusercontent.com/geo-embeddings/embeddings-zarr-convention/0655212938f36351245dbd3e5e8868f811d43663/schema.json",
+        "spec_url": "https://github.com/geo-embeddings/embeddings-zarr-convention/blob/0655212938f36351245dbd3e5e8868f811d43663/README.md",
+        "uuid": "61c12cc5-0e28-4056-999a-480cf3fb7e4c",
+        "name": "geoemb:",
+        "description": "Geoembeddings convention for geospatial embedding arrays with model provenance"
+      }
+    ],
+    "optical_min_obs": 15
+  },
+  "years": [
+    2018,
+    2021,
+    2025
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "paper": "https://doi.org/10.48550/arXiv.2506.20380",
+  "source_docs": "https://github.com/dClimate/tessera-embeddings/blob/main/docs/global-store.md",
+  "method": "64 x 64 regular WGS84 query points per city. Each selects the containing native 10 m UTM pixel; no averaging or nearest-valid fill. Native pixel centers retained. Missing/invalid scales remain missing.",
+  "coverage_note": "Missing is not a water mask. Annual optical/radar observation counts are retained; counts are not confidence scores.",
+  "cities": [
+    {
+      "id": "lagos",
+      "title": "Lagos / Apapa vicinity",
+      "center": [
+        3.363,
+        6.439
+      ],
+      "query_bounds": [
+        3.351,
+        6.4270000000000005,
+        3.375,
+        6.451
+      ],
+      "source_crs": "EPSG:32631",
+      "source_zone": "31N",
+      "source_window": [
+        862582,
+        862844,
+        37499,
+        37761
+      ],
+      "query_grid_shape": [
+        64,
+        64
+      ],
+      "query_spacing_degrees": 0.000375,
+      "source_pixel_size_m": 10,
+      "max_query_to_pixel_center_m": 7.046682293797698
+    },
+    {
+      "id": "abidjan",
+      "title": "Abidjan / Treichville vicinity",
+      "center": [
+        -4.005,
+        5.295
+      ],
+      "query_bounds": [
+        -4.0169999999999995,
+        5.283,
+        -3.993,
+        5.3069999999999995
+      ],
+      "source_crs": "EPSG:32630",
+      "source_zone": "30N",
+      "source_window": [
+        875220,
+        875483,
+        22348,
+        22611
+      ],
+      "query_grid_shape": [
+        64,
+        64
+      ],
+      "query_spacing_degrees": 0.000375,
+      "source_pixel_size_m": 10,
+      "max_query_to_pixel_center_m": 6.989805955942704
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "tessera_lagos_2018.npz",
+      "sha256": "d7baec742ac15f6f3c34c0f49b963c905a1d5a3d96ac3bc2723b42cd55c05bd7",
+      "bytes": 554338,
+      "retrieved_utc": "2026-10-14T18:24:15.613680+00:00"
+    },
+    {
+      "file": "tessera_lagos_2021.npz",
+      "sha256": "eb76bb85994852efbde3eb14ac1404010e4e5ba3c65c55dd9a2f86ff9184dc3c",
+      "bytes": 556453,
+      "retrieved_utc": "2026-10-14T18:24:20.525471+00:00"
+    },
+    {
+      "file": "tessera_lagos_2025.npz",
+      "sha256": "dec230293bf50ccf5a094c0bc1c5272baaa6ff8ca7535d418a2437c30e75c4f6",
+      "bytes": 555455,
+      "retrieved_utc": "2026-10-14T18:24:26.723338+00:00"
+    },
+    {
+      "file": "tessera_abidjan_2018.npz",
+      "sha256": "847f3f73ac5760f929c27270b163405fb360c023f5e850b7fd76109331e78951",
+      "bytes": 553557,
+      "retrieved_utc": "2026-10-14T18:24:32.865999+00:00"
+    },
+    {
+      "file": "tessera_abidjan_2021.npz",
+      "sha256": "c1f34b6533622f487c9449be90aca2ac1f4e74d314bf82e08616eb3a87fb1a02",
+      "bytes": 554103,
+      "retrieved_utc": "2026-10-14T18:24:38.238932+00:00"
+    },
+    {
+      "file": "tessera_abidjan_2025.npz",
+      "sha256": "589b177ca335213e391de7ccd22ce2b93824b3f911750a94bc6b52e2f65d978c",
+      "bytes": 556179,
+      "retrieved_utc": "2026-10-14T18:24:43.238502+00:00"
+    }
+  ]
+}

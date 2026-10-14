@@ -6,10 +6,31 @@ authors:
   - name: 'JupyterLite-zarr-sql-views contributors'
 repository-code: 'https://github.com/jltobias/JupyterLite-zarr-sql-views'
 url: 'https://jltobias.github.io/JupyterLite-zarr-sql-views/'
-version: 0.2.0
-date-released: '2026-10-13'
+version: 0.3.0
+date-released: '2026-10-14'
 license: ISC
 references:
+  - type: article
+    title: 'TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis'
+    authors:
+      - name: 'Feng, Z. and coauthors'
+    year: 2025
+    doi: 10.48550/arXiv.2506.20380
+  - type: data
+    title: 'TESSERA v1.1 dClimate annual embeddings: Lagos and Abidjan teaching extracts'
+    authors:
+      - name: TESSERA collaborators and dClimate
+    version: '1.1-dclimate; snapshot B6AFRJGX5XQC0A716PA0'
+    date-accessed: '2026-10-14'
+    url: 'https://github.com/dClimate/tessera-embeddings/blob/main/docs/global-store.md'
+    license: CC0-1.0
+  - type: software
+    title: GeoTessera
+    authors:
+      - name: 'Anil Madhavapeddy, Frank Feng and GeoTessera contributors'
+    repository-code: 'https://github.com/ucam-eo/geotessera'
+    commit: 2814c5b3d967e0247f50e7b8d825efdf4fd606a6
+    license: MIT
   - type: data
     title: IPCC AR6 Sea Level Projections
     authors:

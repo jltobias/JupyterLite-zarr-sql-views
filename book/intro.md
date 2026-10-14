@@ -6,7 +6,7 @@ An open teaching atlas for **Zarr arrays, SQL, and Earth observation**. Read an 
 
 [Enter the Earth lab](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/) · [Open JupyterLite](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html) · [Source repository](https://github.com/jltobias/JupyterLite-zarr-sql-views)
 
-The course includes sixteen notebooks, eleven small Zarr cubes, linked maps and time series, four visual perspectives, an instructor guide, and an evidence-based capstone. A real Digital Earth Africa water-observation extract and the official C3S Atlas auxiliary warming-level table anchor the learning. Five synthetic laboratories make methods easy to inspect and change. The [AR6 port-city studio](sea-level.md) adds real projections for regional windows near Abidjan, Lagos, Bangkok, Ho Chi Minh City and Manila, with full-sample uncertainty exercises and five projected map cubes.
+The course includes twenty-one notebooks, thirteen small Zarr cubes, linked maps and time series, four visual perspectives, an instructor guide, and an evidence-based capstone. A real Digital Earth Africa water-observation extract and the official C3S Atlas auxiliary warming-level table anchor the learning. Five synthetic laboratories make methods easy to inspect and change. The [AR6 port-city studio](sea-level.md) adds real projections for regional windows near Abidjan, Lagos, Bangkok, Ho Chi Minh City and Manila, with full-sample uncertainty exercises and five projected map cubes.
 
 The scientific question comes first. Students learn to distinguish water presence from water access, temperature from thermal stress, and an optical signal from water quality. They also learn why a 3D picture or a SQL result is not evidence of causation.
 
@@ -27,3 +27,7 @@ No account is needed for the bundled lessons. External Atlas downloads and some 
 <iframe width="720" height="405" src="https://www.youtube-nocookie.com/embed/o62IPhpvsAI" title="Copernicus ECMWF Climate Atlas tutorial" loading="lazy" allowfullscreen></iframe>
 
 **Climate Atlas – Tutorial video**, Copernicus ECMWF. This is an externally hosted creator video, not a redistributed file. [Open on YouTube](https://www.youtube.com/watch?v=o62IPhpvsAI). Text alternative: [official C3S Atlas guide](https://climate.copernicus.eu/copernicus-interactive-climate-atlas-guide-powerful-new-c3s-tool). The original vector graphics and generated notebook maps provide visual explanations without requiring video playback.
+
+## Explore satellite embeddings
+
+The [GeoTessera studio](embeddings.md) adds five lessons using real annual vectors near Lagos and Abidjan: quantization, similarity search, PCA maps and 3D feature space, clustering, transfer and annual differences. Small verified extracts include observation counts so students can investigate input support before interpreting patterns.

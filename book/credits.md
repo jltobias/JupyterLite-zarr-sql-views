@@ -59,3 +59,7 @@ In order to document the impact of these sea-level rise projections, users of th
 Please also include in the acknowledgements of works citing these projections:
 
 > We thank the projection authors for developing and making the sea-level rise projections available, multiple funding agencies for supporting the development of the projections, and the NASA Sea Level Change Team for developing and hosting the IPCC AR6 Sea Level Projection Tool.
+
+## GeoTessera annual embeddings
+
+The [embedding studio](embeddings.md) gives the full dataset specification and citation to Feng et al. (2025; revised 2026), [TESSERA](https://doi.org/10.48550/arXiv.2506.20380). Credit TESSERA / University of Cambridge and collaborators, dClimate for global inference and hosting, and GeoTessera contributors for access software. Source inputs are Copernicus Sentinel-2 and OPERA Sentinel-1 RTC through the source archives recorded in the provenance. The six data extracts and two similarity cubes use CC0-1.0; GeoTessera preparation software is MIT; original lessons, helper code and infographic are ISC. Exact source snapshot, dates, native coordinates, transformations and hashes are retained in [provenance](https://jltobias.github.io/JupyterLite-zarr-sql-views/data/tessera-provenance.json). See the studio guide for full notices and the retained upstream terms. These are learned representations, not verified land-cover labels or physical hazard measurements.

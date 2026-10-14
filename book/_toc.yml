@@ -27,6 +27,14 @@ parts:
       - file: notebooks/14_ar6_port_cities
       - file: notebooks/15_ar6_grid_maps
       - file: notebooks/16_ar6_uncertainty
+  - caption: GeoTessera embedding studio
+    chapters:
+      - file: embeddings
+      - file: notebooks/17_tessera_embeddings
+      - file: notebooks/18_tessera_similarity
+      - file: notebooks/19_tessera_pca
+      - file: notebooks/20_tessera_clusters
+      - file: notebooks/21_tessera_change
   - caption: Reuse responsibly
     chapters:
       - file: accessibility

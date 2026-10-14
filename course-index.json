@@ -78,5 +78,30 @@
     "slug": "16_ar6_uncertainty",
     "title": "16 \u00b7 Threshold questions without false flood probabilities",
     "minutes": 45
+  },
+  {
+    "slug": "17_tessera_embeddings",
+    "title": "17 \u00b7 GeoTessera: from satellite years to embedding vectors",
+    "minutes": 35
+  },
+  {
+    "slug": "18_tessera_similarity",
+    "title": "18 \u00b7 Similarity search: vectors, maps, Zarr and SQL",
+    "minutes": 40
+  },
+  {
+    "slug": "19_tessera_pca",
+    "title": "19 \u00b7 PCA colors and a three-dimensional embedding space",
+    "minutes": 45
+  },
+  {
+    "slug": "20_tessera_clusters",
+    "title": "20 \u00b7 Clusters, transfer and the need for independent labels",
+    "minutes": 45
+  },
+  {
+    "slug": "21_tessera_change",
+    "title": "21 \u00b7 Annual embedding differences and coastal evidence",
+    "minutes": 45
   }
 ]

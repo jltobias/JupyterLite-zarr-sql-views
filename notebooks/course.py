@@ -69,7 +69,8 @@ def export_geojson(meta,values,path='selection.geojson',threshold=0):
     provenance='deafrica-provenance.json' if meta['id']=='ngami' else meta.get('provenance')
     if provenance: obj['provenance_url']=SITE+'/data/'+provenance
     if meta['license']=='CC-BY-4.0': obj['license_url']='https://creativecommons.org/licenses/by/4.0/'
-    for key in ['workflow','scenario','baseline','statistic','sample_count']:
+    if meta['license']=='CC0-1.0': obj['license_url']='https://creativecommons.org/publicdomain/zero/1.0/'
+    for key in ['workflow','scenario','baseline','statistic','sample_count','dataset_version','dataset_variant','snapshot_id','reference','sampling']:
         if key in meta: obj[key]=meta[key]
     Path(path).write_text(json.dumps(obj,allow_nan=False),encoding='utf-8')
     return len(features)

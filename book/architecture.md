@@ -12,6 +12,8 @@ The Python notebooks read the same stores inside ZIP containers so their files s
 
 ## Relationship to the source project
 
+The GeoTessera studio keeps the full 128-dimensional quantized vectors and scales in small NPZ extracts. Its browser helpers decode them with NumPy and preserve missing values. Native preparation uses the pinned GeoTessera Icechunk adapter to select bounded windows from one snapshot; no Icechunk or native GIS package is installed in JupyterLite. Only the derived scalar similarity fields enter the existing Zarr-to-SQL lab. A dimension of an embedding is never treated as a time step.
+
 Upstream `src/render/colors.ts` is preserved in `src/upstream-colors.ts`. Its palette interpolation drives the lab’s legends and cells. The DuckDB worker setup, bounded Arrow ingestion, and external-access setting in `src/engine.js` adapt upstream `src/analysis/runtime.ts`. The original ISC license is retained verbatim.
 
 The teaching adaptation uses a smaller explicit data schema and a simpler query workflow. It does not vendor the full upstream viewer, forecast catalogs, custom volume shaders, or Mosaic state-management system. Refer to [upstream at the pinned commit](https://github.com/dzole0311/zarr-sql-views/tree/9c1bb2cb0320ae2f194f3f0fd1c36841f4b52dff) to study those implementations.

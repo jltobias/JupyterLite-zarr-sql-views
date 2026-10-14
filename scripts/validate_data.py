@@ -6,12 +6,12 @@ import zipfile
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 catalog=json.loads((ROOT/'public/data/catalog.json').read_text())
-assert len(catalog)==11
+assert len(catalog)==13
 for meta in catalog:
     key=meta['id']; folder=ROOT/'public/data'/meta['store']
     spec=json.loads((folder/'value/.zarray').read_text())
     assert spec['shape']==meta['shape'] and spec['chunks']==[1,*meta['shape'][1:]]
-    assert meta['kind'] in ['observed','synthetic','projected'] and meta['units'] and meta['license']
+    assert meta['kind'] in ['observed','synthetic','projected','embedding'] and meta['units'] and meta['license']
     assert len(meta['lon'])==meta['shape'][2] and len(meta['lat'])==meta['shape'][1]
     assert np.all(np.diff(meta['lon'])>0) and np.all(np.diff(meta['lat'])<0)
     zipped=ROOT/'notebooks/data'/f'{key}.zip'

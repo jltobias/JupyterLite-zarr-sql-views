@@ -78,8 +78,8 @@ async function load(){
   try{
     const next=catalog.find(d=>d.id===$('dataset').value);await engine.load(next,base);meta=next;
     $('time').max=meta.times.length-1;$('time').value=0;point=null;
-    $('description').textContent=meta.description;$('kind').textContent={observed:'OBSERVATIONS · TEACHING EXTRACT',projected:'PROJECTIONS · IPCC AR6 WORKFLOW',synthetic:'SYNTHETIC · METHOD DEMONSTRATION'}[meta.kind];
-    $('kind').classList.toggle('synthetic',meta.kind==='synthetic');$('origin').textContent={observed:'DE Africa',projected:'IPCC AR6',synthetic:'Synthetic'}[meta.kind];
+    $('description').textContent=meta.description;$('kind').textContent={observed:'OBSERVATIONS · TEACHING EXTRACT',projected:'PROJECTIONS · IPCC AR6 WORKFLOW',synthetic:'SYNTHETIC · METHOD DEMONSTRATION',embedding:'EMBEDDINGS · DERIVED SIMILARITY'}[meta.kind];
+    $('kind').classList.toggle('synthetic',meta.kind==='synthetic');$('origin').textContent={observed:'DE Africa',projected:'IPCC AR6',synthetic:'Synthetic',embedding:'TESSERA'}[meta.kind];
     $('view-title').textContent=meta.title;$('units').textContent=meta.units;
     $('legend-min').textContent=meta.range[0].toFixed(2);$('legend-max').textContent=meta.range[1].toFixed(2);$('gradient').style.background=gradient(meta.palette);
     $('provenance').textContent=`${meta.source}. License: ${meta.license}. ${meta.description}`;

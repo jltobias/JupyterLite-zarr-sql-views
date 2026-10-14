@@ -1,0 +1,2 @@
+# Native data preparation only; JupyterLite uses NumPy and the bundled extracts.
+geotessera @ git+https://github.com/ucam-eo/geotessera.git@2814c5b3d967e0247f50e7b8d825efdf4fd606a6
