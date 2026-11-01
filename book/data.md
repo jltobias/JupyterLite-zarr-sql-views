@@ -41,3 +41,7 @@ Use [IPCC AR6 WGII Chapter 9](https://www.ipcc.ch/report/ar6/wg2/chapter/chapter
 ## GeoTessera embeddings and similarity cubes
 
 The [embedding studio](embeddings.md) documents 128-dimensional v1.1-dclimate vectors, scales and optical/radar observation counts near Lagos and Abidjan for 2018, 2021 and 2025. Six compressed extracts total 3.33 MB. Two Zarr cubes hold cosine similarity to a fixed 2025 reference in each city. Data origin is explicitly `embedding`, separate from observations, synthetic demonstrations and AR6 projections. Original 10 m pixels are sampled at roughly 42 m geographic spacing with missing values preserved; maps do not represent area averages.
+
+## Global FTW predictions
+
+The [FTW studio](fields.md) supplies two native 128 × 128 windows in Senegal and Kenya for 2024 and 2025, including all three probability classes, full intersecting field polygons and provider confidence attributes. Two scalar Zarr cubes expose the field-interior class to the lab as data origin `prediction`. These are PRUE model outputs, distinct from observed measurements, AR6 future projections and TESSERA embeddings. Class probabilities and the separate regional confidence score are not interchangeable. See the studio guide for source ETags, extract checksums, spatial support, licensing and limitations.

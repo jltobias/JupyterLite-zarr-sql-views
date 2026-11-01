@@ -123,7 +123,36 @@ test('TESSERA similarity maps preserve their reference, native data identity and
   expect(errors).toEqual([]);
 });
 
-for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_grid_maps','16_ar6_uncertainty','17_tessera_embeddings','18_tessera_similarity','19_tessera_pca','20_tessera_clusters','21_tessera_change']){
+test('FTW predictions query real values and retain model attribution in every view',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/lab/?dataset=ftw_senegal&mode=cube');
+  await expect(page.locator('#status')).toContainText('Ready',{timeout:60000});
+  await expect(page.locator('#kind')).toHaveText('PREDICTIONS · GLOBAL FTW / PRUE');
+  await expect(page.locator('#count')).toHaveText('32,768');
+  await page.locator('#predicate').fill('t = 1 AND row = 64 AND col = 64');
+  await page.locator('#query').click();await expect(page.locator('#count')).toHaveText('1');
+  await page.locator('#time').evaluate(el=>{el.value='1';el.dispatchEvent(new Event('input'));});
+  for(const mode of ['map','columns','cube','scene']){
+    await page.locator('#mode').selectOption(mode);
+    await expect(page.locator('#visible')).toHaveText('1');
+    await expect(page.locator('#map canvas')).toBeVisible();
+  }
+  const pending=page.waitForEvent('download');await page.locator('#export').click();
+  const fs=await import('node:fs/promises');
+  const data=JSON.parse(await fs.readFile(await (await pending).path(),'utf8'));
+  const source=await fs.readFile('public/data/ftw_senegal.zarr/value/1.0.0');
+  expect(data.features[0].properties.value).toBe(source.readFloatLE((64*128+64)*4));
+  expect(data.features[0].properties.time).toBe('2025');
+  expect(data.features[0].properties.kind).toBe('prediction');
+  expect(data.model).toBe('PRUE');expect(data.citation).toContain('2605.11055');
+  expect(data.license_url).toContain('by/4.0');expect(data.provenance_url).toContain('ftw-provenance.json');
+  await page.locator('#dataset').selectOption('ftw_kenya');
+  await expect(page.locator('#status')).toContainText('Ready');
+  await expect(page.locator('#view-title')).toContainText('Kenya');
+  expect(errors).toEqual([]);
+});
+
+for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_grid_maps','16_ar6_uncertainty','17_tessera_embeddings','18_tessera_similarity','19_tessera_pca','20_tessera_clusters','21_tessera_change','22_ftw_discovery','23_ftw_probability_sql','24_ftw_fields_confidence','25_ftw_change_food_water']){
   test(`JupyterLite fully executes ${slug} in Pyodide`,async({page})=>{
     test.setTimeout(240000);
     // Expose the application only inside this test to inspect every model output,

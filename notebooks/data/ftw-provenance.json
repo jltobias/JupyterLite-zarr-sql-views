@@ -1,0 +1,307 @@
+{
+  "dataset": "Global Fields of the World (FTW)",
+  "variant": "alpha",
+  "years": [
+    2024,
+    2025
+  ],
+  "provider": "Taylor Geospatial and collaborators; Microsoft AI for Good Research Lab",
+  "inputs": "Copernicus Sentinel-2 planting and harvest composites",
+  "model": "PRUE",
+  "source": "https://source.coop/ftw/global-data",
+  "physical_base": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/",
+  "logical_base": "https://data.source.coop/ftw/global-data/",
+  "catalog_commit": "fd844c4c646af0f8e653fba774f79cc17b2af124",
+  "catalog_commit_pins_data": false,
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "citation": "Robinson et al. (2026), The first global agricultural field boundary map at 10 m resolution",
+  "paper": "https://doi.org/10.48550/arXiv.2605.11055",
+  "retrieved_utc": "2026-11-01T21:55:22.363431+00:00",
+  "bands": [
+    "non_field_background",
+    "field",
+    "field_boundaries"
+  ],
+  "sampling": "Contiguous 128 x 128 native pixels, no resampling. Full polygons intersecting the pixel-edge extent; polygons are not clipped. Geometry and provider area/perimeter are retained.",
+  "confidence": "Separate 500 m confidence raster sampled upstream at each polygon representative point; raw / 0.578178 * 100, capped at 100; not the field softmax probability.",
+  "limitations": "Teaching windows selected by location, not representative country samples. Independent annual predictions are not tracked parcels. Not legal boundaries, crop yields, or food-security estimates.",
+  "regions": [
+    {
+      "id": "senegal",
+      "title": "Senegal River valley teaching window",
+      "country": "SN",
+      "center": [
+        -16.22,
+        16.3
+      ],
+      "bounds": [
+        -16.22577813203939,
+        16.294277934016396,
+        -16.21427973866979,
+        16.305776327385995
+      ],
+      "source_window": [
+        750770,
+        750898,
+        1823133,
+        1823261
+      ],
+      "shape": [
+        2,
+        3,
+        128,
+        128
+      ],
+      "crs": "EPSG:4326",
+      "field_count_by_year": {
+        "2024": 20,
+        "2025": 24
+      }
+    },
+    {
+      "id": "kenya",
+      "title": "Western Kenya teaching window",
+      "country": "KE",
+      "center": [
+        34.95,
+        -0.1
+      ],
+      "bounds": [
+        34.94422831143742,
+        -0.10566493416841147,
+        34.95572670480701,
+        -0.09416654079880041
+      ],
+      "source_window": [
+        933334,
+        933462,
+        2392757,
+        2392885
+      ],
+      "shape": [
+        2,
+        3,
+        128,
+        128
+      ],
+      "crs": "EPSG:4326",
+      "field_count_by_year": {
+        "2024": 322,
+        "2025": 320
+      }
+    }
+  ],
+  "source_objects": [
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/zarr/alpha/global.zarr/zarr.json",
+      "etag": "\"05952c65720d0df58aec8142080bb05f\"",
+      "bytes": 133913,
+      "last_modified": "Thu, 30 Jul 2026 10:01:49 GMT"
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/zarr/alpha/global.zarr/x/c/0",
+      "etag": "\"235b09f91551af2f2a3fb974c2f334db-6\"",
+      "bytes": 28210125,
+      "last_modified": "Wed, 22 Apr 2026 18:27:54 GMT"
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/zarr/alpha/global.zarr/y/c/0",
+      "etag": "\"18710024ac396d04d174bb587fce98ce-3\"",
+      "bytes": 11137811,
+      "last_modified": "Wed, 22 Apr 2026 18:28:07 GMT"
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/zarr/alpha/global.zarr/time/c/0",
+      "etag": "\"f5ad963814f773b4739149c4b1204916\"",
+      "bytes": 25,
+      "last_modified": "Thu, 05 Feb 2026 17:46:17 GMT"
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/zarr/alpha/global.zarr/band/c/0",
+      "etag": "\"731241107b69fca47b93d65a88c99b87\"",
+      "bytes": 96,
+      "last_modified": "Thu, 05 Feb 2026 17:46:17 GMT"
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/zarr/alpha/global.zarr/variables/c/0/0/91/222",
+      "etag": "\"be12731695b30793cc93e47341bfda0f\"",
+      "bytes": 620860758,
+      "last_modified": "Thu, 05 Feb 2026 18:43:01 GMT"
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/zarr/alpha/global.zarr/variables/c/1/0/91/222",
+      "etag": "\"9010d70131e577e1c75210545bdeb991\"",
+      "bytes": 615867084,
+      "last_modified": "Thu, 05 Feb 2026 19:40:44 GMT"
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=SN/Senegal.parquet",
+      "etag": "\"f040b00d7645bc19ace0231d97f706d0-197\"",
+      "bytes": 1645844093,
+      "last_modified": "Sun, 21 Jun 2026 06:24:29 GMT",
+      "row_groups": [
+        163,
+        164,
+        184
+      ],
+      "total_row_groups": 194,
+      "bytes_transferred": 38644796,
+      "geo_metadata": {
+        "version": "1.1.0",
+        "primary_column": "geometry",
+        "columns": {
+          "geometry": {
+            "encoding": "WKB",
+            "geometry_types": [
+              "Polygon"
+            ],
+            "covering": {
+              "bbox": {
+                "xmin": [
+                  "bbox",
+                  "xmin"
+                ],
+                "ymin": [
+                  "bbox",
+                  "ymin"
+                ],
+                "xmax": [
+                  "bbox",
+                  "xmax"
+                ],
+                "ymax": [
+                  "bbox",
+                  "ymax"
+                ]
+              }
+            },
+            "bbox": [
+              -17.50596253758759,
+              12.293106534990192,
+              -11.345518627427982,
+              16.692679298033397
+            ]
+          }
+        }
+      }
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/zarr/alpha/global.zarr/variables/c/0/0/113/292",
+      "etag": "\"de02ea49e72080030e0b2e845348f27e\"",
+      "bytes": 656716918,
+      "last_modified": "Thu, 05 Feb 2026 17:51:12 GMT"
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/zarr/alpha/global.zarr/variables/c/1/0/113/292",
+      "etag": "\"1f2ccbb412a08f865caea91622f5bf93\"",
+      "bytes": 661052095,
+      "last_modified": "Thu, 05 Feb 2026 18:50:16 GMT"
+    },
+    {
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/tge-labs/ftw-global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=KE/Kenya.parquet",
+      "etag": "\"9fa34e35a622fe05e70e5ef8b321e972-288\"",
+      "bytes": 2408777080,
+      "last_modified": "Sat, 20 Jun 2026 23:14:40 GMT",
+      "row_groups": [
+        61,
+        66,
+        67,
+        68,
+        113,
+        271,
+        397
+      ],
+      "total_row_groups": 405,
+      "bytes_transferred": 48459693,
+      "geo_metadata": {
+        "version": "1.1.0",
+        "primary_column": "geometry",
+        "columns": {
+          "geometry": {
+            "encoding": "WKB",
+            "geometry_types": [
+              "Polygon"
+            ],
+            "covering": {
+              "bbox": {
+                "xmin": [
+                  "bbox",
+                  "xmin"
+                ],
+                "ymin": [
+                  "bbox",
+                  "ymin"
+                ],
+                "xmax": [
+                  "bbox",
+                  "xmax"
+                ],
+                "ymax": [
+                  "bbox",
+                  "ymax"
+                ]
+              }
+            },
+            "bbox": [
+              33.912606831308615,
+              -4.6746593370167995,
+              41.905966509541024,
+              5.006987880186398
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "ftw-zarr-metadata.json",
+      "bytes": 133913,
+      "sha256": "c02f02086f9c51a8fc1a9acbf8496ab9c459c6d93223361c7576483fd1b6f952"
+    },
+    {
+      "file": "ftw-catalog.json",
+      "bytes": 4042,
+      "sha256": "fc4c1e477f0146f42d94c223e8dd8bbe261f62435960aa50a3c8ac3a6094cbe5"
+    },
+    {
+      "file": "ftw-zarr-collection.json",
+      "bytes": 7741,
+      "sha256": "e659a1e027ffb50ac42d7d040f14b4820d23f84039add090bd696f7bd7f41d8a"
+    },
+    {
+      "file": "ftw-vector-collection.json",
+      "bytes": 54008,
+      "sha256": "214785e9900e2490b1f6fd228ea2618df547b5e04ca7457a2a2ffc462b6ba1bd"
+    },
+    {
+      "file": "ftw_senegal_probabilities.npz",
+      "bytes": 298223,
+      "sha256": "5e8882633813fa3a0024775329779a578f741e325d0397991bb45835981e5698"
+    },
+    {
+      "file": "ftw_senegal_fields.geojson",
+      "bytes": 1349378,
+      "sha256": "d5f6b0c1bd41ebaa643cbd8bcd85a1a6cdc6180ac1db90f5c44530d06b7c02ef"
+    },
+    {
+      "file": "ftw_kenya_probabilities.npz",
+      "bytes": 341699,
+      "sha256": "3e9ef56e835c4c723d296f76640ef1a4dcfb697fa9252a0610e5e28037313648"
+    },
+    {
+      "file": "ftw_kenya_fields.geojson",
+      "bytes": 966460,
+      "sha256": "09c1e50699b5b7c94fd972cd2a78e2acca12e135b78648058ee91d517a306075"
+    }
+  ],
+  "source_transform": [
+    8.98311982e-05,
+    0.0,
+    -180.0,
+    0.0,
+    -8.98311982e-05,
+    83.748345
+  ]
+}

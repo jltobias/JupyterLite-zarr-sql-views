@@ -51,3 +51,7 @@ For limited bandwidth, prioritize the rendered book and its static maps, then ru
 ## GeoTessera sequence
 
 Lessons 17-21 provide 35-45 minute sessions on vectors, similarity, PCA, clusters and annual differences. Use the [studio guide](embeddings.md) for sequencing and interpretation. Have students predict a result, change one parameter, compare the result and record the evidence needed next. Assess reproducible methods and honest limitations. No independent class labels are bundled, so cluster stability must not be graded as classification accuracy.
+
+## Global FTW teaching sequence
+
+Lessons 22–25 take approximately 35, 40, 45 and 50 minutes. Use the [FTW studio guide](fields.md) to introduce product identity, then move from raster probability to vector geometry and confidence, followed by annual comparison and a research design exercise. Each lesson works independently in a fresh Python (Pyodide) kernel. Ask students to repeat Senegal exercises with Kenya and explain the sampling limits. Grade accurate distinctions among probability, regional confidence, verified change and social outcomes, rather than rewarding large selections or visually dramatic maps. Animation has static companion panels. The chapter includes an optional GeoLibre handoff and external catalog browsing.

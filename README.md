@@ -2,7 +2,7 @@
 
 ![Earth in the Browser — a changing Earth, a new perspective](public/assets/splash.svg)
 
-**A JupyterLite + Jupyter Book teaching atlas for Zarr, SQL, and Earth observation in the browser.** Twenty-one executable Python lessons connect small data cubes to 2D maps, 3D extruded maps, orbitable space–time cubes, coastal scenes, and linked time series. The **GeoTessera embedding studio** explores real annual vectors near Lagos and Abidjan. The **AR6 port-city studio** studies Abidjan, Lagos, Bangkok, Ho Chi Minh City, and Manila.
+**A JupyterLite + Jupyter Book teaching atlas for Zarr, SQL, and Earth observation in the browser.** Twenty-five executable Python lessons connect small data cubes to 2D maps, 3D extruded maps, orbitable space–time cubes, coastal scenes, and linked time series. The **GeoTessera embedding studio** explores real annual vectors near Lagos and Abidjan. The **AR6 port-city studio** studies Abidjan, Lagos, Bangkok, Ho Chi Minh City, and Manila.
 
 Inspired by and adapted from **[dzole0311/zarr-sql-views](https://github.com/dzole0311/zarr-sql-views)**. This independent teaching adaptation preserves upstream attribution and its ISC license.
 
@@ -20,7 +20,24 @@ These URLs are served by the repository’s GitHub Pages deployment. The Actions
 
 ## Explore the lab demos
 
-### New: GeoTessera embedding studio
+### New: Global Fields of the World studio
+
+![From satellite composites to predicted fields and independently validated questions](public/assets/ftw-workflow.svg)
+
+**[Open the FTW studio](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/fields.html).** Four notebooks explore real **Global Fields of the World (FTW)** predictions: catalog discovery, three-class probability maps, Zarr/SQL queries, 3D score surfaces, field polygons, confidence filtering, annual animation and food–water research questions.
+
+The two small windows in the **Senegal River valley** and **western Kenya** each retain 128 × 128 native pixels for **2024 and 2025**, with all three model classes. The package includes 44 Senegal and 642 Kenya polygon records across both years, selected by spatial intersection and preserved without clipping or simplification. Probability NPZs total 0.64 MB; polygon GeoJSONs total 2.32 MB. These are convenience windows, not representative country samples.
+
+| Window | 2D map | 3D columns | Annual time cube | Score scene |
+|---|---|---|---|---|
+| Senegal | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ftw_senegal&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ftw_senegal&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ftw_senegal&mode=cube) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ftw_senegal&mode=scene) |
+| Kenya | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ftw_kenya&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ftw_kenya&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ftw_kenya&mode=cube) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=ftw_kenya&mode=scene) |
+
+FTW fields are **model-predicted remote-sensing units, not legal parcels or farm ownership records**. Pixel class probability and the separate 500 m confidence layer have different meanings. Annual differences do not establish verified land change, crop yield, food insecurity or climate attribution. [Exact provenance and checksums](public/data/ftw-provenance.json) · [Source dataset](https://source.coop/ftw/global-data) · [Studio methods and citations](book/fields.md).
+
+To rebuild lab cubes offline, run `python scripts/prepare_ftw.py`. To refresh the source extracts, install `requirements-ftw.txt` in a separate native environment and run `python scripts/prepare_ftw.py --fetch`. The script reads small Zarr windows and bounded GeoParquet ranges; ordinary builds and browser exercises use the checked-in extracts.
+
+### GeoTessera embedding studio
 
 ![A year becomes a vector: observe, represent, explore, validate](public/assets/tessera-workflow.svg)
 
@@ -94,6 +111,11 @@ Each notebook includes learning objectives, short Python cells, explanatory Mark
 | 20 · Clusters, transfer and the need for independent labels | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=20_tessera_clusters.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/20_tessera_clusters.html) |
 | 21 · Annual embedding differences and coastal evidence | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=21_tessera_change.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/21_tessera_change.html) |
 
+| 22 · Global FTW: discover fields, probabilities and confidence | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=22_ftw_discovery.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/22_ftw_discovery.html) |
+| 23 · FTW probability cubes: maps, SQL and 3D | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=23_ftw_probability_sql.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/23_ftw_probability_sql.html) |
+| 24 · Field polygons, confidence and selection bias | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=24_ftw_fields_confidence.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/24_ftw_fields_confidence.html) |
+| 25 · Annual field predictions and food–water questions | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=25_ftw_change_food_water.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/25_ftw_change_food_water.html) |
+
 Save your work by downloading notebooks and exports. JupyterLite browser storage is local to your device and browser profile.
 
 ## Copernicus, Digital Earth Africa, and browser GIS
@@ -119,6 +141,7 @@ npm ci
 python scripts/validate_data.py
 python scripts/validate_ar6.py
 python scripts/validate_tessera.py
+python scripts/validate_ftw.py
 python scripts/execute_notebooks.py
 npm test
 npm run build
@@ -143,7 +166,7 @@ AR6 preparation is separate: install `requirements-data.txt`, then run `python s
 
 - **Lab:** Zarrita reads real Zarr chunks; Arrow transfers decoded cells; DuckDB-WASM applies numeric SQL predicates; deck.gl renders linked views. SQL operates on the loaded window, not automatic remote predicate pushdown.
 - **Notebooks:** NumPy, Matplotlib, and SQLite run in Pyodide. A documented narrow reader handles the course’s uncompressed Zarr v2 stores in ZIP containers. The notebooks do not require native DuckDB, rasterio, GDAL, or Open Data Cube in the browser.
-- **Scope:** thirteen bounded cubes (one observed, five synthetic, five projected, two derived from embeddings), maximum 100,000 cells per lab dataset, explicit missing-value handling, fixed dataset colour scales, and transparent origins. Generic remote Zarr/COG adapters and the full upstream forecast application are outside this teaching implementation.
+- **Scope:** fifteen bounded cubes (one observed, five synthetic, five projected, two derived from embeddings, two FTW predictions), maximum 100,000 cells per lab dataset, explicit missing-value handling, fixed dataset colour scales, and transparent origins. Generic remote Zarr/COG adapters and the full upstream forecast application are outside this teaching implementation.
 - **Network:** first launch downloads the browser runtimes. Optional live metadata, external video, fonts, and GIS applications require network access. No API secrets or tokens are committed.
 
 ## Credits, citations, and licenses
@@ -171,4 +194,14 @@ Thanks to JupyterLite, Jupyter Book, Pyodide, NumPy, Matplotlib, DuckDB-WASM, Ap
 
 Normal builds use the checked-in 3.33 MB extracts and need no native GIS packages. `python scripts/prepare_tessera.py` verifies their checksums and rebuilds the two Zarr similarity cubes without network access. For source reads, install `requirements-tessera.txt` in a separate native Python 3.12+ environment and run `python scripts/prepare_tessera.py --fetch`. This reuses verified files and pins the recorded Icechunk snapshot. To refetch, explicitly remove only the extract you intend to replace; the source window remains bounded. Students run the NumPy notebooks, not this native preparation stack.
 
-`python scripts/validate_tessera.py` checks local numerical and provenance contracts. With the native preparation dependencies, `python scripts/validate_tessera.py --source` also checks six pixels directly against raw hemisphere arrays in the pinned cloud snapshot, including all 128 components, scales, observation counts and native coordinates. Normal CI does not contact the source archive.
+`python scripts/validate_tessera.py
+python scripts/validate_ftw.py` checks local numerical and provenance contracts. With the native preparation dependencies, `python scripts/validate_tessera.py
+python scripts/validate_ftw.py --source` also checks six pixels directly against raw hemisphere arrays in the pinned cloud snapshot, including all 128 components, scales, observation counts and native coordinates. Normal CI does not contact the source archive.
+
+## Global Fields of the World (FTW): citation and attribution
+
+**Dataset:** [Global Fields of the World](https://source.coop/ftw/global-data), alpha global predictions for 2024 and 2025, accessed 2026-11-01. **Taylor Geospatial and collaborators**, including **Microsoft AI for Good Research Lab**, Arizona State University, Washington University in St. Louis, Oregon State University and Clark University. PRUE model predictions use **Copernicus Sentinel-2** planting and harvest composites. **Source Cooperative**, a Radiant Earth initiative, hosts the data. [Official project](https://fieldsofthe.world/).
+
+**Citation:** Robinson, C., Muhawenayo, G., Khanal, S., Fang, Z., Corley, I., Tárano, A. M., Estes, L., Marcus, J., Jacobs, N., Kerner, H., Becker-Reshef, I., & Lavista Ferres, J. M. (2026). *The first global agricultural field boundary map at 10 m resolution*. arXiv:2605.11055. [https://doi.org/10.48550/arXiv.2605.11055](https://doi.org/10.48550/arXiv.2605.11055).
+
+**License:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/); [full license text](licenses/ftw-CC-BY-4.0.txt). This atlas modifies the distribution by spatial subsetting, GeoJSON conversion, metadata annotations and scalar Zarr repackaging. Original probability values, full selected polygon geometries and provider attributes are retained. Preserve attribution, license links and an indication of changes when reusing the extracts. No affiliation or endorsement is implied. The FTW global predictions are distinct from the separately published FTW training benchmark. Original lessons and the FTW workflow graphic are ISC licensed.

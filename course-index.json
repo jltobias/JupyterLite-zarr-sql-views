@@ -103,5 +103,25 @@
     "slug": "21_tessera_change",
     "title": "21 \u00b7 Annual embedding differences and coastal evidence",
     "minutes": 45
+  },
+  {
+    "slug": "22_ftw_discovery",
+    "title": "22 \u00b7 Global FTW: discover fields, probabilities and confidence",
+    "minutes": 35
+  },
+  {
+    "slug": "23_ftw_probability_sql",
+    "title": "23 \u00b7 FTW probability cubes: maps, SQL and 3D",
+    "minutes": 40
+  },
+  {
+    "slug": "24_ftw_fields_confidence",
+    "title": "24 \u00b7 Field polygons, confidence and selection bias",
+    "minutes": 45
+  },
+  {
+    "slug": "25_ftw_change_food_water",
+    "title": "25 \u00b7 Annual field predictions and food\u2013water questions",
+    "minutes": 50
   }
 ]

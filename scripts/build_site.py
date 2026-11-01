@@ -10,7 +10,7 @@ def run(*args):
     print('+',' '.join(map(str,args)),flush=True)
     subprocess.run(list(map(str,args)),cwd=ROOT,check=True)
 def copytree(source,target):
-    shutil.copytree(source,target,dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','.ipynb_checkpoints','*.pyc','*-points.geojson','*-geolibre.geojson','optical-candidates.geojson','ar6-projections.geojson','ar6-lagos-grid.geojson','evidence-record.json'))
+    shutil.copytree(source,target,dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','.ipynb_checkpoints','*.pyc','*-points.geojson','*-geolibre.geojson','optical-candidates.geojson','ar6-projections.geojson','ar6-lagos-grid.geojson','ftw-selected-fields.geojson','evidence-record.json'))
 
 if not (ROOT/'dist/index.html').exists():
     raise SystemExit('Run npm run build first.')
@@ -23,7 +23,8 @@ copytree(ROOT/'public/assets',ROOT/'book/assets')
 copytree(ROOT/'notebooks',ROOT/'book/notebooks')
 run(sys.executable,'-c','from jupyter_book.cli.main import main; main()','build','book','--warningiserror','--keep-going')
 copytree(ROOT/'book/_build/html',SITE/'book')
-run(sys.executable,'-c','from jupyterlite_core.app import main; main()','build','--contents','notebooks','--output-dir',SITE/'lite')
+run(sys.executable,'-c','from jupyterlite_core.app import main; main()','build','--contents','notebooks',
+    '--extra-ignore-contents',r'/ftw-(probability-points|selected-fields)\.geojson$', '--output-dir',SITE/'lite')
 copytree(ROOT/'notebooks',SITE/'downloads/notebooks')
 copytree(ROOT/'licenses',SITE/'licenses')
 for name in ['LICENSE','THIRD_PARTY_NOTICES.md','CITATION.cff']:

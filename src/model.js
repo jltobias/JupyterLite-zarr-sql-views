@@ -28,7 +28,7 @@ export function geojson(rows,meta) {
     description:meta.description,provenance_url:meta.id==='ngami'?'https://jltobias.github.io/JupyterLite-zarr-sql-views/data/deafrica-provenance.json':meta.provenance?'https://jltobias.github.io/JupyterLite-zarr-sql-views/data/'+meta.provenance:null,
     license_url:meta.license==='CC-BY-4.0'?'https://creativecommons.org/licenses/by/4.0/':meta.license==='CC0-1.0'?'https://creativecommons.org/publicdomain/zero/1.0/':null,
     workflow:meta.workflow,scenario:meta.scenario,baseline:meta.baseline,statistic:meta.statistic,sample_count:meta.sample_count,
-    dataset_version:meta.dataset_version,dataset_variant:meta.dataset_variant,snapshot_id:meta.snapshot_id,reference:meta.reference,sampling:meta.sampling,
+    dataset_version:meta.dataset_version,dataset_variant:meta.dataset_variant,snapshot_id:meta.snapshot_id,reference:meta.reference,sampling:meta.sampling,model:meta.model,citation:meta.citation,
     features:rows.map(({lon,lat,...r})=>({type:'Feature',
       geometry:{type:'Point',coordinates:[lon,lat]},properties:{...r,time:meta.times[r.t],units:meta.units,kind:meta.kind}}))};
 }

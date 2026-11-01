@@ -6,10 +6,24 @@ authors:
   - name: 'JupyterLite-zarr-sql-views contributors'
 repository-code: 'https://github.com/jltobias/JupyterLite-zarr-sql-views'
 url: 'https://jltobias.github.io/JupyterLite-zarr-sql-views/'
-version: 0.3.0
-date-released: '2026-10-14'
+version: 0.4.0
+date-released: '2026-11-01'
 license: ISC
 references:
+  - type: data
+    title: 'Global Fields of the World (FTW): 2024 and 2025 predictions'
+    authors:
+      - name: 'Taylor Geospatial and collaborators'
+    version: alpha
+    date-accessed: '2026-11-01'
+    url: 'https://source.coop/ftw/global-data'
+    license: CC-BY-4.0
+  - type: article
+    title: 'The first global agricultural field boundary map at 10 m resolution'
+    authors:
+      - name: 'Robinson, C. and coauthors'
+    year: 2026
+    doi: 10.48550/arXiv.2605.11055
   - type: article
     title: 'TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis'
     authors:

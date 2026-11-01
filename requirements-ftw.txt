@@ -1,0 +1,7 @@
+# Optional native preparation only. Browser lessons use NumPy and Matplotlib.
+numpy>=2.1,<3
+requests>=2.32,<3
+zarr==3.4.1
+obstore==0.11.1
+pyarrow==26.0.0
+shapely>=2.1,<3

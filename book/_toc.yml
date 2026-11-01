@@ -35,6 +35,13 @@ parts:
       - file: notebooks/19_tessera_pca
       - file: notebooks/20_tessera_clusters
       - file: notebooks/21_tessera_change
+  - caption: Global FTW field studio
+    chapters:
+      - file: fields
+      - file: notebooks/22_ftw_discovery
+      - file: notebooks/23_ftw_probability_sql
+      - file: notebooks/24_ftw_fields_confidence
+      - file: notebooks/25_ftw_change_food_water
   - caption: Reuse responsibly
     chapters:
       - file: accessibility

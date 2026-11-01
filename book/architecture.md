@@ -27,3 +27,7 @@ The lab data and boundaries are same-origin. JupyterLite runtime packages and fo
 ## Adding a dataset
 
 Create a reviewed small extract using the pattern in `scripts/prepare_data.py`. Preserve source URLs, identifiers, dates, native CRS, units, nodata, transformation method, quality masks, license, and scientific limitations. Use a `(time, latitude, longitude)` array with explicit monotonic coordinates and one time slice per chunk. Record whether each output is observed, modeled, or synthetic. Rebuild the catalog and notebook ZIP, run the data checks, and add a lesson that interprets the quantity correctly.
+
+## Global FTW data path
+
+Optional native preparation reads sharded Zarr v3 probability windows and spatially selected GeoParquet row groups over anonymous HTTPS ranges. Exact full-resolution probability values go to compressed NPZ and uncompressed Zarr v2; selected full polygon geometries go to GeoJSON. Browser Python uses only NumPy, Matplotlib and SQLite. The JavaScript lab reads the scalar Zarr store and retains `prediction`, model, citation and provenance on export. The core build requires no FTW cloud access. See [the FTW guide](fields.md) for preparation budgets and reproducibility limits.
