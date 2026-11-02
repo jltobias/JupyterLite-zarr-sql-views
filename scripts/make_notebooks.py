@@ -407,11 +407,14 @@ if __name__=='__main__':
     add_tessera(lesson,md,code)
     from ftw_lessons import add_lessons as add_ftw
     add_ftw(lesson,md,code)
+    from seasfire_lessons import add_lessons as add_seasfire
+    add_seasfire(lesson,md,code)
     (OUT/'assets').mkdir(exist_ok=True)
     shutil.copy2(ROOT/'public/assets/pipeline.svg',OUT/'assets/pipeline.svg')
     shutil.copy2(ROOT/'public/assets/ar6-workflow.svg',OUT/'assets/ar6-workflow.svg')
     shutil.copy2(ROOT/'public/assets/tessera-workflow.svg',OUT/'assets/tessera-workflow.svg')
     shutil.copy2(ROOT/'public/assets/ftw-workflow.svg',OUT/'assets/ftw-workflow.svg')
+    shutil.copy2(ROOT/'public/assets/seasfire-workflow.svg',OUT/'assets/seasfire-workflow.svg')
     shutil.copy2(ROOT/'public/data/countries.geojson',OUT/'data/countries.geojson')
     shutil.copy2(ROOT/'public/data/deafrica-provenance.json',OUT/'data/deafrica-provenance.json')
     (ROOT/'course-index.json').write_text(__import__('json').dumps(INDEX,indent=2)+'\n',encoding='utf-8')

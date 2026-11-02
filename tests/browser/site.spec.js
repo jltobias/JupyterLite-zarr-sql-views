@@ -152,9 +152,30 @@ test('FTW predictions query real values and retain model attribution in every vi
   expect(errors).toEqual([]);
 });
 
-for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_grid_maps','16_ar6_uncertainty','17_tessera_embeddings','18_tessera_similarity','19_tessera_pca','20_tessera_clusters','21_tessera_change','22_ftw_discovery','23_ftw_probability_sql','24_ftw_fields_confidence','25_ftw_change_food_water']){
+test('SeasFire lab retains historical values, temporal support and citations',async({page})=>{
+  await page.goto('/lab/?dataset=seasfire_zambia&mode=cube');
+  await expect(page.locator('#status')).toContainText('Ready',{timeout:60000});
+  await expect(page.locator('#kind')).toHaveText('HISTORICAL · SEASFIRE / GWIS');
+  await expect(page.locator('#count')).toHaveText('47,104');
+  await page.locator('#predicate').fill('t = 45 AND row = 8 AND col = 8');
+  await page.locator('#query').click();await expect(page.locator('#count')).toHaveText('1');
+  const pending=page.waitForEvent('download');await page.locator('#export').click();
+  const fs=await import('node:fs/promises');
+  const data=JSON.parse(await fs.readFile(await (await pending).path(),'utf8'));
+  const raw=await fs.readFile('public/data/seasfire_zambia.zarr/value/45.0.0');
+  expect(data.features[0].properties.value).toBe(raw.readFloatLE((8*16+8)*4));
+  expect(data.features[0].properties.time).toBe('2018-12-27');
+  expect(data.features[0].properties.kind).toBe('historical');
+  expect(data.variable).toBe('gwis_ba');expect(data.temporal_support).toContain('5 or 6 days');
+  expect(data.citation).toContain('13834057');expect(data.license_url).toContain('by/4.0');
+  await page.locator('#dataset').selectOption('seasfire_ghana');
+  await expect(page.locator('#status')).toContainText('Ready');
+  await expect(page.locator('#view-title')).toContainText('Ghana');
+});
+
+for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_grid_maps','16_ar6_uncertainty','17_tessera_embeddings','18_tessera_similarity','19_tessera_pca','20_tessera_clusters','21_tessera_change','22_ftw_discovery','23_ftw_probability_sql','24_ftw_fields_confidence','25_ftw_change_food_water','26_seasfire_discovery','27_seasfire_maps_sql','28_seasfire_seasons_lags','29_seasfire_lexcube','30_seasfire_lexcube_compare']){
   test(`JupyterLite fully executes ${slug} in Pyodide`,async({page})=>{
-    test.setTimeout(240000);
+    test.setTimeout(slug.includes('lexcube')?360000:240000);
     // Expose the application only inside this test to inspect every model output,
     // including virtualized cells. This does not alter the published configuration.
     await page.route('**/lite/lab/index.html*',async route=>{
@@ -175,5 +196,45 @@ for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_g
     expect(cells.flatMap(c=>c.outputs).filter(o=>o.output_type==='error')).toEqual([]);
     expect(cells.every(c=>c.execution_count!==null)).toBeTruthy();
     expect(JSON.stringify(cells.at(-1).outputs)).toContain(`LESSON COMPLETE: ${slug}`);
+    if(slug==='29_seasfire_lexcube'||slug==='30_seasfire_lexcube_compare'){
+      const kernelCheck=async code=>{
+        const result=await page.evaluate(async code=>{
+          const kernel=window.jupyterapp.shell.currentWidget.sessionContext.session.kernel;
+          const future=kernel.requestExecute({code,store_history:false,stop_on_error:true});
+          const errors=[];future.onIOPub=m=>{if(m.header.msg_type==='error')errors.push(m.content);};
+          await future.done;return errors;
+        },code);
+        expect(result).toEqual([]);
+      };
+      // Scroll the virtualized notebook to the real WebGL widget, then exercise
+      // its volume protocol and a keyboard-operated range slider.
+      const cell=slug.startsWith('29')?5:3;
+      await page.evaluate(async i=>{await window.jupyterapp.shell.currentWidget.content.scrollToItem(i);},cell);
+      const cube=page.locator('.lexcube').first();
+      await expect(cube).toBeVisible({timeout:60000});
+      await expect(cube.locator('.axis-label-z-min')).toContainText('2018',{timeout:60000});
+      await expect(cube.locator('.enable-volume-viz-button')).toBeVisible({timeout:30000});
+      await cube.screenshot({path:test.info().outputPath('lexcube-surface.png')});
+      await cube.locator('.enable-volume-viz-button').click();
+      await expect(cube.locator('.volume-viz-main-column')).toBeVisible({timeout:60000});
+      await cube.locator('.disable-volume-viz-button').click();
+      const name=slug.startsWith('29')?'w':'left';
+      await kernelCheck(`assert ${name}.get_current_cube_selection().shape == (184,16,16), ${name}.get_current_cube_selection().shape`);
+      const slider=page.locator('.widget-slider').first();
+      await slider.scrollIntoViewIfNeeded();
+      // Decrement the stop-exclusive longitude endpoint by one native cell.
+      const handles=slider.getByRole('slider');
+      await expect(handles).toHaveCount(2);
+      await handles.last().focus();await page.keyboard.press('ArrowLeft');await page.keyboard.press('Tab');
+      await expect(handles.last()).toHaveAttribute('aria-valuenow',/^15(?:\.0+)?$/);
+      await kernelCheck(`assert ${name}.xlim == (0,15), ${name}.xlim\nassert ${name}.get_current_cube_selection().shape == (184,16,15)`);
+      if(slug.startsWith('30')){
+        await kernelCheck('assert left.xlim == right.xlim\nnp.testing.assert_array_equal(left.get_current_cube_selection().time.values,right.get_current_cube_selection().time.values)');
+        await page.getByRole('button',{name:'Plot selected series',exact:true}).click();
+      }else{
+        await page.getByRole('button',{name:'Summarize selection',exact:true}).click();
+        await expect(page.locator('body')).toContainText('Selection shape: (184, 16, 15)');
+      }
+    }
   });
 }

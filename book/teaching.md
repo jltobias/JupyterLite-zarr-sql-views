@@ -55,3 +55,9 @@ Lessons 17-21 provide 35-45 minute sessions on vectors, similarity, PCA, cluster
 ## Global FTW teaching sequence
 
 Lessons 22–25 take approximately 35, 40, 45 and 50 minutes. Use the [FTW studio guide](fields.md) to introduce product identity, then move from raster probability to vector geometry and confidence, followed by annual comparison and a research design exercise. Each lesson works independently in a fresh Python (Pyodide) kernel. Ask students to repeat Senegal exercises with Kenya and explain the sampling limits. Grade accurate distinctions among probability, regional confidence, verified change and social outcomes, rather than rewarding large selections or visually dramatic maps. Animation has static companion panels. The chapter includes an optional GeoLibre handoff and external catalog browsing.
+
+## SeasFire and LexCube teaching sequence
+
+Lessons 26–30 take approximately 35, 45, 50, 45 and 50 minutes. Start with the [studio guide](seasfire.md), then ask students to predict how missing values, interval duration and aggregation affect a figure. Use lesson 27 for an animation and SQL exercise; lesson 28 for chronological baselines and lag direction; lessons 29–30 for LexCube clipping and linked selections.
+
+Preload the JupyterLite runtime before class. LexCube needs WebGL2 and initial dependency downloads. Static Book figures support reading without the widget. Assess the evidence journal and a reproducible selection record: require source/version, units, grid support, interval dates, missing-data handling, and a statement of what the result cannot establish. Neither attractive cubes nor correlations establish fire impacts or climate causation.

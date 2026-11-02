@@ -45,3 +45,7 @@ The [embedding studio](embeddings.md) documents 128-dimensional v1.1-dclimate ve
 ## Global FTW predictions
 
 The [FTW studio](fields.md) supplies two native 128 × 128 windows in Senegal and Kenya for 2024 and 2025, including all three probability classes, full intersecting field polygons and provider confidence attributes. Two scalar Zarr cubes expose the field-interior class to the lab as data origin `prediction`. These are PRUE model outputs, distinct from observed measurements, AR6 future projections and TESSERA embeddings. Class probabilities and the separate regional confidence score are not interchangeable. See the studio guide for source ETags, extract checksums, spatial support, licensing and limitations.
+
+## SeasFire historical fire and environmental variables
+
+The [SeasFire studio](seasfire.md) preserves two 16 × 16 native windows and 966 time intervals, with five dynamic variables, cell area, land-sea fraction and a GWIS availability mask. The compressed multivariate extracts total 6.80 MB. Two 2018–2021 Zarr cubes expose burned area as `historical` data. The source is the ESA EarthCODE SeasFire v0.4 mirror, CC BY 4.0; exact source objects, SHA256 checksums and modifications are recorded in the provenance file. GWIS 2001 is unavailable, and year-end bins have five or six days. No source-data requests are made during normal builds or classroom calculations.

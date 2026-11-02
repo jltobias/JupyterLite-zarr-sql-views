@@ -18,6 +18,17 @@ JupyterLite stores edits in browser storage. Download notebooks and exports befo
 
 Optional STAC requests can fail because of CORS, network policy, or provider availability. The STAC lesson explicitly distinguishes recorded provenance from a live response. No failure is silently replaced by synthetic observations. YouTube playback and captions depend on the provider; a direct creator link and official text tutorial are provided. GeoLibre and the C3S Atlas open as separate websites and have their own accessibility, privacy, account, and license policies.
 
+## LexCube and SeasFire
+
+For the SeasFire lessons, the Book provides static figures and descriptive captions. Live LexCube
+controls run in JupyterLite with WebGL2; first-time dependency downloads can take a few minutes.
+Use the keyboard-accessible range controls and selection-summary buttons to inspect exact values.
+The course sliders use a stop-exclusive endpoint that can include the final cell. The voxel panel
+has its own raw-value/anomaly and threshold settings; read its mode label before interpreting colors.
+An informational “does not have chunks” message is expected for these small in-memory arrays.
+If a school network blocks package downloads, use the static Book or run the notebooks in native
+Jupyter with the repository requirements installed. These lessons do not need ESA credentials.
+
 ## Reproduce the complete site
 
 ```bash

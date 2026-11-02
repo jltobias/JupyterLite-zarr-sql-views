@@ -28,6 +28,7 @@ jobs:
       - run: python scripts/validate_ar6.py
       - run: python scripts/validate_tessera.py
       - run: python scripts/validate_ftw.py
+      - run: python scripts/validate_seasfire.py
       - run: npm test
       - run: python scripts/execute_notebooks.py
       - run: npm run build

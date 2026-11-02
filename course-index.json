@@ -123,5 +123,30 @@
     "slug": "25_ftw_change_food_water",
     "title": "25 \u00b7 Annual field predictions and food\u2013water questions",
     "minutes": 50
+  },
+  {
+    "slug": "26_seasfire_discovery",
+    "title": "26 \u00b7 SeasFire: read the cube before reading the fire",
+    "minutes": 35
+  },
+  {
+    "slug": "27_seasfire_maps_sql",
+    "title": "27 \u00b7 Burned area: maps, SQL and a moving season",
+    "minutes": 45
+  },
+  {
+    "slug": "28_seasfire_seasons_lags",
+    "title": "28 \u00b7 Seasons, anomalies and lagged relationships",
+    "minutes": 50
+  },
+  {
+    "slug": "29_seasfire_lexcube",
+    "title": "29 \u00b7 LexCube: slice a real fire cube in the browser",
+    "minutes": 45
+  },
+  {
+    "slug": "30_seasfire_lexcube_compare",
+    "title": "30 \u00b7 LexCube comparisons: fire, dryness and evidence",
+    "minutes": 50
   }
 ]

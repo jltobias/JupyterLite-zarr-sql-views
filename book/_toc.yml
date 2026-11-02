@@ -42,6 +42,14 @@ parts:
       - file: notebooks/23_ftw_probability_sql
       - file: notebooks/24_ftw_fields_confidence
       - file: notebooks/25_ftw_change_food_water
+  - caption: SeasFire and LexCube studio
+    chapters:
+      - file: seasfire
+      - file: notebooks/26_seasfire_discovery
+      - file: notebooks/27_seasfire_maps_sql
+      - file: notebooks/28_seasfire_seasons_lags
+      - file: notebooks/29_seasfire_lexcube
+      - file: notebooks/30_seasfire_lexcube_compare
   - caption: Reuse responsibly
     chapters:
       - file: accessibility

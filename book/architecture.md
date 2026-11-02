@@ -31,3 +31,9 @@ Create a reviewed small extract using the pattern in `scripts/prepare_data.py`. 
 ## Global FTW data path
 
 Optional native preparation reads sharded Zarr v3 probability windows and spatially selected GeoParquet row groups over anonymous HTTPS ranges. Exact full-resolution probability values go to compressed NPZ and uncompressed Zarr v2; selected full polygon geometries go to GeoJSON. Browser Python uses only NumPy, Matplotlib and SQLite. The JavaScript lab reads the scalar Zarr store and retains `prediction`, model, citation and provenance on export. The core build requires no FTW cloud access. See [the FTW guide](fields.md) for preparation budgets and reproducibility limits.
+
+## SeasFire and LexCube data paths
+
+Native preparation fetches only the Blosc-compressed source chunks intersecting two small windows, with explicit object and total-byte budgets. Checked-in NPZ files preserve the original multivariate values; scalar Zarr v2 stores expose 2018–2021 burned area to the existing SQL lab. No remote-source credentials are used.
+
+For LexCube, the build installs its upstream JupyterLab extension and ipywidgets manager. Browser setup installs the checked-in upstream wheel and Pyodide-compatible dependencies, then patches only an optional process-memory diagnostic. The Python tile backend executes in the Pyodide worker, with binary widget communications to the original WebGL frontend. This supports the bounded in-memory arrays used here; it is not a general port of LexCube's native server. Its GPL source, license, unmodified wheel and exact adaptation instructions are distributed. Static Book copies omit disconnected widget views and retain independently rendered reference figures.

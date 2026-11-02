@@ -6,7 +6,7 @@ authors:
   - name: 'JupyterLite-zarr-sql-views contributors'
 repository-code: 'https://github.com/jltobias/JupyterLite-zarr-sql-views'
 url: 'https://jltobias.github.io/JupyterLite-zarr-sql-views/'
-version: 0.4.0
+version: 0.5.0
 date-released: '2026-11-01'
 license: ISC
 references:
@@ -90,3 +90,36 @@ references:
     authors:
       - name: Copernicus Climate Change Service
     doi: 10.24381/cds.h35hb680
+
+  - type: data
+    title: 'SeasFire Cube: A Global Dataset for Seasonal Fire Modeling in the Earth System'
+    authors:
+      - name: 'Alonso, Gans, Karasante, Ahuja, Prapas, Kondylatos, Papoutsis, Panagiotou, Michail, Cremer, Weber and Carvalhais'
+    version: '0.4'
+    year: 2024
+    doi: 10.5281/zenodo.13834057
+    date-accessed: '2026-11-01'
+    license: CC-BY-4.0
+  - type: article
+    title: 'SeasFire cube - a multivariate dataset for global wildfire modeling'
+    authors:
+      - name: 'Karasante, I.; Alonso, L.; Prapas, I.; Ahuja, A.; Carvalhais, N.; Papoutsis, I.'
+    year: 2025
+    journal: Scientific Data
+    volume: '12'
+    start: '368'
+    doi: 10.1038/s41597-025-04546-3
+  - type: software
+    title: LexCube
+    authors:
+      - name: 'Maximilian Söchting and LexCube contributors'
+    version: 2.0.1
+    repository-code: 'https://github.com/msoechting/lexcube'
+    license: GPL-3.0-or-later
+  - type: article
+    title: Interactive Earth system data cube visualization in Jupyter notebooks
+    authors:
+      - name: 'Söchting, M.; Scheuermann, G.; Montero, D.; Mahecha, M. D.'
+    year: 2025
+    journal: Big Earth Data
+    doi: 10.1080/20964471.2025.2471646

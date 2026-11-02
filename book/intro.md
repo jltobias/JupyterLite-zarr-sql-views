@@ -6,7 +6,7 @@ An open teaching atlas for **Zarr arrays, SQL, and Earth observation**. Read an 
 
 [Enter the Earth lab](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/) · [Open JupyterLite](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html) · [Source repository](https://github.com/jltobias/JupyterLite-zarr-sql-views)
 
-The course includes twenty-five notebooks, fifteen small Zarr cubes, linked maps and time series, four visual perspectives, an instructor guide, and an evidence-based capstone. A real Digital Earth Africa water-observation extract and the official C3S Atlas auxiliary warming-level table anchor the learning. Five synthetic laboratories make methods easy to inspect and change. The [AR6 port-city studio](sea-level.md) adds real projections for regional windows near Abidjan, Lagos, Bangkok, Ho Chi Minh City and Manila, with full-sample uncertainty exercises and five projected map cubes.
+The course includes thirty notebooks, seventeen small Zarr cubes, linked maps and time series, four visual perspectives, an instructor guide, and an evidence-based capstone. A real Digital Earth Africa water-observation extract and the official C3S Atlas auxiliary warming-level table anchor the learning. Five synthetic laboratories make methods easy to inspect and change. The [AR6 port-city studio](sea-level.md) adds real projections for regional windows near Abidjan, Lagos, Bangkok, Ho Chi Minh City and Manila, with full-sample uncertainty exercises and five projected map cubes.
 
 The scientific question comes first. Students learn to distinguish water presence from water access, temperature from thermal stress, and an optical signal from water quality. They also learn why a 3D picture or a SQL result is not evidence of causation.
 
@@ -35,3 +35,7 @@ The [GeoTessera studio](embeddings.md) adds five lessons using real annual vecto
 ## Explore predicted agricultural fields
 
 The [Global FTW studio](fields.md) adds four lessons on real 2024 and 2025 field predictions in Senegal and Kenya: probability cubes, SQL, polygon maps, confidence filters and annual comparisons. Connect field units to food and water research questions while identifying the independent evidence needed to assess impacts.
+
+## Seasons in three dimensions
+
+The [SeasFire and LexCube studio](seasfire.md) adds five lessons using historical fire, weather and vegetation in two African windows. Query Zarr, animate a fire season, compare seasonal anomalies, and operate the actual LexCube widget inside JupyterLite. Data, software and derived interpretations retain distinct labels and citations.

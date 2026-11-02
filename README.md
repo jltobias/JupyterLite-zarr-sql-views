@@ -2,7 +2,7 @@
 
 ![Earth in the Browser — a changing Earth, a new perspective](public/assets/splash.svg)
 
-**A JupyterLite + Jupyter Book teaching atlas for Zarr, SQL, and Earth observation in the browser.** Twenty-five executable Python lessons connect small data cubes to 2D maps, 3D extruded maps, orbitable space–time cubes, coastal scenes, and linked time series. The **GeoTessera embedding studio** explores real annual vectors near Lagos and Abidjan. The **AR6 port-city studio** studies Abidjan, Lagos, Bangkok, Ho Chi Minh City, and Manila.
+**A JupyterLite + Jupyter Book teaching atlas for Zarr, SQL, and Earth observation in the browser.** Thirty executable Python lessons connect small data cubes to 2D maps, 3D extruded maps, orbitable space–time cubes, coastal scenes, and linked time series. The **GeoTessera embedding studio** explores real annual vectors near Lagos and Abidjan. The **AR6 port-city studio** studies Abidjan, Lagos, Bangkok, Ho Chi Minh City, and Manila.
 
 Inspired by and adapted from **[dzole0311/zarr-sql-views](https://github.com/dzole0311/zarr-sql-views)**. This independent teaching adaptation preserves upstream attribution and its ISC license.
 
@@ -20,7 +20,22 @@ These URLs are served by the repository’s GitHub Pages deployment. The Actions
 
 ## Explore the lab demos
 
-### New: Global Fields of the World studio
+### New: SeasFire and LexCube studio
+
+![Historical fire, seasonal conditions and interactive cube selections](public/assets/seasfire-workflow.svg)
+
+**[Open the SeasFire studio](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/seasfire.html).** Five notebooks explore real **SeasFire Cube v0.4** data with source discovery, animated fire maps, SQL, seasonal anomalies, lagged relationships and the **LexCube 2.0.1 widget running in JupyterLite**. The two 16 × 16 native windows cover northern Ghana and neighboring savannas, and central Zambia and neighboring savannas. Five historical variables span 2001–2021; the compressed extracts total **6.80 MB**. The SQL lab uses 2018–2021, **47,104 cells per cube**.
+
+| Window | 2D map | 3D columns | Time cube | Value scene |
+|---|---|---|---|---|
+| West Africa | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=seasfire_ghana&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=seasfire_ghana&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=seasfire_ghana&mode=cube) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=seasfire_ghana&mode=scene) |
+| Southern Africa | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=seasfire_zambia&mode=map) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=seasfire_zambia&mode=columns) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=seasfire_zambia&mode=cube) | [Open](https://jltobias.github.io/JupyterLite-zarr-sql-views/lab/?dataset=seasfire_zambia&mode=scene) |
+
+The actual LexCube examples are [lesson 29](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=29_seasfire_lexcube.ipynb) and [lesson 30](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=30_seasfire_lexcube_compare.ipynb); the links above open the existing SQL/deck.gl lab. Missing fire coverage stays missing, year-end intervals retain their shorter duration, and the figures distinguish extensive burned hectares from weather variables. These are historical descriptions, not forecasts, causal claims or impact estimates. [Provenance](public/data/seasfire-provenance.json) · [Source and adaptation notes](public/vendor/lexcube/README.md).
+
+Normal builds use bundled data. `python scripts/prepare_seasfire.py` rebuilds the scalar cubes offline. For a source refresh, install `requirements-seasfire.txt` in native Python and run `python scripts/prepare_seasfire.py --fetch`; the source-chunk budget is 1.5 GiB. `python scripts/validate_seasfire.py` checks masks, dates, units, statistics, source hashes and LexCube artifacts.
+
+### Global Fields of the World studio
 
 ![From satellite composites to predicted fields and independently validated questions](public/assets/ftw-workflow.svg)
 
@@ -110,11 +125,15 @@ Each notebook includes learning objectives, short Python cells, explanatory Mark
 | 19 · PCA colors and a three-dimensional embedding space | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=19_tessera_pca.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/19_tessera_pca.html) |
 | 20 · Clusters, transfer and the need for independent labels | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=20_tessera_clusters.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/20_tessera_clusters.html) |
 | 21 · Annual embedding differences and coastal evidence | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=21_tessera_change.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/21_tessera_change.html) |
-
 | 22 · Global FTW: discover fields, probabilities and confidence | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=22_ftw_discovery.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/22_ftw_discovery.html) |
 | 23 · FTW probability cubes: maps, SQL and 3D | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=23_ftw_probability_sql.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/23_ftw_probability_sql.html) |
 | 24 · Field polygons, confidence and selection bias | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=24_ftw_fields_confidence.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/24_ftw_fields_confidence.html) |
 | 25 · Annual field predictions and food–water questions | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=25_ftw_change_food_water.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/25_ftw_change_food_water.html) |
+| 26 · SeasFire: read the cube before reading the fire | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=26_seasfire_discovery.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/26_seasfire_discovery.html) |
+| 27 · Burned area: maps, SQL and a moving season | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=27_seasfire_maps_sql.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/27_seasfire_maps_sql.html) |
+| 28 · Seasons, anomalies and lagged relationships | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=28_seasfire_seasons_lags.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/28_seasfire_seasons_lags.html) |
+| 29 · LexCube: slice a real fire cube in the browser | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=29_seasfire_lexcube.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/29_seasfire_lexcube.html) |
+| 30 · LexCube comparisons: fire, dryness and evidence | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=30_seasfire_lexcube_compare.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/30_seasfire_lexcube_compare.html) |
 
 Save your work by downloading notebooks and exports. JupyterLite browser storage is local to your device and browser profile.
 
@@ -142,6 +161,7 @@ python scripts/validate_data.py
 python scripts/validate_ar6.py
 python scripts/validate_tessera.py
 python scripts/validate_ftw.py
+python scripts/validate_seasfire.py
 python scripts/execute_notebooks.py
 npm test
 npm run build
@@ -165,8 +185,8 @@ AR6 preparation is separate: install `requirements-data.txt`, then run `python s
 ## Architecture and limits
 
 - **Lab:** Zarrita reads real Zarr chunks; Arrow transfers decoded cells; DuckDB-WASM applies numeric SQL predicates; deck.gl renders linked views. SQL operates on the loaded window, not automatic remote predicate pushdown.
-- **Notebooks:** NumPy, Matplotlib, and SQLite run in Pyodide. A documented narrow reader handles the course’s uncompressed Zarr v2 stores in ZIP containers. The notebooks do not require native DuckDB, rasterio, GDAL, or Open Data Cube in the browser.
-- **Scope:** fifteen bounded cubes (one observed, five synthetic, five projected, two derived from embeddings, two FTW predictions), maximum 100,000 cells per lab dataset, explicit missing-value handling, fixed dataset colour scales, and transparent origins. Generic remote Zarr/COG adapters and the full upstream forecast application are outside this teaching implementation.
+- **Notebooks:** NumPy, Matplotlib, and SQLite run in Pyodide. LexCube lessons additionally load xarray, ipywidgets and WebAssembly-compatible tile dependencies. A documented narrow reader handles the course’s uncompressed Zarr v2 stores in ZIP containers. The notebooks do not require native DuckDB, rasterio, GDAL, or Open Data Cube in the browser.
+- **Scope:** seventeen bounded cubes (one observed, five synthetic, five projected, two derived from embeddings, two FTW predictions, two historical SeasFire cubes), maximum 100,000 cells per lab dataset, explicit missing-value handling, fixed dataset colour scales, and transparent origins. Generic remote Zarr/COG adapters and the full upstream forecast application are outside this teaching implementation.
 - **Network:** first launch downloads the browser runtimes. Optional live metadata, external video, fonts, and GIS applications require network access. No API secrets or tokens are committed.
 
 ## Credits, citations, and licenses
@@ -194,9 +214,7 @@ Thanks to JupyterLite, Jupyter Book, Pyodide, NumPy, Matplotlib, DuckDB-WASM, Ap
 
 Normal builds use the checked-in 3.33 MB extracts and need no native GIS packages. `python scripts/prepare_tessera.py` verifies their checksums and rebuilds the two Zarr similarity cubes without network access. For source reads, install `requirements-tessera.txt` in a separate native Python 3.12+ environment and run `python scripts/prepare_tessera.py --fetch`. This reuses verified files and pins the recorded Icechunk snapshot. To refetch, explicitly remove only the extract you intend to replace; the source window remains bounded. Students run the NumPy notebooks, not this native preparation stack.
 
-`python scripts/validate_tessera.py
-python scripts/validate_ftw.py` checks local numerical and provenance contracts. With the native preparation dependencies, `python scripts/validate_tessera.py
-python scripts/validate_ftw.py --source` also checks six pixels directly against raw hemisphere arrays in the pinned cloud snapshot, including all 128 components, scales, observation counts and native coordinates. Normal CI does not contact the source archive.
+`python scripts/validate_tessera.py` checks local numerical and provenance contracts. With the native preparation dependencies, `python scripts/validate_tessera.py --source` also checks six pixels directly against raw hemisphere arrays in the pinned cloud snapshot, including all 128 components, scales, observation counts and native coordinates. Normal CI does not contact the source archive.
 
 ## Global Fields of the World (FTW): citation and attribution
 
@@ -205,3 +223,15 @@ python scripts/validate_ftw.py --source` also checks six pixels directly against
 **Citation:** Robinson, C., Muhawenayo, G., Khanal, S., Fang, Z., Corley, I., Tárano, A. M., Estes, L., Marcus, J., Jacobs, N., Kerner, H., Becker-Reshef, I., & Lavista Ferres, J. M. (2026). *The first global agricultural field boundary map at 10 m resolution*. arXiv:2605.11055. [https://doi.org/10.48550/arXiv.2605.11055](https://doi.org/10.48550/arXiv.2605.11055).
 
 **License:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/); [full license text](licenses/ftw-CC-BY-4.0.txt). This atlas modifies the distribution by spatial subsetting, GeoJSON conversion, metadata annotations and scalar Zarr repackaging. Original probability values, full selected polygon geometries and provider attributes are retained. Preserve attribution, license links and an indication of changes when reusing the extracts. No affiliation or endorsement is implied. The FTW global predictions are distinct from the separately published FTW training benchmark. Original lessons and the FTW workflow graphic are ISC licensed.
+
+## SeasFire and LexCube
+
+**SeasFire data:** Alonso, L., Gans, F., Karasante, I., Ahuja, A., Prapas, I., Kondylatos, S., Papoutsis, I., Panagiotou, E., Michail, D., Cremer, F., Weber, U., & Carvalhais, N. (2024). *SeasFire Cube: A Global Dataset for Seasonal Fire Modeling in the Earth System* (v0.4). Zenodo. [DOI 10.5281/zenodo.13834057](https://doi.org/10.5281/zenodo.13834057). Accessed 2026-11-01. **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**.
+
+**Dataset paper:** Karasante, I., Alonso, L., Prapas, I., Ahuja, A., Carvalhais, N., & Papoutsis, I. (2025). *SeasFire cube — a multivariate dataset for global wildfire modeling*. Scientific Data **12**, 368. [DOI 10.1038/s41597-025-04546-3](https://doi.org/10.1038/s41597-025-04546-3).
+
+**LexCube:** Söchting, M., Scheuermann, G., Montero, D., & Mahecha, M. D. (2025). *Interactive Earth system data cube visualization in Jupyter notebooks*. Big Earth Data, 1–15. [DOI 10.1080/20964471.2025.2471646](https://doi.org/10.1080/20964471.2025.2471646). Software **2.0.1**, Maximilian Söchting and contributors, **GPL-3.0-or-later**. [Upstream repository](https://github.com/msoechting/lexcube) · [Corresponding source, license and adaptation details](https://jltobias.github.io/JupyterLite-zarr-sql-views/vendor/lexcube/README.md).
+
+Credit the **SeasFire consortium**, ESA project support, **ESA EarthCODE / CloudFerro** for the public Zarr mirror, **European Commission JRC / GWIS** for burned-area inputs, **ECMWF / Copernicus ERA5** for weather, and **NASA MODIS MOD13C1 v6** for NDVI. Inputs: [GWIS](https://gwis.jrc.ec.europa.eu/), [ERA5 DOI](https://doi.org/10.24381/cds.adbb2d47), [MOD13C1 v6 DOI](https://doi.org/10.5067/MODIS/MOD13C1.006). VPD and cell area are SeasFire-derived quantities. Credit LexCube's RSC4Earth/Leipzig University contributors and ESA DeepESDL / DFG NFDI4Earth support.
+
+Changes to the data distribution: contiguous spatial subsets, explicit availability masking in calculations, browser NPZ/Zarr packaging, metadata annotations and derived teaching figures. No spatial resampling. These modifications do not imply endorsement. Preserve attribution, license and modification notices in derivatives. Original lessons and SVG artwork are ISC; the SeasFire data and LexCube software retain their separate licenses. LexCube is not relicensed under this repository's ISC license.

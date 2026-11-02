@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+<title id="title">SeasFire: from a global cube to a testable question</title>
+<desc id="desc">Discover the versioned source; select small native windows; preserve masks, units and time support; explore SQL maps and LexCube; distinguish associations from causes.</desc>
+<rect width="1200" height="380" rx="20" fill="#102c36"/>
+<g font-family="sans-serif" fill="#edf5ee"><text x="38" y="52" font-size="18" fill="#f2bc7c">SEASFIRE / LEXCUBE STUDIO</text><text x="38" y="96" font-size="32">A fire season has more than one dimension.</text></g>
+<g stroke="#a5d0bb" fill="none" stroke-width="2"><path d="M66 179l64-32 64 32-64 32zM66 179v78l64 32 64-32v-78M130 211v78"/><path d="M66 205l64 32 64-32M66 231l64 32 64-32" stroke="#ed996c"/><path d="M218 218h52m-10-7 10 7-10 7M472 218h48m-10-7 10 7-10 7M722 218h48m-10-7 10 7-10 7M972 218h38m-10-7 10 7-10 7"/></g>
+<g font-family="sans-serif" font-size="19" fill="#edf5ee"><text x="45" y="326">Time × latitude × longitude</text>
+<text x="286" y="173" fill="#f2bc7c">01 / DISCOVER</text><text x="286" y="212">Version + source</text><text x="286" y="242">Bounded windows</text><text x="286" y="272">Native pixels</text>
+<text x="536" y="173" fill="#f2bc7c">02 / CHECK</text><text x="536" y="212">Missing ≠ zero</text><text x="536" y="242">Hectares ≠ mm</text><text x="536" y="272">Unequal durations</text>
+<text x="786" y="173" fill="#f2bc7c">03 / EXPLORE</text><text x="786" y="212">Maps + SQL</text><text x="786" y="242">LexCube slices</text><text x="786" y="272">Seasonal anomalies</text>
+<text x="1025" y="173" fill="#f2bc7c">04 / ASK</text><text x="1025" y="212">What changed?</text><text x="1025" y="242">What is missing?</text><text x="1025" y="272">What evidence?</text></g>
+<text x="380" y="341" fill="#a5d0bb" font-family="sans-serif" font-size="16">Historical conditions and associations. Independent evidence is needed for causes and impacts.</text>
+</svg>

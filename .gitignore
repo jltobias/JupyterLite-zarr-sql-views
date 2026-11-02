@@ -13,6 +13,7 @@ book/notebooks/
 book/assets/
 notebooks/*.geojson
 notebooks/evidence-record.json
+notebooks/seasfire-selection.json
 .jupyterlite.doit.db*
 *.jupyterlite.tgz
 *-jupyterlite.tgz

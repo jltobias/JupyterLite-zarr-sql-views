@@ -1,0 +1,219 @@
+{
+  "dataset": "SeasFire Cube",
+  "version": "0.4",
+  "source": "https://opensciencedata.esa.int/products/seasfire-cube/item",
+  "doi": "https://doi.org/10.5281/zenodo.13834057",
+  "paper": "https://doi.org/10.1038/s41597-025-04546-3",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "creators": "Alonso, Gans, Karasante, Ahuja, Prapas, Kondylatos, Papoutsis, Panagiotou, Michail, Cremer, Weber and Carvalhais",
+  "inputs": "GWIS burned area; ERA5 weather and land-sea mask; MODIS MOD13C1 v6 NDVI; derived vapor pressure deficit and cell area",
+  "retrieved_utc": "2026-11-02T01:42:56.355127+00:00",
+  "base": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/",
+  "method": "Contiguous 16x16 native 0.25 degree pixels, all 966 periods. No spatial resampling. Raw source values retained in NPZ; availability mask applied by lesson helpers and lab cube preparation.",
+  "temporal_support": "Source timestamps start nominal 8-day bins, reset January 1 each year; final annual bins have 5 or 6 days. GWIS allocated by fire ignition date. 2001 unavailable, not zero fire.",
+  "limitations": "Historical observations, reanalysis and derived variables, not forecasts or causal estimates. Selected cross-border windows are not country summaries. Interpolated/harmonized variables may leak information in predictive studies.",
+  "regions": [
+    {
+      "id": "ghana",
+      "title": "Northern Ghana and neighboring savannas",
+      "file": "seasfire_ghana.npz",
+      "shape": [
+        966,
+        16,
+        16
+      ],
+      "source_rows": [
+        313,
+        329
+      ],
+      "source_columns": [
+        699,
+        715
+      ],
+      "bounds": [
+        -5.25,
+        7.75,
+        -1.25,
+        11.75
+      ]
+    },
+    {
+      "id": "zambia",
+      "title": "Central Zambia and neighboring savannas",
+      "file": "seasfire_zambia.npz",
+      "shape": [
+        966,
+        16,
+        16
+      ],
+      "source_rows": [
+        405,
+        421
+      ],
+      "source_columns": [
+        821,
+        837
+      ],
+      "bounds": [
+        25.25,
+        -15.25,
+        29.25,
+        -11.25
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "seasfire-zmetadata.json",
+      "sha256": "073ea08d5d8cbfb90b8cdd863ced261c970c7d700e5e78f4bada857947b782db",
+      "bytes": 89940
+    },
+    {
+      "file": "seasfire_ghana.npz",
+      "sha256": "3eabfafda47a06f497400d4da212f9d68af39be8f176595d327bbee10d849318",
+      "bytes": 3372629
+    },
+    {
+      "file": "seasfire_zambia.npz",
+      "sha256": "b00a69adb5db1075e00f7fff2dbb3e70f3366e0389667e7e0d2be9dd66d4d0b4",
+      "bytes": 3427919
+    }
+  ],
+  "source_objects": [
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/.zmetadata",
+      "bytes": 89940,
+      "etag": "\"d1bd8edbbb29f54294919baea3022552\"",
+      "last_modified": "Thu, 30 Jan 2025 17:09:34 GMT",
+      "sha256": "073ea08d5d8cbfb90b8cdd863ced261c970c7d700e5e78f4bada857947b782db"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/time/0",
+      "bytes": 970,
+      "etag": "\"9987afc49348bcebfa2c7fd869510cc4\"",
+      "last_modified": "Thu, 30 Jan 2025 18:35:54 GMT",
+      "sha256": "02e956a655c26f39ec73bcc468e711fae655296ccb53cac37c24da0aaccb6232"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/longitude/0",
+      "bytes": 970,
+      "etag": "\"7bcd7e4425a4340dfcdb5224711feb18\"",
+      "last_modified": "Thu, 30 Jan 2025 17:29:48 GMT",
+      "sha256": "ef087316592df0a0215d81414a8933864272e78d981c66b47e3b412ec5c13a18"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/latitude/0",
+      "bytes": 739,
+      "etag": "\"6007a4f9173f7f6b51539d5c17f72011\"",
+      "last_modified": "Thu, 30 Jan 2025 17:21:43 GMT",
+      "sha256": "ff37db36ae091ed627f6b2653b2b9f7df0a037c191b10b2ee43c0e4c55996afb"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/gwis_ba_valid_mask/0",
+      "bytes": 43,
+      "etag": "\"1df3bab2c9bbf7946ebf5afaac30005b\"",
+      "last_modified": "Thu, 30 Jan 2025 17:20:21 GMT",
+      "sha256": "51e30b640f1efebd0b48966c78cee5a8536e471a58fb2cb2763d223106108605"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/gwis_ba/0.1.1",
+      "bytes": 7398636,
+      "etag": "\"559ef41491ddba188366f5499c879e27\"",
+      "last_modified": "Thu, 30 Jan 2025 17:20:19 GMT",
+      "sha256": "6d5850e0451a955bb72564093ff67f710ecc0ee7902476bd30e65dda2838babf"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/tp/0.1.1",
+      "bytes": 199724888,
+      "etag": "\"744d9d87d36f614809c3a6a75f8ef5bd-24\"",
+      "last_modified": "Thu, 30 Jan 2025 18:41:12 GMT",
+      "sha256": "3c922a4a938d502931412b5ec674f9accb8ddf61bf4832554c59fb07880a63c0"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/vpd/0.1.1",
+      "bytes": 191382366,
+      "etag": "\"9c9688b7872bdd07fd63c40465d5b3f2-23\"",
+      "last_modified": "Thu, 30 Jan 2025 18:48:53 GMT",
+      "sha256": "209f201660c3c59dd2b1e7d6a8adbfec0ee40a7865242a46ac76a692fb81fb4a"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/t2m_mean/0.1.1",
+      "bytes": 136385020,
+      "etag": "\"32721025fd3c694fcfb0414c74ea2d70-17\"",
+      "last_modified": "Thu, 30 Jan 2025 18:28:32 GMT",
+      "sha256": "35a3434096c8e8dbde3d393bc03c1eeffc7316a43cb428a04ee5794d4f178812"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/ndvi/0.1.1",
+      "bytes": 60958932,
+      "etag": "\"24e83b4a1400a689902d2ed6edeaeb1c-8\"",
+      "last_modified": "Thu, 30 Jan 2025 17:34:35 GMT",
+      "sha256": "594930b6496a055435e28d101609ba912dee9c556381625582f54dc62c1b061e"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/area/1.1",
+      "bytes": 2957,
+      "etag": "\"72e3936d263aa5c349e3c3064033b1fd\"",
+      "last_modified": "Thu, 30 Jan 2025 17:09:34 GMT",
+      "sha256": "ed62ffcfa203ae202f84f0afd1ab61afcb57fc98de1f8e537a3cfd6f47c89c32"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/lsm/1.1",
+      "bytes": 49102,
+      "etag": "\"4c9da1735fe9b3f18650cf54111700c2\"",
+      "last_modified": "Thu, 30 Jan 2025 17:29:49 GMT",
+      "sha256": "1bfba19eee25a5bb291b391877a511ad43af239ef565909bb6725d57f8e7d0e7"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/gwis_ba/0.2.2",
+      "bytes": 15948618,
+      "etag": "\"9e361a7b8c213113b528bba6cdf8c6e6-2\"",
+      "last_modified": "Thu, 30 Jan 2025 17:20:28 GMT",
+      "sha256": "44a70e20bebf4c272df469fa0df1098bab95f842c222cc4e523c1c02b13572a2"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/tp/0.2.2",
+      "bytes": 200865642,
+      "etag": "\"dcf8deb202e1b7679a8f71e236c93d65-24\"",
+      "last_modified": "Thu, 30 Jan 2025 18:43:34 GMT",
+      "sha256": "fdebb0cefb98c698a9b1a826511784dc281e5d53387969508988994534abefc7"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/vpd/0.2.2",
+      "bytes": 191772217,
+      "etag": "\"9fbd2d7333261af0a8b36e07640e5c86-23\"",
+      "last_modified": "Thu, 30 Jan 2025 18:51:25 GMT",
+      "sha256": "ec6436199bf3a8a65f4f83a42a7d2f6cbf759a83d06ea9014ad4a0f5c00f0086"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/t2m_mean/0.2.2",
+      "bytes": 136569411,
+      "etag": "\"9dea42c23bc7595d1182fe6f1a02ef13-17\"",
+      "last_modified": "Thu, 30 Jan 2025 18:30:17 GMT",
+      "sha256": "a9d2790a21756caf89c622aa5a6afb0a74f423265c1d4a5d6c8400b7e726cc61"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/ndvi/0.2.2",
+      "bytes": 47960307,
+      "etag": "\"93698337e2fb4560009dd40c32f41107-6\"",
+      "last_modified": "Thu, 30 Jan 2025 17:34:56 GMT",
+      "sha256": "2016f5a8b88d93874eb2bcb3dee225050db6461ee93231d72a12bb566aff6273"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/area/2.2",
+      "bytes": 2956,
+      "etag": "\"68daf7275bca70383fe7faa10f46c4eb\"",
+      "last_modified": "Thu, 30 Jan 2025 17:09:34 GMT",
+      "sha256": "a35e18a71258927ca4b095c45e109af0cf579f5a60fdcc86f73eeba1e214f6af"
+    },
+    {
+      "url": "https://s3.waw4-1.cloudferro.com/EarthCODE/OSCAssets/seasfire/seasfire_v0.4.zarr/lsm/2.2",
+      "bytes": 34390,
+      "etag": "\"5b37868e8387bc68e788a16cd25ed2ec\"",
+      "last_modified": "Thu, 30 Jan 2025 17:29:49 GMT",
+      "sha256": "d33e0ab8070127741f331b05dbf76f4f665d6fccef8cf132d2ac77e9d4f87565"
+    }
+  ],
+  "source_object_bytes": 1189148104
+}
