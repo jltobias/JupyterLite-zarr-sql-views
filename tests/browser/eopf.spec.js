@@ -21,8 +21,12 @@ test('EOPF maps decode GeoZarr, switch bands and render NDVI',async({page})=>{
   await expect.poll(()=>map.evaluate(el=>el.layers[0].source.bands)).toEqual(['b08','b04']);
   await expect.poll(centerData,{timeout:30000}).not.toBeNull();
   await page.screenshot({path:test.info().outputPath('eopf-ndvi.png'),fullPage:true});
-  await page.setViewportSize({width:390,height:844});
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+  for(const width of [320,390,768]){
+    await page.setViewportSize({width,height:844});
+    // Custom map elements resize asynchronously after a viewport change.
+    // Also constrain form controls: Linux and Windows fonts differ in width.
+    await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+  }
   expect(errors).toEqual([]);
 });
 
