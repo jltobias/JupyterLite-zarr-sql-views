@@ -63,4 +63,6 @@ with tarfile.open(archive,'r:gz') as tar:
     assert 'prepare' not in package['scripts']
 lock=(ROOT/'package-lock.json').read_text()
 assert 'git+' not in lock and 'gist:' not in lock
+locked=json.loads(lock)['packages']['node_modules/@eodash/eodash']
+assert locked['integrity']=='sha512-'+base64.b64encode(hashlib.sha512(archive.read_bytes()).digest()).decode(), 'Local archive and npm lockfile differ'
 print('EOPF data, GeoZarr bytes, quality fractions, numerical edge cases and recipes passed')

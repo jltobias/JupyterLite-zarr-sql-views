@@ -47,6 +47,15 @@ with tarfile.open(fileobj=io.BytesIO(response.content),mode='r:gz') as source, t
 assert len(changed)==3,changed
 output=OUT/'eodash-5.10.0-classroom.tgz'
 output.write_bytes(gzip.compress(buffer.getvalue(),mtime=0))
+# npm can otherwise reuse a cached local tarball after this file is regenerated.
+# Keep its content integrity synchronized before any subsequent npm ci.
+lock_path=ROOT/'package-lock.json'
+if lock_path.exists():
+    lock=json.loads(lock_path.read_text())
+    entry=lock['packages'].get('node_modules/@eodash/eodash')
+    if entry and entry.get('resolved')=='file:vendor/eodash/eodash-5.10.0-classroom.tgz':
+        entry['integrity']='sha512-'+base64.b64encode(hashlib.sha512(output.read_bytes()).digest()).decode()
+        lock_path.write_text(json.dumps(lock,indent=2)+'\n',encoding='utf-8')
 (OUT/'provenance.json').write_text(json.dumps({'version':'5.10.0','retrieved':'2026-11-21',
     'source':dist['tarball'],'source_integrity':dist['integrity'],
     'source_sha256':hashlib.sha256(response.content).hexdigest(),
