@@ -6,10 +6,36 @@ authors:
   - name: 'JupyterLite-zarr-sql-views contributors'
 repository-code: 'https://github.com/jltobias/JupyterLite-zarr-sql-views'
 url: 'https://jltobias.github.io/JupyterLite-zarr-sql-views/'
-version: 0.5.0
-date-released: '2026-11-01'
+version: 0.6.0
+date-released: '2026-11-21'
 license: ISC
 references:
+  - type: website
+    title: 'EOPF Sentinel Zarr Explorer'
+    authors:
+      - name: 'EOPF Explorer contributors'
+    url: 'https://explorer.eopf.copernicus.eu/'
+    date-accessed: '2026-11-21'
+  - type: data
+    title: 'Copernicus Sentinel-2C L2A T33TVF, 2026-09-28, EOPF GeoZarr classroom subset'
+    authors:
+      - name: 'ESA / Copernicus and EOPF Explorer contributors'
+    url: 'https://jltobias.github.io/JupyterLite-zarr-sql-views/data/eopf/provenance.json'
+    date-accessed: '2026-11-21'
+  - type: software
+    title: 'OpenLayers'
+    authors:
+      - name: 'OpenLayers contributors'
+    version: '10.11.0'
+    license: BSD-2-Clause
+    repository-code: 'https://github.com/openlayers/openlayers'
+  - type: software
+    title: 'EOxElements-Jupyter'
+    authors:
+      - name: 'EOX and contributors'
+    version: '1.1.0'
+    license: MIT
+    repository-code: 'https://github.com/EOX-A/EOxElements-Jupyter'
   - type: data
     title: 'Global Fields of the World (FTW): 2024 and 2025 predictions'
     authors:

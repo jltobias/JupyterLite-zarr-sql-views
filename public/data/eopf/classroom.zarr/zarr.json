@@ -1,0 +1,271 @@
+{
+  "zarr_format": 3,
+  "node_type": "group",
+  "attributes": {
+    "proj:code": "EPSG:32633",
+    "spatial:dimensions": [
+      "y",
+      "x"
+    ],
+    "spatial:shape": [
+      128,
+      128
+    ],
+    "spatial:bbox": [
+      414360.0,
+      4543860.0,
+      429720.0,
+      4559220.0
+    ],
+    "spatial:registration": "pixel",
+    "spatial:transform": [
+      120,
+      0,
+      414360.0,
+      0,
+      -120,
+      4559220.0
+    ],
+    "attribution": "Contains modified Copernicus Sentinel data (2026), processed by EOPF Sentinel Zarr Explorer; subset and GeoZarr repackaging by this course."
+  },
+  "consolidated_metadata": {
+    "kind": "inline",
+    "must_understand": false,
+    "metadata": {
+      "b02": {
+        "zarr_format": 3,
+        "node_type": "array",
+        "shape": [
+          128,
+          128
+        ],
+        "data_type": "float32",
+        "chunk_grid": {
+          "name": "regular",
+          "configuration": {
+            "chunk_shape": [
+              128,
+              128
+            ]
+          }
+        },
+        "chunk_key_encoding": {
+          "name": "default",
+          "configuration": {
+            "separator": "/"
+          }
+        },
+        "fill_value": "NaN",
+        "codecs": [
+          {
+            "name": "bytes",
+            "configuration": {
+              "endian": "little"
+            }
+          }
+        ],
+        "dimension_names": [
+          "y",
+          "x"
+        ],
+        "attributes": {
+          "units": "1"
+        }
+      },
+      "b03": {
+        "zarr_format": 3,
+        "node_type": "array",
+        "shape": [
+          128,
+          128
+        ],
+        "data_type": "float32",
+        "chunk_grid": {
+          "name": "regular",
+          "configuration": {
+            "chunk_shape": [
+              128,
+              128
+            ]
+          }
+        },
+        "chunk_key_encoding": {
+          "name": "default",
+          "configuration": {
+            "separator": "/"
+          }
+        },
+        "fill_value": "NaN",
+        "codecs": [
+          {
+            "name": "bytes",
+            "configuration": {
+              "endian": "little"
+            }
+          }
+        ],
+        "dimension_names": [
+          "y",
+          "x"
+        ],
+        "attributes": {
+          "units": "1"
+        }
+      },
+      "b04": {
+        "zarr_format": 3,
+        "node_type": "array",
+        "shape": [
+          128,
+          128
+        ],
+        "data_type": "float32",
+        "chunk_grid": {
+          "name": "regular",
+          "configuration": {
+            "chunk_shape": [
+              128,
+              128
+            ]
+          }
+        },
+        "chunk_key_encoding": {
+          "name": "default",
+          "configuration": {
+            "separator": "/"
+          }
+        },
+        "fill_value": "NaN",
+        "codecs": [
+          {
+            "name": "bytes",
+            "configuration": {
+              "endian": "little"
+            }
+          }
+        ],
+        "dimension_names": [
+          "y",
+          "x"
+        ],
+        "attributes": {
+          "units": "1"
+        }
+      },
+      "b08": {
+        "zarr_format": 3,
+        "node_type": "array",
+        "shape": [
+          128,
+          128
+        ],
+        "data_type": "float32",
+        "chunk_grid": {
+          "name": "regular",
+          "configuration": {
+            "chunk_shape": [
+              128,
+              128
+            ]
+          }
+        },
+        "chunk_key_encoding": {
+          "name": "default",
+          "configuration": {
+            "separator": "/"
+          }
+        },
+        "fill_value": "NaN",
+        "codecs": [
+          {
+            "name": "bytes",
+            "configuration": {
+              "endian": "little"
+            }
+          }
+        ],
+        "dimension_names": [
+          "y",
+          "x"
+        ],
+        "attributes": {
+          "units": "1"
+        }
+      },
+      "x": {
+        "zarr_format": 3,
+        "node_type": "array",
+        "shape": [
+          128
+        ],
+        "data_type": "float32",
+        "chunk_grid": {
+          "name": "regular",
+          "configuration": {
+            "chunk_shape": [
+              128
+            ]
+          }
+        },
+        "chunk_key_encoding": {
+          "name": "default",
+          "configuration": {
+            "separator": "/"
+          }
+        },
+        "fill_value": "NaN",
+        "codecs": [
+          {
+            "name": "bytes",
+            "configuration": {
+              "endian": "little"
+            }
+          }
+        ],
+        "dimension_names": [
+          "x"
+        ],
+        "attributes": {
+          "units": "m"
+        }
+      },
+      "y": {
+        "zarr_format": 3,
+        "node_type": "array",
+        "shape": [
+          128
+        ],
+        "data_type": "float32",
+        "chunk_grid": {
+          "name": "regular",
+          "configuration": {
+            "chunk_shape": [
+              128
+            ]
+          }
+        },
+        "chunk_key_encoding": {
+          "name": "default",
+          "configuration": {
+            "separator": "/"
+          }
+        },
+        "fill_value": "NaN",
+        "codecs": [
+          {
+            "name": "bytes",
+            "configuration": {
+              "endian": "little"
+            }
+          }
+        ],
+        "dimension_names": [
+          "y"
+        ],
+        "attributes": {
+          "units": "m"
+        }
+      }
+    }
+  }
+}

@@ -81,3 +81,20 @@ GeoTessera 0.11.0 at commit `2814c5b3d967e0247f50e7b8d825efdf4fd606a6`, copyrigh
 Credit the **SeasFire consortium**, ESA project support, **ESA EarthCODE / CloudFerro** for the public Zarr mirror, **European Commission JRC / GWIS** for burned-area inputs, **ECMWF / Copernicus ERA5** for weather, and **NASA MODIS MOD13C1 v6** for NDVI. Inputs: [GWIS](https://gwis.jrc.ec.europa.eu/), [ERA5 DOI](https://doi.org/10.24381/cds.adbb2d47), [MOD13C1 v6 DOI](https://doi.org/10.5067/MODIS/MOD13C1.006). VPD and cell area are SeasFire-derived quantities. Credit LexCube's RSC4Earth/Leipzig University contributors and ESA DeepESDL / DFG NFDI4Earth support.
 
 Changes to the data distribution: contiguous spatial subsets, explicit availability masking in calculations, browser NPZ/Zarr packaging, metadata annotations and derived teaching figures. No spatial resampling. These modifications do not imply endorsement. Preserve attribution, license and modification notices in derivatives. Original lessons and SVG artwork are ISC; the SeasFire data and LexCube software retain their separate licenses. LexCube is not relicensed under this repository's ISC license.
+## EOPF Sentinel Zarr examples (2026-11-21)
+
+The [runtime dependency notice bundle](public/vendor/eopf/npm-licenses.txt) preserves license texts supplied by the installed npm runtime dependencies, including components shared with the existing lab. Regenerate it with `python scripts/collect_eopf_licenses.py` after `npm ci`. See also the [documented eodash package adaptations](vendor/eodash/README.md); native HTML details controls replace its optional Git-sourced animation, and no broad Git dependency permission is enabled.
+
+Data: **Contains modified Copernicus Sentinel data (2026)**. EOPF Explorer processing; course spatial subset, packing decode, quality summary and browser repackaging. The [Sentinel legal notice](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice) governs these data; see `public/data/eopf/provenance.json` for exact item and object hashes. ESA funds EOPF Explorer through the Copernicus Space Component programme. Credit ESA/Copernicus, EOX, Development Seed and project contributors. Data and metadata attribution remains separate from the repository's ISC software license.
+
+| Component | License | Included notice / source |
+|---|---|---|
+| OpenLayers 10.11.0 | BSD-2-Clause | `licenses/openlayers-LICENSE.txt`; [source](https://github.com/openlayers/openlayers) |
+| EOxElements map 2.10.0, layercontrol 1.10.1 | MIT | `licenses/EOxElements-LICENSE.txt`; [source](https://github.com/EOX-A/EOxElements) |
+| ipyeoxelements 1.1.0 | MIT | `licenses/EOxElements-Jupyter-LICENSE.txt`; [source](https://github.com/EOX-A/EOxElements-Jupyter); unmodified PyPI wheel in `notebooks/wheels/` |
+| anywidget 0.9.21 (build frontend) | MIT | `licenses/anywidget-LICENSE.txt`; [source](https://github.com/manzt/anywidget) |
+| eodash 5.10.0 (adapted bundled frontend) | MIT | `licenses/eodash-LICENSE.txt`; [source](https://github.com/eodash/eodash); [precise packaging changes](vendor/eodash/README.md) |
+| openEO Studio (external service) | MIT | `licenses/openeo-studio-LICENSE.txt`; [source](https://github.com/developmentseed/openeo-studio) |
+| TiTiler-EOPF (external service) | Apache-2.0 | [source and license](https://github.com/EOPF-Explorer/titiler-eopf) |
+
+The EOxElements-Jupyter upstream MIT notice names the Python Packaging Authority; it is retained verbatim. The course's widget uses the upstream generated Python classes and version arguments; it does not modify that wheel. CDN widget dependencies include upstream-selected subcomponents; their availability may change. Original teaching explanations, adapter code and workflow artwork are ISC. The official GeoZarr examples inspired the integration; the course's original code and exact modifications are available in this repository. Existing zarr-sql-views, scientific dataset and LexCube credits remain applicable to their own components.

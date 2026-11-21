@@ -1,0 +1,9 @@
+{
+  "retrieved": "2026-11-21",
+  "tilejson_request": "https://api.explorer.eopf.copernicus.eu/raster/collections/sentinel-2-l2a/items/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916/WebMercatorQuad/tilejson.json?assets=reflectance%7Cbands%3Db04%2Cb03%2Cb02&rescale=0%2C0.4&color_formula=gamma+rgb+1.5&tile_format=png&tilesize=256",
+  "status": 400,
+  "response": {
+    "detail": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/conditions/mask/l2a_classification/r20m/scl does not appear to be a valid GeoZarr group."
+  },
+  "response_sha256": "d3efa6877ecd2aedc227d25a67f5566b83e95f049c50366a02c76560bfe023ae"
+}

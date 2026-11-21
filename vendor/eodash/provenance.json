@@ -1,0 +1,19 @@
+{
+  "version": "5.10.0",
+  "retrieved": "2026-11-21",
+  "source": "https://registry.npmjs.org/@eodash/eodash/-/eodash-5.10.0.tgz",
+  "source_integrity": "sha512-Jh8EyPhc2EgVNKBenkjGGBh8g9Z+155Sa6/4t6MZNcF4nJZqsJy7pTTGM7uWtVGSnCFJeI3eHkJftut2HzUUTg==",
+  "source_sha256": "280dfc443f7a696c67656946d8d96dc90690b9dac75228fabbf51e5730fa6e2f",
+  "adapted_sha256": "7bda175d876d2e8622f976959a39b421691c9b3c78b2497e548dd6e110681e17",
+  "changed_files": [
+    "package/dist/client/WidgetsContainer-qr4rbcfE.js",
+    "package/package.json",
+    "package/widgets/WidgetsContainer.vue"
+  ],
+  "changes": [
+    "Remove optional animated-details import and customized built-in attribute; retain native HTML details",
+    "Remove Git-only animated-details dependency",
+    "Pin @eodash/stac 0.2.0 to match imported exports",
+    "Omit monorepo prepare lifecycle script from the already-built archive"
+  ]
+}

@@ -43,3 +43,6 @@ python -m http.server 8000 --directory _site
 ```
 
 Open `http://localhost:8000/`. `npm run dev` previews the landing page and browser lab only; the assembled `_site` contains the book and JupyterLite. GitHub Actions runs the checks, builds the site, and deploys to Pages on the main branch. Pull requests build and test without deploying.
+## EOPF maps and services
+
+The EOPF studio has labeled band/source controls, keyboard-accessible OpenLayers zoom controls, a reset button and a plain-text configuration view. Notebook figures and printed pixel counts accompany the WebGL views. An EOxMap widget needs both a running Python kernel and CDN JavaScript; a successful Python cell alone does not establish successful rendering. Use the separate map page or static figures when WebGL is unavailable. External-service errors, empty catalog results and an excluded quality mask each mean something different; the lessons show how to distinguish them.

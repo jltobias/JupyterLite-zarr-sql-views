@@ -12,7 +12,7 @@ class Links(HTMLParser):
             if u.scheme or u.netloc or not u.path:continue
             target=(ROOT/u.path.lstrip('/')) if u.path.startswith('/') else self.page.parent/unquote(u.path)
             if not target.exists():errors.append((str(self.page.relative_to(ROOT)),value))
-for p in [ROOT/'index.html',ROOT/'lab/index.html',*list((ROOT/'book').rglob('*.html'))]:
+for p in [ROOT/'index.html',ROOT/'lab/index.html',ROOT/'eopf/index.html',ROOT/'eopf-dashboard.html',*list((ROOT/'book').rglob('*.html'))]:
     if '_static' in p.parts:continue # Theme Jinja templates are not navigable pages.
     parser=Links();parser.page=p;parser.feed(p.read_text(encoding='utf8'))
 for p,value in errors:print(p,'->',value)

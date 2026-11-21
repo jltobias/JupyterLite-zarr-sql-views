@@ -50,6 +50,15 @@ parts:
       - file: notebooks/28_seasfire_seasons_lags
       - file: notebooks/29_seasfire_lexcube
       - file: notebooks/30_seasfire_lexcube_compare
+  - caption: EOPF Sentinel Zarr studio
+    chapters:
+      - file: eopf
+      - file: notebooks/31_eopf_discovery
+      - file: notebooks/32_eopf_reflectance_sql
+      - file: notebooks/33_eopf_openlayers
+      - file: notebooks/34_eopf_eox_widgets
+      - file: notebooks/35_eopf_titiler
+      - file: notebooks/36_eopf_studio_eodash
   - caption: Reuse responsibly
     chapters:
       - file: accessibility

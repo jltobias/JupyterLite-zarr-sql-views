@@ -173,7 +173,7 @@ test('SeasFire lab retains historical values, temporal support and citations',as
   await expect(page.locator('#view-title')).toContainText('Ghana');
 });
 
-for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_grid_maps','16_ar6_uncertainty','17_tessera_embeddings','18_tessera_similarity','19_tessera_pca','20_tessera_clusters','21_tessera_change','22_ftw_discovery','23_ftw_probability_sql','24_ftw_fields_confidence','25_ftw_change_food_water','26_seasfire_discovery','27_seasfire_maps_sql','28_seasfire_seasons_lags','29_seasfire_lexcube','30_seasfire_lexcube_compare']){
+for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_grid_maps','16_ar6_uncertainty','17_tessera_embeddings','18_tessera_similarity','19_tessera_pca','20_tessera_clusters','21_tessera_change','22_ftw_discovery','23_ftw_probability_sql','24_ftw_fields_confidence','25_ftw_change_food_water','26_seasfire_discovery','27_seasfire_maps_sql','28_seasfire_seasons_lags','29_seasfire_lexcube','30_seasfire_lexcube_compare','31_eopf_discovery','32_eopf_reflectance_sql','33_eopf_openlayers','34_eopf_eox_widgets','35_eopf_titiler','36_eopf_studio_eodash']){
   test(`JupyterLite fully executes ${slug} in Pyodide`,async({page})=>{
     test.setTimeout(slug.includes('lexcube')?360000:240000);
     // Expose the application only inside this test to inspect every model output,
@@ -196,6 +196,25 @@ for(const slug of ['02_zarr_sql','13_ar6_archive','14_ar6_port_cities','15_ar6_g
     expect(cells.flatMap(c=>c.outputs).filter(o=>o.output_type==='error')).toEqual([]);
     expect(cells.every(c=>c.execution_count!==null)).toBeTruthy();
     expect(JSON.stringify(cells.at(-1).outputs)).toContain(`LESSON COMPLETE: ${slug}`);
+    if(slug==='34_eopf_eox_widgets'){
+      await page.evaluate(async()=>{await window.jupyterapp.shell.currentWidget.content.scrollToItem(3);});
+      const map=page.locator('eox-map#classroom-eopf-map');
+      await expect(map).toBeVisible({timeout:90000});
+      await expect(map.locator('canvas')).toBeVisible({timeout:60000});
+      await expect.poll(()=>map.evaluate(el=>el.map?.getLayers().item(0)?.getSource().getState()),{timeout:60000}).toBe('ready');
+      const dropdown=page.locator('.widget-dropdown select');
+      await dropdown.selectOption({label:'True color'});
+      await expect.poll(()=>map.evaluate(el=>el.layers[0].source.bands)).toEqual(['b04','b03','b02']);
+      await dropdown.selectOption({label:'False color'});
+      await expect.poll(()=>map.evaluate(el=>el.layers[0].source.bands)).toEqual(['b08','b04','b03']);
+      // A source marked ready is not enough: check a numeric value from the
+      // rendered WebGL layer at its center, after loading the visible chunks.
+      await expect.poll(()=>map.evaluate(el=>{
+        const m=el.map, pixel=m.getPixelFromCoordinate(m.getView().getCenter());
+        return m.getLayers().item(0)?.getData(pixel)?.[0]??null;
+      }),{timeout:60000}).not.toBeNull();
+      await map.screenshot({path:test.info().outputPath('eopf-widget.png')});
+    }
     if(slug==='29_seasfire_lexcube'||slug==='30_seasfire_lexcube_compare'){
       const kernelCheck=async code=>{
         const result=await page.evaluate(async code=>{

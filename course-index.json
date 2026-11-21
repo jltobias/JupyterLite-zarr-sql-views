@@ -148,5 +148,35 @@
     "slug": "30_seasfire_lexcube_compare",
     "title": "30 \u00b7 LexCube comparisons: fire, dryness and evidence",
     "minutes": 50
+  },
+  {
+    "slug": "31_eopf_discovery",
+    "title": "31 \u00b7 EOPF: from STAC catalog to GeoZarr",
+    "minutes": 35
+  },
+  {
+    "slug": "32_eopf_reflectance_sql",
+    "title": "32 \u00b7 Sentinel reflectance, quality masks and SQL",
+    "minutes": 50
+  },
+  {
+    "slug": "33_eopf_openlayers",
+    "title": "33 \u00b7 OpenLayers: direct GeoZarr and band expressions",
+    "minutes": 40
+  },
+  {
+    "slug": "34_eopf_eox_widgets",
+    "title": "34 \u00b7 EOxElements Jupyter: Python-controlled maps",
+    "minutes": 45
+  },
+  {
+    "slug": "35_eopf_titiler",
+    "title": "35 \u00b7 TiTiler: requests, tiles and processing boundaries",
+    "minutes": 40
+  },
+  {
+    "slug": "36_eopf_studio_eodash",
+    "title": "36 \u00b7 openEO Studio and eodash: a reproducible handoff",
+    "minutes": 50
   }
 ]

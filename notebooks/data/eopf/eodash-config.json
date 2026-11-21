@@ -1,0 +1,12 @@
+{
+  "id": "earth-browser-eopf",
+  "stacEndpoint": {"endpoint": "https://api.explorer.eopf.copernicus.eu/stac", "api": true},
+  "brand": {"noLayout": true, "name": "EOPF teaching explorer", "theme": {"colors": {"primary": "#123e48", "surface": "#ffffff"}}},
+  "template": {
+    "background": {"id": "map", "type": "internal", "widget": {"name": "EodashMap", "properties": {"center": [14.08, 41.11], "zoom": 10}}},
+    "widgets": [
+      {"id": "catalog", "type": "internal", "title": "Catalog and filters", "layout": {"x": 0, "y": 0, "w": 3, "h": 12}, "widget": {"name": "EodashItemCatalog", "properties": {"datetimeFilter": true, "searchLimit": 10}}},
+      {"id": "layers", "type": "internal", "title": "Layers", "layout": {"x": 9, "y": 0, "w": 3, "h": 12}, "widget": {"name": "EodashLayerControl"}}
+    ]
+  }
+}

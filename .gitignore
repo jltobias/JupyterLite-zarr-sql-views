@@ -19,3 +19,5 @@ notebooks/seasfire-selection.json
 *-jupyterlite.tgz
 .env*
 !.env.example
+notebooks/eopf-studio-sample.json
+notebooks/eopf-dashboard-config.json

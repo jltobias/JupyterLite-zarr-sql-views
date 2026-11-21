@@ -1,0 +1,99 @@
+{
+  "retrieved": "2026-11-21",
+  "collection": "sentinel-2-l2a",
+  "item_id": "S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916",
+  "item_url": "https://api.explorer.eopf.copernicus.eu/stac/collections/sentinel-2-l2a/items/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916",
+  "group_url": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/measurements/reflectance",
+  "shape": [
+    128,
+    128
+  ],
+  "window_r120m": [
+    340,
+    468,
+    120,
+    248
+  ],
+  "crs": "EPSG:32633",
+  "bounds": [
+    414360.0,
+    4543860.0,
+    429720.0,
+    4559220.0
+  ],
+  "date": "2026-09-28T09:50:31.025000Z",
+  "bands": [
+    "b02",
+    "b03",
+    "b04",
+    "b08"
+  ],
+  "attribution": "Contains modified Copernicus Sentinel data (2026), processed by EOPF Sentinel Zarr Explorer; subset and GeoZarr repackaging by this course.",
+  "license_url": "https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice",
+  "transformations": [
+    "Select 128x128 cells of upstream averaged 120 m overview",
+    "Decode uint16 packing: DN/10000 - 0.1; DN zero becomes NaN",
+    "Fraction of aligned 6x6 SCL children in classes 4, 5, 6",
+    "Repackage physical reflectance in an uncompressed single-resolution Zarr v3 group"
+  ],
+  "limitations": [
+    "One acquisition; no temporal trend",
+    "120 m overviews contain mixed pixels and averaged reflectances",
+    "SCL 4/5/6 is a teaching mask, not validated local ground truth",
+    "A ratio of overview means is not the mean of native-pixel ratios"
+  ],
+  "source_objects": [
+    {
+      "url": "https://api.explorer.eopf.copernicus.eu/stac/collections/sentinel-2-l2a/items/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916",
+      "bytes": 13547,
+      "sha256": "b13edf6eacb935cf3aeb142f16fa062e57a96b2b26200b53982cc80be0526b5c"
+    },
+    {
+      "url": "https://api.explorer.eopf.copernicus.eu/stac/collections/sentinel-2-l2a",
+      "bytes": 11657,
+      "sha256": "dd1f677b3194a56d0f2aa3951bd1d3493b37ff34f315a359c54fd553880d4acb"
+    },
+    {
+      "url": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/zarr.json",
+      "bytes": 378584,
+      "sha256": "92d1a9f4afddc45b53878e4d6984e215b6f1f33a85764455d0828c7a7260d0eb"
+    },
+    {
+      "url": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/measurements/reflectance/r120m/b02/c/0/0",
+      "bytes": 1036697,
+      "sha256": "526a3d0f5c368c283470b21dd2ead34538ebaf57b702320ef90b1d92c796ba7c"
+    },
+    {
+      "url": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/measurements/reflectance/r120m/b03/c/0/0",
+      "bytes": 1035104,
+      "sha256": "3a3aa56e709c2bd173c5f52e2f864cf0b12207011f49389d4f1909583aca9cce"
+    },
+    {
+      "url": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/measurements/reflectance/r120m/b04/c/0/0",
+      "bytes": 1076507,
+      "sha256": "6b022762ef4f522ce7690dfd84c0fe3b87bac6b7f6eb8c9cecfb7d9310d97abc"
+    },
+    {
+      "url": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/measurements/reflectance/r120m/b08/c/0/0",
+      "bytes": 1145146,
+      "sha256": "a7d785b36a4be716d969f3aa920e8d7d46b8ce2ea1aa7027dd048c0e269f4e35"
+    },
+    {
+      "url": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/conditions/mask/l2a_classification/r20m/scl/c/0/0",
+      "bytes": 2522641,
+      "sha256": "6c980b1d7366b9d0860910a7b11c5208d5b8082ec9cb5cfa7599ca47a72ca217"
+    },
+    {
+      "url": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/measurements/reflectance/r120m/x/c/0",
+      "bytes": 3660,
+      "sha256": "acae8730b68efbc556145b866f84f12844a4e0445487d66911b6fafaa09d1852"
+    },
+    {
+      "url": "https://s3.explorer.eopf.copernicus.eu/esa-zarr-sentinel-explorer-fra/tests-output/sentinel-2-l2a/S2C_MSIL2A_20260928T095031_N0513_R079_T33TVF_20260928T130916.zarr/measurements/reflectance/r120m/y/c/0",
+      "bytes": 3660,
+      "sha256": "6ac6380f6cf2a9b74750a19f3df9bc19491ef7815298e5e293be3d756db5cefa"
+    }
+  ],
+  "source_bytes": 7227203,
+  "extract_sha256": "488795191e84c7c24e5a176183c0d7eae845f04af37f5228b508950cc8438254"
+}

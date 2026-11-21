@@ -20,7 +20,34 @@ These URLs are served by the repository’s GitHub Pages deployment. The Actions
 
 ## Explore the lab demos
 
-### New: SeasFire and LexCube studio
+### New: EOPF Sentinel Zarr studio
+
+![Follow the pixels through catalog discovery, quality checks, direct maps and processing services](public/assets/eopf-workflow.svg)
+
+**[Interactive OpenLayers + EOxElements maps](https://jltobias.github.io/JupyterLite-zarr-sql-views/eopf/)** · **[Jupyter Book guide](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/eopf.html)** · **[Actual eodash explorer](https://jltobias.github.io/JupyterLite-zarr-sql-views/eopf-dashboard.html)**
+
+Six new notebooks bring the course to **36 lessons**. A real Sentinel-2C L2A scene from **2026-09-28**, southern Italy, supports STAC discovery, quality-aware RGB/NDVI/NDWI maps, SQLite queries, actual browser GeoZarr maps, an EOxMap Python widget, TiTiler troubleshooting and openEO Studio recipes. The 128 × 128 window uses the source's **120 m averaged overview**, with four reflectance bands and a summary of aligned 20 m SCL quality pixels. It is one observation, not a climate trend or a native 10 m product.
+
+| Lesson | Run in JupyterLite | Read in the Book |
+|---|---|---|
+| 31 · STAC and GeoZarr discovery | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=31_eopf_discovery.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/31_eopf_discovery.html) |
+| 32 · Reflectance, masks and SQL | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=32_eopf_reflectance_sql.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/32_eopf_reflectance_sql.html) |
+| 33 · OpenLayers GeoZarr | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=33_eopf_openlayers.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/33_eopf_openlayers.html) |
+| 34 · EOxElements Jupyter widgets | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=34_eopf_eox_widgets.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/34_eopf_eox_widgets.html) |
+| 35 · TiTiler service boundaries | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=35_eopf_titiler.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/35_eopf_titiler.html) |
+| 36 · Studio and eodash handoffs | [Run](https://jltobias.github.io/JupyterLite-zarr-sql-views/lite/lab/index.html?path=36_eopf_studio_eodash.ipynb) | [Read](https://jltobias.github.io/JupyterLite-zarr-sql-views/book/notebooks/36_eopf_studio_eodash.html) |
+
+Official examples and resources: [Explorer](https://explorer.eopf.copernicus.eu/) · [STAC Browser](https://api.explorer.eopf.copernicus.eu/browser/) · [OpenLayers](https://explorer.eopf.copernicus.eu/software-services/ol/) · [EOxElements](https://explorer.eopf.copernicus.eu/software-services/eoxelements/) · [EOxElements-Jupyter](https://explorer.eopf.copernicus.eu/software-services/EOxElements-Jupyter/) · [Studio](https://studio.explorer.eopf.copernicus.eu/) · [eodash](https://explorer.eopf.copernicus.eu/software-services/eodash/) · [TiTiler](https://explorer.eopf.copernicus.eu/software-services/titiler/).
+
+**Current service limits:** the selected Lagos and Cape Town catalog searches returned no items; those exercises retain empty-result handling rather than relabeling Italian imagery. On 2026-11-21 TiTiler returned HTTP 400 for the pinned item because it treated an SCL array as a GeoZarr group. Lesson 35 preserves that response and supplies an optional retry. Studio recipes are locally inspectable; authenticated remote execution is an optional user activity. The six notebooks default to bundled data. Runtime downloads and widget CDN components need internet; live GeoZarr and eodash depend on external services.
+
+**Citation and attribution:** *EOPF Sentinel Zarr Explorer* (ESA/Copernicus, EOX, Development Seed and contributors), accessed 2026-11-21, [project](https://explorer.eopf.copernicus.eu/). **Contains modified Copernicus Sentinel data (2026)**, processed by EOPF Explorer; subset, packing decode, quality summary and GeoZarr repackaging by this course. The Explorer is funded by ESA through the Copernicus Space Component programme. Retain the [Copernicus Sentinel legal notice](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice), [exact item/object provenance](public/data/eopf/provenance.json) and modification notice. The STAC `proprietary` license field links the Sentinel terms; it is not a license for the viewer software.
+
+Software credits: [OpenLayers contributors](https://github.com/openlayers/openlayers), BSD-2-Clause; [EOxElements](https://github.com/EOX-A/EOxElements), [EOxElements-Jupyter](https://github.com/EOX-A/EOxElements-Jupyter), [eodash](https://github.com/eodash/eodash), [openEO Studio / Development Seed](https://github.com/developmentseed/openeo-studio) and [anywidget](https://github.com/manzt/anywidget), MIT; [TiTiler-EOPF](https://github.com/EOPF-Explorer/titiler-eopf), Apache-2.0. Original teaching code and workflow illustration are ISC. See [third-party notices](THIRD_PARTY_NOTICES.md) and [license texts](licenses/). These additions continue to credit [dzole0311/zarr-sql-views](https://github.com/dzole0311/zarr-sql-views) for the course's query-to-view approach.
+
+Rebuild the GeoZarr offline with `python scripts/prepare_eopf.py`. For a bounded source refresh, install `requirements-eopf.txt` and use `--fetch` (32 MiB maximum). Validate with `python scripts/validate_eopf.py`. The 17 existing scalar lab cubes remain available alongside the new multiband GeoZarr studio.
+
+### SeasFire and LexCube studio
 
 ![Historical fire, seasonal conditions and interactive cube selections](public/assets/seasfire-workflow.svg)
 
